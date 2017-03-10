@@ -16,9 +16,11 @@ you are aware of any requirements before you start, because missing
 data can cause the Gluu Server to malfunction.
 
 In the following example, we assume the service is oxTrust (which
-uses the warfile "identity.war"). But you could switch this process 
-for any of the Gluu Server war files like oxAuth, asimba, the 
-Shibboleth IDP or oxauth-rp.
+uses the warfile "identity.war"). But you can utilize this process 
+for any of other Gluu Server's modules like oxAuth, Asimba, 
+Shibboleth IDP or oxAuth-RP by simply changing name of warfile in
+provided commands accordingly (you can find exact locations of
+corresponding archives at the end of this page).
 
 1. Login to chroot container 
 
@@ -50,4 +52,19 @@ URL was in the $WAR_URL environment variable).
     
     `# service identity start`
     
-Latest release of war files can be downloaded from [here](https://ox.gluu.org/maven/org/xdi/oxtrust-server/)
+Latest release of war files can be downloaded from locations below:
+
+- [oxTrust](https://ox.gluu.org/maven/org/xdi/oxtrust-server/)
+- [oxAuth](https://ox.gluu.org/maven/org/xdi/oxauth-server/)
+- [Shibboleth IdP](https://ox.gluu.org/maven/org/xdi/oxshibbolethIdp/)
+- [Asimba SAML proxy](https://ox.gluu.org/maven/org/xdi/oxasimba-proxy/)
+- [oxAuth RP](https://ox.gluu.org/maven/org/xdi/oxauth-rp/)
+
+Next list provides exact locations of different Gluu CE 3.0 components which
+can be updated this way inside container:
+
+- oxTrust: `/opt/gluu/jetty/identity/webapps/identity.war`
+- oxAuth: `/opt/gluu/jetty/oxauth/webapps/oxauth.war`
+- Shibboleth IdP: `/opt/gluu/jetty/idp/webapps/idp.war`
+- Asimba SAML proxy: `/opt/gluu/jetty/asimba/webapps/asimba.war`
+- oxAuth RP: `/opt/gluu/jetty/oxauth-rp/webapps/oxauth-rp.war`
