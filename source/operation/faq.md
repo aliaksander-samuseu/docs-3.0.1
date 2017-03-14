@@ -31,7 +31,7 @@ The additional role requires the implementation of dynamic rules in Jboss SEAM a
     oxTrust is a tool for administrators and it must nto be used as a user facing application.
     
 ### How do I install a patch to my server?
-Follow the documentation for [updating a .war file](../upgrade/update-war.md/). 
+Follow the documentation for [updating a .war file](../upgrade/update-war.md). 
 
 ## Troubleshooting 
 ### Add admin for Gluu server
