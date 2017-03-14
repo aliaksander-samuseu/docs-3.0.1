@@ -64,7 +64,7 @@ manner.
 
 Private support, guaranteed response times, and consultative 
 support are available to organizations who purchase a support contract. For
-more information, see [our website](gluu.org/pricing).
+more information, see [our website](https://gluu.org/pricing).
 
 ## License
 
