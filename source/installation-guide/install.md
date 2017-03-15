@@ -11,7 +11,10 @@ installation procedure is similar across all the distributions:
     Make sure your VM or server meets the [minimum requirements](../installation-guide/index.md) to deploy the Gluu Server.  
 
 ## Install Gluu Server Package
-
+!!!Note
+   Installation of Gluu server will be done under /root and 
+   Gluu CE server will creates its file system under /root/and will be installed under /opt. 
+   File size and [minimum requirements](../installation-guide/index.md) remains the same as the host.
 ### Ubuntu Server 14.04.x
 
 | Command Description     |               Trusty Commands         |
@@ -119,7 +122,7 @@ table should help you answer the questions correctly.
 | Question                |  Explanation                               |
 |-------------------------|--------------------------------------------|
 | Enter IP Address | Used primarily by Apache HTTPD for the [Listen](https://httpd.apache.org/docs/2.4/bind.html) directive|
-| Enter hostname | Internet-facing hostname, used to generate certificates and metadata. **Don't use an IP address or localhost here** |
+| Enter hostname | Internet-facing hostname, FQDN or CNAME whichever your organization follows to be used to generate certificates and metadata. **Don't use an IP address or localhost here** |
 | Enter your city or locality | Used to generate X.509 certificates |
 | Enter your state or province two letter code | Used to generate X.509 certificates |
 | Enter two letter Country Code | Used to generate X.509 certificates |
@@ -133,7 +136,7 @@ table should help you answer the questions correctly.
 | Install Shibboleth SAML IDP | Optional: install only if you want outbound SAML |
 | Install Asimba SAML Proxy | Optional: install only if you are supporting SAML from other domains' IDPs. |
 | Install CAS | Deprecated: install only if you have existing CAS apps |
-| Install oxAuth RP | OpenID Connect test client: recommended for test enviornments |
+| Install oxAuth RP | OpenID Connect test client: recommended for test enviornments, for more details see [here](../admin-guide/openid-connect/#oxauth-rp) |
 | Install Passport | Component used for social login |
 
 After answering these questions, `setup.py` will show you your 

@@ -758,8 +758,8 @@
           
   <li class="md-nav__item">
     
-      <a href="../google/" title="Google SSO" class="md-nav__link">
-        Google SSO
+      <a href="../google/" title="Google Apps" class="md-nav__link">
+        Google Apps
       </a>
     
   </li>
@@ -1304,25 +1304,26 @@ It is assumed that an Office 365 subscription is available/registered.</p>
 <p><a href="https://technet.microsoft.com/en-us/library/jj205464">Install and Configure</a> Windows Powershell <em>cmdlets</em></p>
 </li>
 <li>
-<p>Create a script named <code>gluu1.ps1</code> with the following template changing domain, hostname of Gluu Server and Certificate</p>
+<p>Now you need to create a script and run through 'Connect-MsolService' or you can provide values inside O365 admin panel. </p>
+</li>
+<li>
+<p>For Gluu Server, values would be something like these: </p>
 </li>
 </ul>
 </li>
 </ol>
-<pre><code> Connect-MsolService
+<pre><code>ActiveLogOnUri                         : https://test.gluu.org/idp/profile/SAML2/SOAP/ECP
+PassiveLogonUri                        : https://test.gluu.org/idp/profile/SAML2/POST/SSO 
+DefaultInteractiveAuthenticationMethod :
+FederationBrandName                    : Gluu Inc.
+IssuerUri                              : https://test.gluu.org/idp/shibboleth
+LogOffUri                              : https://test.gluu.org/identity/logout
+MetadataExchangeUri                    : https://test.gluu.org/idp/shibboleth
+NextSigningCertificate                 :
+OpenIdConnectDiscoveryEndpoint         :
 
-$dom = &quot;company.org&quot;
-$url = &quot;https://test.gluu.org/idp/profile/SAML2/POST/SSO&quot;
-$uri = &quot;https://test.gluu.org/idp/shibboleth&quot;
-$logouturl = &quot;https://test.gluu.org/idp/logout.jsp&quot;
-$cert = &quot;Mx....SAML_cert_of_your_Gluu_Server...Tdsg9R0XO3AnBeHRtGmAA=&quot;
-
-Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated  -PassiveLogOnUri $url -SigningCertificate $cert -IssuerUri $uri -LogOffUri $logouturl -PreferredAuthenticationProtocol SAMLP 
 </code></pre>
 
-<ol>
-<li>Run the <code>gluu.ps1</code> script from Windows Server 2012 R2</li>
-</ol>
 <h2 id="gluu-server-configuration">Gluu Server Configuration<a class="headerlink" href="#gluu-server-configuration" title="Permanent link">#</a></h2>
 <h3 id="custom-attributes">Custom Attributes<a class="headerlink" href="#custom-attributes" title="Permanent link">#</a></h3>
 <p>The configuration begins by creating a few custom attributes named <code>IDPEmail</code>, <code>ImmutableID</code> and <code>objectguid</code>.
@@ -1424,7 +1425,7 @@ Please see <a href="../../admin-guide/saml/#saml-attributes">this doc</a> to cre
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../google/" title="Google SSO" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../google/" title="Google Apps" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1433,7 +1434,7 @@ Please see <a href="../../admin-guide/saml/#saml-attributes">this doc</a> to cre
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Google SSO
+                Google Apps
               </span>
             </div>
           </a>
