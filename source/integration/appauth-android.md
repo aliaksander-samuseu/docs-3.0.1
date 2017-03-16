@@ -105,7 +105,7 @@ modules in the project.
 ## Configure the Client
 
 You can manually create a client in oxTrust or can dynamically register
-(Which is explained under "Dynamic Client Registration" in this doc).
+(Which is explained under the "[Dynamic Client Registration](#dynamic-client-registration-option)" in this doc).
 
 To use AppAuth we need three parameters: issuer, clientId and 
 redirectUri:
@@ -334,7 +334,7 @@ construction:
 new AuthorizationService(context, appAuthConfig);
 ```
 
-### Dynamic client registration(Optional)
+### Dynamic client registration (Optional)
 
 If the server supports dynamic client registration, a new registration
 request can be constructed for dispatch:
