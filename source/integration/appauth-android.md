@@ -1,17 +1,14 @@
 # AppAuth Android
 
 ## Overview
-AppAuth for Android is a client SDK for communicating with [OAuth 2.0]
-(https://tools.ietf.org/html/rfc6749) and [OpenID Connect]
-(http://openid.net/specs/openid-connect-core-1_0.html) providers. It 
+AppAuth for Android is a client SDK for communicating with [OAuth 2.0](https://tools.ietf.org/html/rfc6749) and [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) providers. It 
 strives to directly map the requests and responses of those specifications, 
 while following the idiomatic style of the implementation language. In 
 addition to mapping the raw protocol flows, convenience methods are 
 available to assist with common tasks like performing an action with 
 fresh tokens.
 
-The library follows the best practices set out in [OAuth 2.0 for Native Apps]
-(https://tools.ietf.org/html/draft-ietf-oauth-native-apps)
+The library follows the best practices set out in [OAuth 2.0 for Native Apps](https://tools.ietf.org/html/draft-ietf-oauth-native-apps)
 including using
 [Custom Tabs](http://developer.android.com/tools/support-library/features.html#custom-tabs)
 for the auth request. For this reason,
