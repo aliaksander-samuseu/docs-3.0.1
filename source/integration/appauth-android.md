@@ -120,7 +120,7 @@ it is recommended you should manually register client in oxTrust.
 To create client manually in oxTrust, go to [oxTrust Registration](https://ce-dev.gluu.org/oxauth-rp/home.htm) and 
 provide values in the following fields:
 - Registration Endpoint: REGISTRATION_ENDPOINT(obtained from configuration)   
-- Redirect URIs (space-separated): REDIRECT_URI(See section `Define redirectURI` below)
+- Redirect URIs (space-separated): REDIRECT_URI(See section **Define redirectURI** below)
 - Response Types: CODE
 - Grant Types: AUTHORIZATION_CODE
 - Application Type: NATIVE
@@ -290,7 +290,7 @@ of the `AndroidManifest.xml`
     </intent-filter>
 </activity>
 ```
-Note: Skip this step if you've already made these changes under section `Define redirectURI` above.
+Note: Skip this step if you've already made these changes under section **Define redirectURI** above.
 
 Make sure you've set `myauth_enabled` to true in the config, 
 and your new IdP should show up in the list.
@@ -303,6 +303,7 @@ Congratulations, You've configured demo app correctly. Go ahead and click
 'Start Authorization' button to make authorization request.
  
 Authorization success will look like this
+
 ![Success Auth](../img/app-auth/authorization_success.png)  
 
 ## Auth Flow
