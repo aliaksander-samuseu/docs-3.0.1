@@ -17,7 +17,7 @@
     
     
       
-        <title>Google SSO - Gluu Docs</title>
+        <title>Google Apps - Gluu Docs</title>
       
     
     
@@ -85,7 +85,7 @@
                 </span>
               
             
-            Google SSO
+            Google Apps
           
         </span>
       </div>
@@ -118,7 +118,7 @@
   
 
 
-  <a href="https://github.com/GluuFederation/docs-3.0.2" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/GluuFederation/docs-3.0.1" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -212,8 +212,8 @@
 		border: 1px solid black;
 		overflow: auto
 	">
-	  <option value="/docs/ce/latest">Latest</option>
-	  <option value="/docs/ce/3.0.0">3.0.0</option>
+	  <option value="/docs/ce/latest">3.0.1</option>
+	  <!-- <option value="/docs/ce/3.0.0">3.0.0</option> -->
 	  <option value="/docs/ce/2.4.4">2.4.4</option>
 	  <option value="/docs">All Versions</option>
 		</select> 
@@ -227,7 +227,7 @@
   
 
 
-  <a href="https://github.com/GluuFederation/docs-3.0.2" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/GluuFederation/docs-3.0.1" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -764,11 +764,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Google SSO
+        Google Apps
       </label>
     
-    <a href="./" title="Google SSO" class="md-nav__link md-nav__link--active">
-      Google SSO
+    <a href="./" title="Google Apps" class="md-nav__link md-nav__link--active">
+      Google Apps
     </a>
     
       
@@ -782,15 +782,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#configuring-google-apps-with-google-dashboard" title="Configuring Google Apps With Google Dashboard:" class="md-nav__link">
-    Configuring Google Apps With Google Dashboard:
+  <a href="#configuring-google-apps" title="Configuring Google Apps" class="md-nav__link">
+    Configuring Google Apps
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration-in-gluu-server" title="Configuration In Gluu Server:" class="md-nav__link">
-    Configuration In Gluu Server:
+  <a href="#configuring-the-gluu-server" title="Configuring the Gluu Server" class="md-nav__link">
+    Configuring the Gluu Server
   </a>
   
 </li>
@@ -1168,15 +1168,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#configuring-google-apps-with-google-dashboard" title="Configuring Google Apps With Google Dashboard:" class="md-nav__link">
-    Configuring Google Apps With Google Dashboard:
+  <a href="#configuring-google-apps" title="Configuring Google Apps" class="md-nav__link">
+    Configuring Google Apps
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration-in-gluu-server" title="Configuration In Gluu Server:" class="md-nav__link">
-    Configuration In Gluu Server:
+  <a href="#configuring-the-gluu-server" title="Configuring the Gluu Server" class="md-nav__link">
+    Configuring the Gluu Server
   </a>
   
 </li>
@@ -1192,20 +1192,17 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/GluuFederation/docs-3.0.2/blob/master/source/integration\google.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/GluuFederation/docs-3.0.1/blob/master/source/integration\google.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
-                <h1 id="using-saml-to-get-sso-with-google-apps">Using SAML To Get SSO With Google Apps<a class="headerlink" href="#using-saml-to-get-sso-with-google-apps" title="Permanent link">#</a></h1>
-<p>Google Apps will work as a Service Provider (SP) and we need to
-"introduce" Gluu Server with Google Apps as Gluu Server so that it can
-work as an Identity Provider (IDP).</p>
-<p>NOTE: It is highly recommended to use Google staging apps setup before
-Google production migration. If you have any question or confusion,
-please feel free to let us know.</p>
-<p>We need to configure Google Apps and Gluu Server so that both parties
-can talk to each other.</p>
-<h2 id="configuring-google-apps-with-google-dashboard">Configuring Google Apps With Google Dashboard:<a class="headerlink" href="#configuring-google-apps-with-google-dashboard" title="Permanent link">#</a></h2>
+                <h1 id="sso-with-google-apps">SSO with Google Apps<a class="headerlink" href="#sso-with-google-apps" title="Permanent link">#</a></h1>
+<p>Google Apps supports SAML. This document will explain how to configure Google Apps and the Gluu Server for single sign-on (SSO).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is highly recommended to use Google's staging apps environment before migrating to production.</p>
+</div>
+<h2 id="configuring-google-apps">Configuring Google Apps<a class="headerlink" href="#configuring-google-apps" title="Permanent link">#</a></h2>
 <ul>
 <li>Login to dashboard.</li>
 </ul>
@@ -1258,7 +1255,7 @@ options.</p>
 </ul>
 <p>If you want to know more about Google SSO,
 <a href="https://support.google.com/a/answer/60224?hl=en">this</a> helps you.</p>
-<h2 id="configuration-in-gluu-server">Configuration In Gluu Server:<a class="headerlink" href="#configuration-in-gluu-server" title="Permanent link">#</a></h2>
+<h2 id="configuring-the-gluu-server">Configuring the Gluu Server<a class="headerlink" href="#configuring-the-gluu-server" title="Permanent link">#</a></h2>
 <p>Now we need to create a Trust Relationship in Gluu Server. Trust
 Relationships are created so that the IdP can authorize/authenticate the
 user to the service provider (SP). In this specific case, the SP is
@@ -1281,10 +1278,10 @@ Location=&quot;https://www.google.com/a/domain.com/acs&quot; &gt;&lt;/AssertionC
 <p>Create Trust Relationship for Google Apps: </p>
 </li>
 <li>
-<p>How to create a trust relationship can be found <a href="../../admin-guide/saml/#how-to-create-trust-relationship">here</a>. We need to follow the "File" method for Google Apps trust relationship.</p>
+<p>How to create a trust relationship can be found <a href="../../admin-guide/saml/#trust-relationship-requirements">here</a>. We need to follow the "File" method for Google Apps trust relationship.</p>
 <ul>
-<li>Required attributes: Generally a nameID attributes is required. <a href="https://gluu.org/docs/customize/attributes/#custom-nameid">Here</a> is how you can create custom nameID in Gluu Server. </li>
-<li>Relying Party Configuration: Yes, SAML2SSO should be configured. <ul>
+<li>Required attributes: Generally a nameID attribute is required. Follow the <a href="../../admin-guide/saml/#custom-nameid">custom nameID</a> documentation.  </li>
+<li>Relying Party Configuration: SAML2SSO should be configured. <ul>
 <li>includeAttributeStatement: check</li>
 <li>assertionLifetime: default </li>
 <li>assertionProxyCount: default</li>

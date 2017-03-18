@@ -2,7 +2,7 @@
 
 A [war](https://en.wikipedia.org/wiki/WAR_(file_format)) file is a 
 zipped up java web application. Because they make deployment a breeze,
-even if you hate violence, you can learn to love .war's!
+even if you hate violence you can learn to love .war's!
 
 When you install a new version of Gluu, it always comes with the latest
 war files. However, sometimes you might make a customization, or 

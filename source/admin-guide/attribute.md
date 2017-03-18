@@ -34,8 +34,7 @@ objectclass ( oxObjectClass:101 NAME 'gluuCustomPerson' SUP top AUXILIARY MAY (c
 
 ```
  - Stop LDAP server with command `service solserver stop`
- - Create custom configuration holder with `mkdir -p /opt/symas/etc/openldap/slapd.d`
- - Test custom configuration with `/opt/symas/bin/slaptest -f /opt/symas/etc/openldap/slapd.conf -F /opt/symas/etc/openldap/slapd.d`
+ - Test custom configuration with `/opt/symas/bin/slaptest -f /opt/symas/etc/openldap/slapd.conf`
  - Start LDAP server with command `service solserver start`
 
 Register new attribute with Gluu Server GUI, oxTrust, by

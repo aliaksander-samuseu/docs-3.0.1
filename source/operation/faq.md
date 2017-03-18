@@ -1,5 +1,5 @@
 # FAQ
-## General FAQ
+## General 
 ### Logs
 When it comes to troubleshooting issues in the Gluu Server--from service hiccups to outages--your [server logs](./logs.md) are the best place to gather relevant information.
 
@@ -16,7 +16,6 @@ Ports other than 443 are not supported as the port is used by Apache Web Server.
     Please use a virtual ethernet interface and a different IP address on your server
 
 ### How to customize IDP to ask for Email instead of username
-
 In oxTrust navigate to the Manage Authentication tab within the Configuration section. By default the Primary Key and Local Key are set to `uid`. Set those va    lues to `mail` and now your Gluu Server will expect email as the identifier instead of username.
 
 ![change2mail](../img/admin-guide/faq/change2mail.png)
@@ -30,8 +29,11 @@ The additional role requires the implementation of dynamic rules in Jboss SEAM a
 
 !!! Warning
     oxTrust is a tool for administrators and it must nto be used as a user facing application.
+    
+### How do I install a patch to my server?
+Follow the documentation for [updating a .war file](../upgrade/update-war.md). 
 
-## Troubleshooting Guide
+## Troubleshooting 
 ### Add admin for Gluu server
 
 Please follow these steps to restore your Gluu admin account (you will
@@ -115,7 +117,7 @@ specified in the 1st line of the file in step 4).
 This will add tempadmin user to the IdP managers group and you can then
 login and assign another user to act as admin.
 
-### Connectivity Issues?
+## Connectivity Issues
 ### DNS names not resolving!
 It is possible that even after configuring everything there is a `DNS` resolve error in Gluu Server.
 The reason is the `DNS` used inside the chroot container; the `dns` used by the container is the Google DNS servers 
@@ -139,7 +141,7 @@ It is not unlikely that you will lock yourself out of Gluu Server while testing 
 
 1. Run the following command to collect the `inum` for the Gluu Server installation.
 
-`/opt/opendj/bin/ldapsearch -h localhost -p 1389 -D "cn=directory 
+`/opt/opendj/bin/ldapsearch -h localhost -p 1636 -Z -X -D "cn=directory 
 manager" -j ~/.pw -b "ou=appliances,o=gluu" -s one "objectclass=*" 
 oxAuthenticationMode`
 

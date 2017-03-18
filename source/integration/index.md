@@ -18,7 +18,7 @@ In the Web Server and Client SDKs sections of the integration guide we document 
 ### Web Server Filter / Reverse Proxy
 The most commonly used approach for enterprise SSO has been to use a Web Server Filter / Reverse Proxy to enforce the presence of a token in an HTTP Request. If no token is present, the Web server may re-direct the person, or return a meaningful code or message to the application. The guides in the Web Server Integrations section of the docs include instructions for using Apache and Nginx software we have confirmed to work against the Gluu Server. 
 
-### Server Side Client SDKs
+### Client SDKs
 The other integration option is to call the federation APIs directly in your application. In general, calling the API’s directly will enable the application to make “smarter” decisions, which can have a positive impact on usability and ultimately result in better security. Libraries exist for SAML, OpenID Connect and UMA in many languages. However, due to the complexity associated with properly implementing the APIs, we recommend using one of the supported Client SDKs covered in our documentation to help with the heavy lifting. 
 
 !!! Note

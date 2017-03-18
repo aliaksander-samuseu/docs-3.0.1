@@ -1,19 +1,21 @@
 # Gluu Server Backup
 
-There methods of backing up Gluu Server CE is given below:
+The method of backing up Gluu Server CE is given below:
 
 * Tarball Method: using `tar` command to tarball the entire 
 Gluu Server CE `chroot` folder
 
-<!-- * Scritp Method : using the provided export and 
+<!-- * Script Method : using the provided export and 
 import scripts to back up ldif of the LDAP. -->
 
 ## Tarball Method
 
 1. Stop the server using below command
-	a. #service gluu-server-3.0.1 stop
-2. use tar command to take a back up
-	b. # tar cvf gluu244-backup.tar /opt/gluu-server-3.0.1/
+	a. # service gluu-server-3.0.1 stop
+2. use tar command to take a backup
+	b. # tar cvf gluu301-backup.tar /opt/gluu-server-3.0.1/
+3. Start the server again
+	a. # service gluu-server-3.0.1 start
 	
 <!--
 ## Script Method

@@ -114,7 +114,7 @@
   
 
 
-  <a href="https://github.com/GluuFederation/docs-3.0.2" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/GluuFederation/docs-3.0.1" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -208,8 +208,8 @@
 		border: 1px solid black;
 		overflow: auto
 	">
-	  <option value="/docs/ce/latest">Latest</option>
-	  <option value="/docs/ce/3.0.0">3.0.0</option>
+	  <option value="/docs/ce/latest">3.0.1</option>
+	  <!-- <option value="/docs/ce/3.0.0">3.0.0</option> -->
 	  <option value="/docs/ce/2.4.4">2.4.4</option>
 	  <option value="/docs">All Versions</option>
 		</select> 
@@ -223,7 +223,7 @@
   
 
 
-  <a href="https://github.com/GluuFederation/docs-3.0.2" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/GluuFederation/docs-3.0.1" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -329,40 +329,6 @@
         <li class="md-nav__item">
   <a href="#file-descriptors" title="File Descriptors" class="md-nav__link">
     File Descriptors
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#amazon-aws" title="Amazon AWS" class="md-nav__link">
-    Amazon AWS
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#microsoft-azure" title="Microsoft Azure" class="md-nav__link">
-    Microsoft Azure
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#setting-up-vm" title="Setting up VM" class="md-nav__link">
-    Setting up VM
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linode-vm" title="Linode VM" class="md-nav__link">
-    Linode VM
   </a>
   
 </li>
@@ -839,8 +805,8 @@
           
   <li class="md-nav__item">
     
-      <a href="../integration/google/" title="Google SSO" class="md-nav__link">
-        Google SSO
+      <a href="../integration/google/" title="Google Apps" class="md-nav__link">
+        Google Apps
       </a>
     
   </li>
@@ -1239,40 +1205,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#amazon-aws" title="Amazon AWS" class="md-nav__link">
-    Amazon AWS
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#microsoft-azure" title="Microsoft Azure" class="md-nav__link">
-    Microsoft Azure
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#setting-up-vm" title="Setting up VM" class="md-nav__link">
-    Setting up VM
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linode-vm" title="Linode VM" class="md-nav__link">
-    Linode VM
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1284,15 +1216,16 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/GluuFederation/docs-3.0.2/blob/master/source/installation-guide\index.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/GluuFederation/docs-3.0.1/blob/master/source/installation-guide\index.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
                 <h1 id="preparing-vm-for-gluu-server-installation">Preparing VM for Gluu Server Installation<a class="headerlink" href="#preparing-vm-for-gluu-server-installation" title="Permanent link">#</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
-<p>Thank you for your interest in the Gluu Server! This document will provide instructions for preparing your VM for a standard Gluu Server deployment. After your servers are ready move on to the <a href="install/">installation instructions</a>. Good luck with your deployment, and welcome to the community!</p>
+<p>Thank you for your interest in the Gluu Server! This document will provide instructions for preparing your VM for a standard Gluu Server deployment. Once your servers are ready you can move on to the <a href="install/">installation instructions</a>. Good luck with your deployment, and welcome to the community!</p>
 <h2 id="minimum-requirements">Minimum Requirements<a class="headerlink" href="#minimum-requirements" title="Permanent link">#</a></h2>
-<p>The Gluu Server Community Edition (CE) needs to be deployed on a server or VM with the following <strong>minimum</strong> requirements. </p>
+<p>The Gluu Server Community Edition (CE) needs to be deployed on a 
+server or VM with the following <strong>minimum</strong> requirements. </p>
 <table>
 <thead>
 <tr>
@@ -1367,116 +1300,111 @@ Follow these steps or research how to do this on your Linux platform.</p>
 <li>Increase the file descriptor limit to 65535. The system file limit 
 is set in <code>/proc/sys/fs/file-max</code>.</li>
 </ul>
-<pre><code># echo 65535 &gt; /proc/sys/fs/file-max
+<p>It is recommended to check the file descriptor size before increasing, 
+and if the file descriptor size more than the default and customized, 
+it is the recommended to the use the higher file size.
+File descriptor size can be found using the below command. </p>
+<pre><code># cat /proc/sys/fs/file-max
 </code></pre>
 
-<ul>
-<li>Use the <code>ulimit</code> command to set the file descriptor limit to the hard limit specified in <code>/etc/security/limits.conf</code>.</li>
-</ul>
-<pre><code># ulimit -n unlimited
+<blockquote>
+<p>Please note command may vary depending on the OS flavor used.</p>
+</blockquote>
+<h1 id="echo-65535-procsysfsfile-max">echo 65535 &gt; /proc/sys/fs/file-max<a class="headerlink" href="#echo-65535-procsysfsfile-max" title="Permanent link">#</a></h1>
+<pre><code>
+* Use the `ulimit` command to set the file descriptor limit to the hard limit specified in `/etc/security/limits.conf`.
 </code></pre>
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Centos by default will not accept more than the default maximum of 65535. You may get an error while performing the above command.</p>
-</div>
-<ul>
-<li>Restart your system.     </li>
-</ul>
-<h2 id="amazon-aws">Amazon AWS<a class="headerlink" href="#amazon-aws" title="Permanent link">#</a></h2>
-<p>Amazon AWS instances provide a public and private IP address. While
-running the <code>/install/community-edition-setup/setup.py</code> script, use the
+<h1 id="ulimit-n-unlimited">ulimit -n unlimited<a class="headerlink" href="#ulimit-n-unlimited" title="Permanent link">#</a></h1>
+<pre><code>!!!Note:
+    Centos by default will not accept more than the default maximum of 65535. You may get an error while performing the above command.
+
+* Restart your system.     
+
+## Amazon AWS      
+
+Amazon AWS instances provide a public and private IP address. While
+running the `/install/community-edition-setup/setup.py` script, use the
 Private IP address. Also, use a hostname other then the long default
-hostname that Amazon provides. Update your DNS or hosts files accordingly.</p>
-<h2 id="microsoft-azure">Microsoft Azure<a class="headerlink" href="#microsoft-azure" title="Permanent link">#</a></h2>
-<p>Accessing the Gluu Server on Azure can be a little bit tricky because of
+hostname that Amazon provides. Update your DNS or hosts files accordingly.
+
+## Microsoft Azure      
+
+Accessing the Gluu Server on Azure can be a little bit tricky because of
 the Public/Private IP. Azure assigns a new Public/Private IP
-addresses each time the server is started. </p>
-<h3 id="setting-up-vm">Setting up VM<a class="headerlink" href="#setting-up-vm" title="Permanent link">#</a></h3>
-<ol>
-<li>
-<p>Log into Windows Azure Administrative Panel</p>
-</li>
-<li>
-<p>Click on <code>Virtual Machines</code> tab, and click <code>Create a Virtual Machine</code> link</p>
-</li>
-<li>
-<p>From the menu, choose <code>Compute</code> &gt; <code>Virtual Machine</code> &gt; <code>From Gallery</code> branch.</p>
-</li>
-<li>
-<p>Choose Ubuntu Server 14.04 LTS or CentOS 6.7. Remember to set selinux
-   to permissive if you choose CentOS.</p>
-</li>
-<li>
-<p>Provide a name for the VM in the <code>Virtual Machine Name</code> field and use <code>Standard</code> for <code>Tier</code>.</p>
-</li>
-<li>
-<p>Select a server with at least 4GB RAM in the <code>Size</code> dropdown menu.</p>
-</li>
-<li>
-<p>Provide a username/password to connect via ssh and upload ssh certificate. Click <code>Next</code>.</p>
-</li>
-<li>
-<p>Create a new cloud service and select <code>None</code> for the <code>Availability Set</code> option.
+addresses each time the server is started. 
+
+### Setting up VM       
+1. Log into Windows Azure Administrative Panel
+
+2. Click on `Virtual Machines` tab, and click `Create a Virtual Machine` link
+
+3. From the menu, choose `Compute` &gt; `Virtual Machine` &gt; `From Gallery` branch.
+
+4. Choose Ubuntu Server 14.04 LTS or CentOS 6.7. Remember to set selinux
+   to permissive if you choose CentOS.
+
+5. Provide a name for the VM in the `Virtual Machine Name` field and use `Standard` for `Tier`.
+
+6. Select a server with at least 4GB RAM in the `Size` dropdown menu.
+
+7. Provide a username/password to connect via ssh and upload ssh certificate. Click `Next`.
+
+8. Create a new cloud service and select `None` for the `Availability Set` option.
         * Endpoints Section: This is where port forwarding is set so
       that the internal IP address can be selectively reachable from
       the outside world. By default, only tcp /22 is there for ssh. The
-      public ports for <code>http</code> and <code>https</code> (tcp ports 80 and 443) have to be
+      public ports for `http` and `https` (tcp ports 80 and 443) have to be
       added and mapped to the same private ports. If the cloud mappings
       are flagged conflicting, proceed without setting them. Remember to
-      set them after the creation of the VM. Then, click <code>Next</code>.</p>
-</li>
-<li>
-<p>Choose not to install <code>VM Agent</code> and click the <code>tick</code> button to
-   finalize the VM.</p>
-</li>
-<li>
-<p>Go to the <code>Dashboard</code> tab of VM Management Panel and copy the <code>DNS
-    Name</code>. This is the name that is used to access the Gluu Server.</p>
-</li>
-<li>
-<p>You should now be able to ssh to the server and proceed with the 
-    installation.</p>
-</li>
-</ol>
-<h2 id="linode-vm">Linode VM<a class="headerlink" href="#linode-vm" title="Permanent link">#</a></h2>
-<p>Linode Virtual Machines (VM) use a custom kernel which is not 
+      set them after the creation of the VM. Then, click `Next`.
+
+9. Choose not to install `VM Agent` and click the `tick` button to
+   finalize the VM.
+
+10. Go to the `Dashboard` tab of VM Management Panel and copy the `DNS
+    Name`. This is the name that is used to access the Gluu Server.
+
+11. You should now be able to ssh to the server and proceed with the 
+    installation.
+
+
+## Linode VM
+
+Linode Virtual Machines (VM) use a custom kernel which is not 
 supported by the Gluu Server, therefore the kernel must be updated before 
 the Gluu Server can be installed in a Linode VM. The following steps will 
-guide you through kernel update in the Linode VM.</p>
-<ul>
-<li>Check for the current version of the kernel. If the output contains <code>-Linode</code>, then proceed</li>
-</ul>
-<pre><code># uname -a
+guide you through kernel update in the Linode VM.
+
+* Check for the current version of the kernel. If the output contains `-Linode`, then proceed
 </code></pre>
 
-<ul>
-<li>Run the following command to update the kernel:</li>
-</ul>
-<pre><code># apt-get install linux-image-virtual grub2
+<h1 id="uname-a">uname -a<a class="headerlink" href="#uname-a" title="Permanent link">#</a></h1>
+<pre><code>
+* Run the following command to update the kernel:
 </code></pre>
 
-<ul>
-<li>Modify <code>grub</code> file in the <code>/etc/default/</code> folder:</li>
-</ul>
-<pre><code># vim /etc/default/grub
+<h1 id="apt-get-install-linux-image-virtual-grub2">apt-get install linux-image-virtual grub2<a class="headerlink" href="#apt-get-install-linux-image-virtual-grub2" title="Permanent link">#</a></h1>
+<pre><code>
+* Modify `grub` file in the `/etc/default/` folder:
 </code></pre>
 
-<ul>
-<li>Ensure that the following lines are present in the grub file</li>
-</ul>
-<pre><code>GRUB_TIMEOUT=10
-GRUB_CMDLINE_LINUX=&quot;console=ttyS0,19200n8&quot;
+<h1 id="vim-etcdefaultgrub">vim /etc/default/grub<a class="headerlink" href="#vim-etcdefaultgrub" title="Permanent link">#</a></h1>
+<pre><code>
+  * Ensure that the following lines are present in the grub file
+</code></pre>
+
+<p>GRUB_TIMEOUT=10
+GRUB_CMDLINE_LINUX="console=ttyS0,19200n8"
 GRUB_DISABLE_LINUX_UUID=true
-GRUB_SERIAL_COMMAND=&quot;serial --speed=19200 --unit=0 --word=8 --parity=no --stop=1&quot;
+GRUB_SERIAL_COMMAND="serial --speed=19200 --unit=0 --word=8 --parity=no --stop=1"</p>
+<pre><code>
+* Finally run the following commands to update `grub` and reboot:
 </code></pre>
 
-<ul>
-<li>Finally run the following commands to update <code>grub</code> and reboot:</li>
-</ul>
-<pre><code># update-grub
-# reboot
-</code></pre>
+<h1 id="update-grub">update-grub<a class="headerlink" href="#update-grub" title="Permanent link">#</a></h1>
+<h1 id="reboot">reboot<a class="headerlink" href="#reboot" title="Permanent link">#</a></h1>
+<p>```</p>
               
             </article>
           </div>

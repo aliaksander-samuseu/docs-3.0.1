@@ -56,7 +56,7 @@ pages:
             - 'Shibboleth SP': 'integration/saml-sp.md'
             - 'mod_auth_openidc': 'integration/openidc-rp.md'    
         - 'SaaS Integrations':
-            - 'Google SSO': 'integration/google.md'
+            - 'Google Apps': 'integration/google.md'
             - 'Office 365': 'integration/office.md'
 #    - 'Hobsons Education Sol': 'integration/hobsons.md'
             - 'Salesforce': 'integration/salesforce.md'

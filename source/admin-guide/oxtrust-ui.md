@@ -1,7 +1,7 @@
 # oxTrust Administrative Graphical User Interface (GUI)
 
 ## Overview 
-This section of the docs covers various features associated with managing your federation service via the Gluu Server interface ("oxTrust"). For more complicated topics and features, this document will link to dedicated sections within the docs where additional operational details are provided.
+This section of the docs covers various features associated with managing your federation service via the Gluu Server interface ("oxTrust"). There is a corresponding page in the Gluu Server user interface for each of the sections below. When necessary, this document will link to dedicated sections within the docs where additional operational details are provided.
 
 ## Accessing the UI
 The Gluu Server administration interface is accessible by navigating to 
@@ -207,7 +207,7 @@ Attributes are individual pieces of user data, like `uid` or `email`, that are r
 
 Custom attributes can be added by clicking the `Add Attribute` button and completing the simple form. Note that custom attributes must already be present in the LDAP server in order for them to be available for release by the Gluu Server. Adding an attribute here is like registering it in the Gluu Server--in order to release an attribute during a SAML or OpenID Connect transaction, the Gluu Server needs to know it exists. 
 
-Attributes, as they pertain to SSO, are covered more thoroughly in the [SAML Attributes](./saml/#saml-Attributes) and [OpenID Connect Scopes](./openid-connect/#scopes) sections of the docs.
+Attributes, as they pertain to SSO, are covered more thoroughly in the [SAML Attributes](./saml.md#saml-attributes) and [OpenID Connect Scopes](./openid-connect/#scopes) sections of the docs.
 
 ### Cache Refresh
 Cache Refresh, a.k.a. LDAP Synchronization, is the process of connecting one or more existing backend LDAP servers, like Microsoft Active Directory, with the Gluu Server's local LDAP server. `Cache Refresh` periodically searches these data sources, compares the results to previous searches, and if a changed user account is found, it is updated.The frequency of cache refresh is also set from this page via the `Polling interval (minutes)`. The `key attribute(s)` is used to correlate a user if the user is found in more then one LDAP server. In this case, the two entries are joined. The source attributes specify which attributes will be pulled from the backend LDAP server. The backend server address, bind DN and other connection information is speciifed in the `Source Backend LDAP Servers` tab. More information on [LDAP Syncronization](./user-group/#ldap-synchronization) can be found in the user management section of the docs. 

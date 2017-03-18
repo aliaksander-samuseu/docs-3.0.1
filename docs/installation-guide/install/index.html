@@ -114,7 +114,7 @@
   
 
 
-  <a href="https://github.com/GluuFederation/docs-3.0.2" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/GluuFederation/docs-3.0.1" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -208,8 +208,8 @@
 		border: 1px solid black;
 		overflow: auto
 	">
-	  <option value="/docs/ce/latest">Latest</option>
-	  <option value="/docs/ce/3.0.0">3.0.0</option>
+	  <option value="/docs/ce/latest">3.0.1</option>
+	  <!-- <option value="/docs/ce/3.0.0">3.0.0</option> -->
 	  <option value="/docs/ce/2.4.4">2.4.4</option>
 	  <option value="/docs">All Versions</option>
 		</select> 
@@ -223,7 +223,7 @@
   
 
 
-  <a href="https://github.com/GluuFederation/docs-3.0.2" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/GluuFederation/docs-3.0.1" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -319,13 +319,6 @@
         <li class="md-nav__item">
   <a href="#overview" title="Overview" class="md-nav__link">
     Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-gluu-server-package" title="Install Gluu Server Package" class="md-nav__link">
-    Install Gluu Server Package
   </a>
   
     <nav class="md-nav">
@@ -867,8 +860,8 @@
           
   <li class="md-nav__item">
     
-      <a href="../../integration/google/" title="Google SSO" class="md-nav__link">
-        Google SSO
+      <a href="../../integration/google/" title="Google Apps" class="md-nav__link">
+        Google Apps
       </a>
     
   </li>
@@ -1244,13 +1237,6 @@
     Overview
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-gluu-server-package" title="Install Gluu Server Package" class="md-nav__link">
-    Install Gluu Server Package
-  </a>
-  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
@@ -1340,7 +1326,7 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/GluuFederation/docs-3.0.2/blob/master/source/installation-guide\install.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/GluuFederation/docs-3.0.1/blob/master/source/installation-guide\install.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
@@ -1357,7 +1343,12 @@ installation procedure is similar across all the distributions: </p>
 <p class="admonition-title">Note</p>
 <p>Make sure your VM or server meets the <a href="../">minimum requirements</a> to deploy the Gluu Server.  </p>
 </div>
-<h2 id="install-gluu-server-package">Install Gluu Server Package<a class="headerlink" href="#install-gluu-server-package" title="Permanent link">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>Installation of Gluu server will be done under /root and 
+   Gluu CE server will creates its file system under /root/and will be installed under /opt. 
+   File size and <a href="../">minimum requirements</a> remains the same as the host.</p>
 <h3 id="ubuntu-server-1404x">Ubuntu Server 14.04.x<a class="headerlink" href="#ubuntu-server-1404x" title="Permanent link">#</a></h3>
 <table>
 <thead>
@@ -1605,7 +1596,7 @@ table should help you answer the questions correctly.</p>
 </tr>
 <tr>
 <td>Enter hostname</td>
-<td>Internet-facing hostname, used to generate certificates and metadata. <strong>Don't use an IP address or localhost here</strong></td>
+<td>Internet-facing hostname, FQDN or CNAME whichever your organization follows to be used to generate certificates and metadata. <strong>Don't use an IP address or localhost here</strong></td>
 </tr>
 <tr>
 <td>Enter your city or locality</td>
@@ -1661,7 +1652,7 @@ table should help you answer the questions correctly.</p>
 </tr>
 <tr>
 <td>Install oxAuth RP</td>
-<td>OpenID Connect test client: recommended for test enviornments</td>
+<td>OpenID Connect test client: recommended for test enviornments, for more details see <a href="../../admin-guide/openid-connect/#oxauth-rp">here</a></td>
 </tr>
 <tr>
 <td>Install Passport</td>

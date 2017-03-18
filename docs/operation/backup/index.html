@@ -114,7 +114,7 @@
   
 
 
-  <a href="https://github.com/GluuFederation/docs-3.0.2" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/GluuFederation/docs-3.0.1" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -208,8 +208,8 @@
 		border: 1px solid black;
 		overflow: auto
 	">
-	  <option value="/docs/ce/latest">Latest</option>
-	  <option value="/docs/ce/3.0.0">3.0.0</option>
+	  <option value="/docs/ce/latest">3.0.1</option>
+	  <!-- <option value="/docs/ce/3.0.0">3.0.0</option> -->
 	  <option value="/docs/ce/2.4.4">2.4.4</option>
 	  <option value="/docs">All Versions</option>
 		</select> 
@@ -223,7 +223,7 @@
   
 
 
-  <a href="https://github.com/GluuFederation/docs-3.0.2" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/GluuFederation/docs-3.0.1" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -754,8 +754,8 @@
           
   <li class="md-nav__item">
     
-      <a href="../../integration/google/" title="Google SSO" class="md-nav__link">
-        Google SSO
+      <a href="../../integration/google/" title="Google Apps" class="md-nav__link">
+        Google Apps
       </a>
     
   </li>
@@ -1174,25 +1174,27 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/GluuFederation/docs-3.0.2/blob/master/source/operation\backup.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/GluuFederation/docs-3.0.1/blob/master/source/operation\backup.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
                 <h1 id="gluu-server-backup">Gluu Server Backup<a class="headerlink" href="#gluu-server-backup" title="Permanent link">#</a></h1>
-<p>There methods of backing up Gluu Server CE is given below:</p>
+<p>The method of backing up Gluu Server CE is given below:</p>
 <ul>
 <li>Tarball Method: using <code>tar</code> command to tarball the entire 
 Gluu Server CE <code>chroot</code> folder</li>
 </ul>
-<!-- * Scritp Method : using the provided export and 
+<!-- * Script Method : using the provided export and 
 import scripts to back up ldif of the LDAP. -->
 
 <h2 id="tarball-method">Tarball Method<a class="headerlink" href="#tarball-method" title="Permanent link">#</a></h2>
 <ol>
 <li>Stop the server using below command
-    a. #service gluu-server-3.0.1 stop</li>
-<li>use tar command to take a back up
-    b. # tar cvf gluu244-backup.tar /opt/gluu-server-3.0.1/</li>
+    a. # service gluu-server-3.0.1 stop</li>
+<li>use tar command to take a backup
+    b. # tar cvf gluu301-backup.tar /opt/gluu-server-3.0.1/</li>
+<li>Start the server again
+    a. # service gluu-server-3.0.1 start</li>
 </ol>
 <!--
 ## Script Method

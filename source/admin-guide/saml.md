@@ -69,7 +69,7 @@ successful user authentication.
 
 ### SAML Attributes
 
-### Attrubute in oxTrust
+#### Attributes in oxTrust
 An *Active* attribute list can be seen from the Configuration > Attributes section.
 
 ![Attribute Menu](../img/admin-guide/attribute/admin_attribute_menu.png)
@@ -86,8 +86,11 @@ status to active/inactive, to an attribute after clicking on it.
 
 ![Attributes](../img/admin-guide/attribute/admin_attribute_attribute.png)
 
+
+#### Custom Attributes
 Additional custom attributes can be added in below way
 
+ - Become user 'ldap' 
  - Add custom attribute to /opt/gluu/schema/openldap/custom.schema 
    - In this below example 'customTest' is our custom attribute : 
 ```
@@ -99,12 +102,15 @@ attributetype ( oxAttribute:1003 NAME 'customTest'
  - Add custom attribute to gluuCustomPerson objectClass
    - Example: 
 ```
-objectclass ( oxObjectClass:101 NAME 'gluuCustomPerson' SUP top AUXILIARY MAY (customTest) X-ORIGIN 'Gluu - Custom person objectclass' )
-
+objectclass ( 1.3.6.1.4.1.48710.1.4.101 NAME 'gluuCustomPerson'
+        SUP ( top )
+        AUXILIARY
+        MAY ( telephoneNumber $ mobile $ customTest )
+        X-ORIGIN 'Gluu - Custom persom objectclass' )
 ```
+ - Become user 'root'
  - Stop LDAP server with command `service solserver stop`
- - Create custom configuration holder with `mkdir -p /opt/symas/etc/openldap/slapd.d`
- - Test custom configuration with `/opt/symas/bin/slaptest -f /opt/symas/etc/openldap/slapd.conf -F /opt/symas/etc/openldap/slapd.d`
+ - Test custom configuration with `/opt/symas/bin/slaptest -f /opt/symas/etc/openldap/slapd.conf`
  - Start LDAP server with command `service solserver start`
 
 Register new attribute with Gluu Server GUI, oxTrust, by
@@ -149,13 +155,13 @@ appear:
 * _Status:_ The status, when selected active, will release and publish
   the attribute in IdP.
 
-### Custom NameID
+#### Custom NameID
 Gluu Server comes with the `transientID` attribute which is the default `NameID`.
 If there are other `NameID` requirements, it is possible to create them as well.
 The custom attribute must be created in oxTrust first before defining it as the `NameID`.
-Please see the [oxTrust custom attribute guide](#using-oxtrust) to create the custom attribute in oxTrust.
+Please see the [custom attributes](#custom-attributes) section above to learn how to create custom attributes in oxTrust.
 
-### Defining NameID
+#### Defining NameID
   The template file for `NameID` definitions are located in the `attribute-resolver.xml.vm` file under `/opt/gluu/jetty/identity/conf/shibboleth3/idp/`.
   The example below adds `testcustomattribute` as `NameID` based on UID attribute. The following are put into the `attribute-resolver.xml.vm` file.
 

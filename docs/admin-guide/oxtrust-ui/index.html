@@ -114,7 +114,7 @@
   
 
 
-  <a href="https://github.com/GluuFederation/docs-3.0.2" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/GluuFederation/docs-3.0.1" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -208,8 +208,8 @@
 		border: 1px solid black;
 		overflow: auto
 	">
-	  <option value="/docs/ce/latest">Latest</option>
-	  <option value="/docs/ce/3.0.0">3.0.0</option>
+	  <option value="/docs/ce/latest">3.0.1</option>
+	  <!-- <option value="/docs/ce/3.0.0">3.0.0</option> -->
 	  <option value="/docs/ce/2.4.4">2.4.4</option>
 	  <option value="/docs">All Versions</option>
 		</select> 
@@ -223,7 +223,7 @@
   
 
 
-  <a href="https://github.com/GluuFederation/docs-3.0.2" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/GluuFederation/docs-3.0.1" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -1022,8 +1022,8 @@
           
   <li class="md-nav__item">
     
-      <a href="../../integration/google/" title="Google SSO" class="md-nav__link">
-        Google SSO
+      <a href="../../integration/google/" title="Google Apps" class="md-nav__link">
+        Google Apps
       </a>
     
   </li>
@@ -1650,13 +1650,13 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/GluuFederation/docs-3.0.2/blob/master/source/admin-guide\oxtrust-ui.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/GluuFederation/docs-3.0.1/blob/master/source/admin-guide\oxtrust-ui.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
                 <h1 id="oxtrust-administrative-graphical-user-interface-gui">oxTrust Administrative Graphical User Interface (GUI)<a class="headerlink" href="#oxtrust-administrative-graphical-user-interface-gui" title="Permanent link">#</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
-<p>This section of the docs covers various features associated with managing your federation service via the Gluu Server interface ("oxTrust"). For more complicated topics and features, this document will link to dedicated sections within the docs where additional operational details are provided.</p>
+<p>This section of the docs covers various features associated with managing your federation service via the Gluu Server interface ("oxTrust"). There is a corresponding page in the Gluu Server user interface for each of the sections below. When necessary, this document will link to dedicated sections within the docs where additional operational details are provided.</p>
 <h2 id="accessing-the-ui">Accessing the UI<a class="headerlink" href="#accessing-the-ui" title="Permanent link">#</a></h2>
 <p>The Gluu Server administration interface is accessible by navigating to 
 <code>https://hostname</code> (the one you provided during setup). When you 
@@ -1892,7 +1892,7 @@ available. For more information, see the reference page detailing each type of <
 <h2 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link">#</a></h2>
 <p>Attributes are individual pieces of user data, like <code>uid</code> or <code>email</code>, that are required by applications in order to identify a user and grant access to protected resources. The user attributes that are available in your federation service can be found on this page. By default, only <code>active</code> attributes are visible. Use the <code>Show All Attributes</code> button to display the <code>inactive</code> attributes too. </p>
 <p>Custom attributes can be added by clicking the <code>Add Attribute</code> button and completing the simple form. Note that custom attributes must already be present in the LDAP server in order for them to be available for release by the Gluu Server. Adding an attribute here is like registering it in the Gluu Server--in order to release an attribute during a SAML or OpenID Connect transaction, the Gluu Server needs to know it exists. </p>
-<p>Attributes, as they pertain to SSO, are covered more thoroughly in the <a href="../saml/#saml-Attributes">SAML Attributes</a> and <a href="../openid-connect/#scopes">OpenID Connect Scopes</a> sections of the docs.</p>
+<p>Attributes, as they pertain to SSO, are covered more thoroughly in the <a href="../saml/#saml-attributes">SAML Attributes</a> and <a href="../openid-connect/#scopes">OpenID Connect Scopes</a> sections of the docs.</p>
 <h3 id="cache-refresh">Cache Refresh<a class="headerlink" href="#cache-refresh" title="Permanent link">#</a></h3>
 <p>Cache Refresh, a.k.a. LDAP Synchronization, is the process of connecting one or more existing backend LDAP servers, like Microsoft Active Directory, with the Gluu Server's local LDAP server. <code>Cache Refresh</code> periodically searches these data sources, compares the results to previous searches, and if a changed user account is found, it is updated.The frequency of cache refresh is also set from this page via the <code>Polling interval (minutes)</code>. The <code>key attribute(s)</code> is used to correlate a user if the user is found in more then one LDAP server. In this case, the two entries are joined. The source attributes specify which attributes will be pulled from the backend LDAP server. The backend server address, bind DN and other connection information is speciifed in the <code>Source Backend LDAP Servers</code> tab. More information on <a href="../user-group/#ldap-synchronization">LDAP Syncronization</a> can be found in the user management section of the docs. </p>
 <h3 id="configure-log-viewer-view-log-file">Configure Log Viewer / View Log File<a class="headerlink" href="#configure-log-viewer-view-log-file" title="Permanent link">#</a></h3>

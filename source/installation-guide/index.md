@@ -1,10 +1,11 @@
 # Preparing VM for Gluu Server Installation
 ## Overview
-Thank you for your interest in the Gluu Server! This document will provide instructions for preparing your VM for a standard Gluu Server deployment. After your servers are ready move on to the [installation instructions](../installation-guide/install.md). Good luck with your deployment, and welcome to the community!
+Thank you for your interest in the Gluu Server! This document will provide instructions for preparing your VM for a standard Gluu Server deployment. Once your servers are ready you can move on to the [installation instructions](../installation-guide/install.md). Good luck with your deployment, and welcome to the community!
 
 ## Minimum Requirements
 
-The Gluu Server Community Edition (CE) needs to be deployed on a server or VM with the following **minimum** requirements. 
+The Gluu Server Community Edition (CE) needs to be deployed on a 
+server or VM with the following **minimum** requirements. 
 
 |CPU Unit  |    RAM     |   Disk Space      | Processor Type |
 |----------|------------|-------------------|----------------|
@@ -46,7 +47,17 @@ session required pam_limits.so
 
 * Increase the file descriptor limit to 65535. The system file limit 
 is set in `/proc/sys/fs/file-max`.
+
+It is recommended to check the file descriptor size before increasing, 
+and if the file descriptor size more than the default and customized, 
+it is the recommended to the use the higher file size.
+File descriptor size can be found using the below command. 
+
 ```
+# cat /proc/sys/fs/file-max
+```
+> Please note command may vary depending on the OS flavor used.
+
 # echo 65535 > /proc/sys/fs/file-max
 ```
 
