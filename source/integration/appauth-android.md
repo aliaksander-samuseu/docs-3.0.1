@@ -290,7 +290,7 @@ of the `AndroidManifest.xml`
     </intent-filter>
 </activity>
 ```
-Note: Skip this step if you've already made these changes under section **Define redirectURI** above.
+**Note**: Skip this step if you've already made these changes under section **Define redirectURI** above.
 
 Make sure you've set `myauth_enabled` to true in the config, 
 and your new IdP should show up in the list.
