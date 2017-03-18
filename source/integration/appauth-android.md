@@ -1,14 +1,17 @@
 # AppAuth Android
 
 ## Overview
-AppAuth for Android is a client SDK for communicating with [OAuth 2.0](https://tools.ietf.org/html/rfc6749) and [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) providers. It 
+AppAuth for Android is a client SDK for communicating with [OAuth 2.0]
+(https://tools.ietf.org/html/rfc6749) and [OpenID Connect]
+(http://openid.net/specs/openid-connect-core-1_0.html) providers. It 
 strives to directly map the requests and responses of those specifications, 
 while following the idiomatic style of the implementation language. In 
 addition to mapping the raw protocol flows, convenience methods are 
 available to assist with common tasks like performing an action with 
 fresh tokens.
 
-The library follows the best practices set out in [OAuth 2.0 for Native Apps](https://tools.ietf.org/html/draft-ietf-oauth-native-apps)
+The library follows the best practices set out in [OAuth 2.0 for Native Apps]
+(https://tools.ietf.org/html/draft-ietf-oauth-native-apps)
 including using
 [Custom Tabs](http://developer.android.com/tools/support-library/features.html#custom-tabs)
 for the auth request. For this reason,
@@ -21,8 +24,12 @@ public clients when custom URI scheme redirects are used. The library is
 friendly to other extensions (standard or otherwise) with the ability to 
 handle additional parameters in all protocol requests and responses.
 
+Gluu server is certified OpenId Provider and supports
+[Native Apps](https://tools.ietf.org/html/draft-ietf-oauth-native-apps)
+either through custom URI scheme redirects, or App Links.
+
 ## Download
-You can download (or clone) project from [Github Repo](https://github.com/openid/AppAuth-Android)
+You can download (or clone) project from [Github Repository](https://github.com/openid/AppAuth-Android)
 
 ## Specification
 ### Supported Android Versions
@@ -33,16 +40,8 @@ the device (for example by [Chrome](https://developer.chrome.com/multidevice/and
 Custom Tabs are used for authorization requests. Otherwise, 
 the default browser is used as a fallback.
 
-### Authorization Server Support
-
 Both Custom URI Schemes (all supported versions of Android) and App Links
 (API 23+) can be used with the library.
-
-In general, AppAuth can work with any Authorization Server (AS) that supports
-[native apps](https://tools.ietf.org/html/draft-ietf-oauth-native-apps),
-either through custom URI scheme redirects, or App Links.
-AS's that assume all clients are web-based or require clients to maintain
-confidentiality of the client secrets may not work well.
 
 ## Building the Project
 ### Prerequisites
@@ -55,7 +54,7 @@ require API level 16 (Jellybean) to be used.
 Android Studio is an official IDE for Android.
 
 You can find Android Studio, it's features, docs, user guide etc. 
-from [this site](https://developer.android.com/studio/index.html).
+from [Official Android Website for developers](https://developer.android.com/studio/index.html).
 
 There are two ways to build existing project either download source code zip 
 file or clone repository.
@@ -104,26 +103,96 @@ modules in the project.
 
 ## Configure the Client
 
-You can manually create a client in oxTrust or can dynamically register
-(which is explained in the "[Dynamic Client Registration](#dynamic-client-registration-optional)" section of this doc).
+In order to configure client you need to specify following:
 
-To use AppAuth we need three parameters: issuer, clientId and 
-redirectUri:
+### issuer 
+   Here Gluu server is the issuer hence configuration will be discovered from Gluu server
+   discovery uri.
 
-- issuer - from which the configuration will be discovered
-- clientId - from dynamic client registration response
-- redirectUri - this scheme must be registered as a scheme in the project's manifest file
+### clientId 
+   Can be obtained after client registration. 
 
-In order to configure client manually in oxTrust, you need to provide 
-following values:
-- Registration Endpoint: YOUR_REGISTRATION_ENDPOINT
-- Redirect URIs (space-separated): YOUR_REDIRECT_URI
+You can either manually create a client in oxTrust or register dynamically through app but 
+it is recommended you should manually register client in oxTrust.
+
+#### Manual client registration(Recommended)
+
+To create client manually in oxTrust, go to [oxTrust Registration](https://ce-dev.gluu.org/oxauth-rp/home.htm) and 
+provide values in the following fields:
+- Registration Endpoint: REGISTRATION_ENDPOINT(obtained from configuration)   
+- Redirect URIs (space-separated): REDIRECT_URI(See [Define redirectURI](#Define redirectURI))
 - Response Types: CODE
 - Grant Types: AUTHORIZATION_CODE
 - Application Type: NATIVE
 
 After successful registration, it will return client id which 
 will use for Authorization.
+
+#### Dynamic client registration(Optional)
+
+New client registration request can be constructed for dispatch:
+
+```java
+RegistrationRequest registrationRequest = new RegistrationRequest.Builder(
+    serviceConfig,
+    Arrays.asList(redirectUri))
+    .build();
+```
+
+Requests are dispatched with the help of `AuthorizationService`. As this
+request is asynchronous the response is passed to a callback:
+
+```java
+service.performRegistrationRequest(
+    registrationRequest,
+    new AuthorizationService.RegistrationResponseCallback() {
+        @Override public void onRegistrationRequestCompleted(
+            @Nullable RegistrationResponse resp,
+            @Nullable AuthorizationException ex) {
+            if (resp != null) {
+                // registration succeeded, store the registration response
+                AuthState state = new AuthState(resp);
+                //proceed to authorization...
+            } else {
+              // registration failed, check ex for more details
+            }
+         }
+    });
+```
+
+### redirectUri
+custom URI redirection scheme for inter-app communication
+
+#### Define redirectURI
+As Authorization request will be made using custom tab, redirectURI will provide redirection 
+back to the app from custom tab after request get performed successfully.
+ 
+It is recommended to  use a custom scheme as redirectURI.You can simply use any 
+custom scheme you want and need to declare it in app's manifest file.
+
+You will find more about custom scheme from [IETF Document](https://tools.ietf.org/html/draft-ietf-oauth-native-apps-08#section-7.1) 
+
+For example, if you declare custom scheme `myscheme` and host `client.example.com` then
+redirectURL will look like: `myscheme://client.example.com`
+
+The library configures the `RedirectUriReceiverActivity` to 
+handle a custom scheme and need to declare this activity into 
+your `AndroidManifest.xml` file by adding following:
+
+```xml
+    <activity android:name="net.openid.appauth.RedirectUriReceiverActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data android:scheme="YOUR_CUSTOM_SCHEME"
+                android:host="YOUR_REDIRECT_HOST"/>
+        </intent-filter>
+    </activity>
+```
+
+After completing authorization in custom tab, above custom scheme 
+will redirect back to app.
 
 ## Configure the Demo App
 Authorization services can be added to the demo app by defining
@@ -170,7 +239,7 @@ like
 And an addition to `idp_configs_optional.xml` that looks like:
 
 ```
-<string name="myprovider_name">MyProvider</string>
+<string name="myprovider_name">Gluu</string>
 <string name="myprovider_scope_string">profile payment location</string>
 <string name="myprovider_auth_endpoint_uri">https://www.myprovider.com/auth</string>
 <string name="myprovider_token_endpoint_uri">https://www.myprovider.com/token</string>
@@ -216,21 +285,32 @@ of the `AndroidManifest.xml`
         <action android:name="android.intent.action.VIEW"/>
         <category android:name="android.intent.category.DEFAULT"/>
         <category android:name="android.intent.category.BROWSABLE"/>
-        <data android:scheme="@string/your_idp_auth_redirect_scheme"/>
+        <data android:scheme="YOUR_CUSTOM_SCHEME"
+                        android:host="YOUR_REDIRECT_HOST"/>
     </intent-filter>
 </activity>
 ```
+Note: Skip this step if you've already made these changes under [Define redirectURI](#Define redirectURI) section.
 
 Make sure you've set `myauth_enabled` to true in the config, 
 and your new IdP should show up in the list.
 
+Now, You are all set to run your demo app.
+As soon as app will launch, it will look like this
+![initial screen](../img/app-auth/start_authorization.png)
+
+Congratulations, You've configured demo app correctly. Go ahead and click 
+'Start Authorization' button to make authorization request.
+ 
+Authorization success will look like this
+![Success Auth](../img/app-auth/authorization_success.png)  
+
 ## Auth Flow
 
-AppAuth supports both manual interaction with the Authorization 
-Server where you need to perform your own token exchanges, as well
-as convenience methods that perform some of this logic for you. 
-This example uses the convenience method which returns 
-either an `AuthState` object, or an error.
+AppAuth supports both manual interaction with the OP where you need 
+to perform your own token exchanges, as well as convenience methods 
+that perform some of this logic for you. This example uses the convenience 
+method which returns either an `AuthState` object, or an error.
 
 ### Tracking authorization state
 
@@ -243,7 +323,8 @@ state in SharedPreferences or some other persistent store private
 to the app:
 
 ```java
-@NonNull public AuthState readAuthState() {
+@NonNull 
+public AuthState readAuthState() {
   SharedPreferences authPrefs = getSharedPreferences("auth", MODE_PRIVATE);
   String stateJson = authPrefs.getString("stateJson");
   AuthState state;
@@ -264,20 +345,18 @@ public void writeAuthState(@NonNull AuthState state) {
 
 ### Configuration
 
-You can configure communication with your chosen authorization 
-server by specifying the endpoints directly:
+You can configure communication with Gluu server by specifying the endpoints directly:
 
 ```java
 AuthorizationServiceConfiguration config =
         new AuthorizationServiceConfiguration(name, mAuthEndpoint, mTokenEndpoint);
 
-// perform the auth request...
 ```
 
 Or through discovery:
 
 ```java
-final Uri issuerUri = Uri.parse("https://accounts.google.com");
+final Uri issuerUri = Uri.parse(`DISCOVERY_URI`);
 AuthorizationServiceConfiguration config;
 
 AuthorizationServiceConfiguration.fetchFromIssuer(
@@ -334,39 +413,6 @@ construction:
 new AuthorizationService(context, appAuthConfig);
 ```
 
-### Dynamic client registration (Optional)
-
-If the server supports dynamic client registration, a new registration
-request can be constructed for dispatch:
-
-```java
-RegistrationRequest registrationRequest = new RegistrationRequest.Builder(
-    serviceConfig,
-    Arrays.asList(redirectUri))
-    .build();
-```
-
-Requests are dispatched with the help of `AuthorizationService`. As this
-request is asynchronous the response is passed to a callback:
-
-```java
-service.performRegistrationRequest(
-    registrationRequest,
-    new AuthorizationService.RegistrationResponseCallback() {
-        @Override public void onRegistrationRequestCompleted(
-            @Nullable RegistrationResponse resp,
-            @Nullable AuthorizationException ex) {
-            if (resp != null) {
-                // registration succeeded, store the registration response
-                AuthState state = new AuthState(resp);
-                //proceed to authorization...
-            } else {
-              // registration failed, check ex for more details
-            }
-         }
-    });
-```
-
 ### Authorizing
 
 After configuring or retrieving an authorization service 
@@ -385,7 +431,7 @@ AuthorizationRequest req = new AuthorizationRequest.Builder(
 Requests are dispatched with the help of `AuthorizationService`. 
 As this will open a custom tab or browser instance to fulfill 
 this request. An intent can be specified for both completion and 
-cancelation of the authorization flow:
+cancellation of the authorization flow:
 
 ```java
 AuthorizationService service = new AuthorizationService(context);
@@ -398,26 +444,6 @@ service.performAuthorizationRequest(
 ```
 
 ### Handling the Redirect
-We are using a custom scheme to send the OAuth redirect back to 
-app. The library configures the `RedirectUriReceiverActivity` to 
-handle a custom scheme and need to declare this activity into 
-your `AndroidManifest.xml` file by adding following:
-
-```xml
-    <activity android:name="net.openid.appauth.RedirectUriReceiverActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.VIEW"/>
-            <category android:name="android.intent.category.DEFAULT"/>
-            <category android:name="android.intent.category.BROWSABLE"/>
-            <data android:scheme="YOUR_CUSTOM_SCHEME"
-                android:host="YOUR_REDIRECT_HOST"/>
-        </intent-filter>
-    </activity>
-```
-
-After completing authorization in custom tab, above custom scheme 
-will redirect back to app.
-
 When the response is captured by `RedirectUriReceiverActivity`, 
 it is ultimately forwarded to the activity specified in your 
 completion intent, and can be extracted from the intent data:
