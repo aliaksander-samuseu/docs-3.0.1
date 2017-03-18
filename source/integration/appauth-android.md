@@ -1,17 +1,17 @@
 # AppAuth Android
 
 ## Overview
-AppAuth for Android is a client SDK for communicating with [OAuth 2.0]
-(https://tools.ietf.org/html/rfc6749) and [OpenID Connect]
-(http://openid.net/specs/openid-connect-core-1_0.html) providers. It 
+AppAuth for Android is a client SDK for communicating with 
+[OAuth 2.0](https://tools.ietf.org/html/rfc6749) and 
+[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) providers. It 
 strives to directly map the requests and responses of those specifications, 
 while following the idiomatic style of the implementation language. In 
 addition to mapping the raw protocol flows, convenience methods are 
 available to assist with common tasks like performing an action with 
 fresh tokens.
 
-The library follows the best practices set out in [OAuth 2.0 for Native Apps]
-(https://tools.ietf.org/html/draft-ietf-oauth-native-apps)
+The library follows the best practices set out in 
+[OAuth 2.0 for Native Apps](https://tools.ietf.org/html/draft-ietf-oauth-native-apps)
 including using
 [Custom Tabs](http://developer.android.com/tools/support-library/features.html#custom-tabs)
 for the auth request. For this reason,
@@ -120,7 +120,7 @@ it is recommended you should manually register client in oxTrust.
 To create client manually in oxTrust, go to [oxTrust Registration](https://ce-dev.gluu.org/oxauth-rp/home.htm) and 
 provide values in the following fields:
 - Registration Endpoint: REGISTRATION_ENDPOINT(obtained from configuration)   
-- Redirect URIs (space-separated): REDIRECT_URI(See [Define redirectURI](#Define redirectURI))
+- Redirect URIs (space-separated): REDIRECT_URI(See [Define redirectURI](####Define redirectURI))
 - Response Types: CODE
 - Grant Types: AUTHORIZATION_CODE
 - Application Type: NATIVE
@@ -290,7 +290,7 @@ of the `AndroidManifest.xml`
     </intent-filter>
 </activity>
 ```
-Note: Skip this step if you've already made these changes under [Define redirectURI](#Define redirectURI) section.
+Note: Skip this step if you've already made these changes under [Define redirectURI](####Define redirectURI) section.
 
 Make sure you've set `myauth_enabled` to true in the config, 
 and your new IdP should show up in the list.
