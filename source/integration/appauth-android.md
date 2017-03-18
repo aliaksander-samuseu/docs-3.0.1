@@ -195,84 +195,24 @@ After completing authorization in custom tab, above custom scheme
 will redirect back to app.
 
 ## Configure the Demo App
-Authorization services can be added to the demo app by defining
-instances of `IdentityProvider`. Assuming a service named 
-`myprovider`, the following steps need to be taken:
- 
-1. The name of the service should be defined in `myprovider_name` 
-in `idp_configs_optional.xml`.
 
-2. If the service supports OpenID Connect, 
-`myprovider_discovery_uri` would be defined in 
-`idp_configs_optional.xml` and set to the discovery URI for the 
-service (e.g. `https://www.myprovider.com/.well-known/openid-configuration`).
-    
-    Otherwise, `myprovider_auth_endpoint_uri` and 
-    `myprovider_token_endpoint_uri` would be defined in 
-    `idp_configs_optional.xml` and set to the authorization and 
-    token endpoint URIs respectively. 
+Replace following `auth_config.json` file of app located at `app/res/raw/auth_config.json` 
+with following content:
 
-3. The default scope string, `myprovider_scope_string`, should be 
-defined in `idp_configs_optional.xml`.
-
-4. A placeholder for the client ID, `myprovider_client_id`, should 
-be defined in `idp_configs.xml`.
-
-5. The redirect URI, `myprovider_redirect_uri`, can be defined in 
-`idp_configs.xml`.
-
-6. An on-off toggle, `myprovider_enabled`, should be defined in 
-`idp_configs.xml` and set to false by default.
-
-7. Button resources representing the IDP should be imported into 
-the relevant directories under res.
-
-This may result in an addition to `idp_configs.xml` that looks 
-like
-
-```
-<bool name="myprovider_enabled">true</bool>
-<string name="myprovider_client_id" translatable="false">YOUR_CLIENT_ID</string>
-<string name="myprovider_redirect_uri" translatable="false">https://demo.myprovider.com/callback</string>
+```json
+{
+  "client_id": "Put ClientId obtained from registration here",
+  "redirect_uri": "Put custom scheme redirect_uri here",
+  "authorization_scope": "openid email profile",
+  "discovery_uri": "https://ce-dev.gluu.org/.well-known/openid-configuration",
+  "authorization_endpoint_uri": "",
+  "token_endpoint_uri": "",
+  "registration_endpoint_uri": "",
+  "https_required": true
+}
 ```
 
-And an addition to `idp_configs_optional.xml` that looks like:
-
-```
-<string name="myprovider_name">Gluu</string>
-<string name="myprovider_scope_string">profile payment location</string>
-<string name="myprovider_auth_endpoint_uri">https://www.myprovider.com/auth</string>
-<string name="myprovider_token_endpoint_uri">https://www.myprovider.com/token</string>
-<string name="myprovider_discovery_uri">https://www.myprovider.com/.well-known/openid-configuration</string>
-```
-
-With these properties defined, a new instance of IdentityProvider 
-can be defined in `IdentityProvider`:
-
-```
-public static final IdentityProvider MYPROVIDER = new IdentityProvider(
-    "MyProvider", // name of the provider, for debug strings
-    R.bool.myprovider_enabled,
-    NOT_SPECIFIED, // discovery document not provided
-    R.string.myprovider_auth_endpoint_uri,
-    R.string.myprovider_token_endpoint_uri,
-    NOT_SPECIFIED, // dynamic registration not supported
-    R.string.myprovider_client_id,
-    R.string.myprovider_auth_redirect_uri,
-    R.string.myprovider_scope_string,
-    R.drawable.btn_myprovider, // your button image asset
-    R.string.myprovider_name,
-    android.R.color.black // text color on the button
-);
-```
-
-And add to `IdentityProvider`'s static list of IDPs, e.g.:
-
-```
-public static final List<IdentityProvider> PROVIDERS = Arrays.asList(MYPROVIDER)
-```
-
-Finally you need to add a new intent-filter to the 
+And need to add a new intent-filter to the 
 `net.openid.appauth.RedirectUriReceiverActivity` activity section 
 of the `AndroidManifest.xml`
 
@@ -291,9 +231,6 @@ of the `AndroidManifest.xml`
 </activity>
 ```
 **Note**: Skip this step if you've already made these changes under section **Define redirectURI** above.
-
-Make sure you've set `myauth_enabled` to true in the config, 
-and your new IdP should show up in the list.
 
 Now, You are all set to run your demo app.
 As soon as app will launch, it will look like this
