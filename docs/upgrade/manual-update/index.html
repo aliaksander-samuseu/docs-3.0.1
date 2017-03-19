@@ -1216,36 +1216,39 @@
 and keep OpenDJ in the server. This guide assumes an Ubuntu operating system. 
 For other operating systems some commands may change.</p>
 <h2 id="upgrade-process">Upgrade Process<a class="headerlink" href="#upgrade-process" title="Permanent link">#</a></h2>
-<p>1. Install 2.4.4 SP2</p>
-<p>2. Log into CE 2.4.4 SP2 and insall it</p>
-<pre><code>service gluu-server-2.4.4.2 start
-service gluu-server-2.4.4.2 login
+<blockquote>
+<p>Note: "x" represents the version (sp2/sp3)</p>
+</blockquote>
+<p>1. Install 2.4.4 SP2/SP3</p>
+<p>2. Log into CE 2.4.4 SP2/SP3 and install it</p>
+<pre><code>service gluu-server-2.4.4.x start
+service gluu-server-2.4.4.x login
 cd /install/community-edition-setup/
 ./setup.py
 </code></pre>
 
-<p>3. Exit and Stop 2.4.4 SP2</p>
+<p>3. Exit and Stop 2.4.4.x SP2/SP3</p>
 <pre><code>exit
-service gluu-server-2.4.4.2 stop
+service gluu-server-2.4.4.x stop
 </code></pre>
 
-<p>4. Disable 2.4.4 SP2 service auto startup</p>
-<pre><code>/usr/sbin/update-rc.d -f gluu-server-2.4.4.2 disable
+<p>4. Disable 2.4.4 SP2/SP3 service auto startup</p>
+<pre><code>/usr/sbin/update-rc.d -f gluu-server-2.4.4.x disable
 </code></pre>
 
 <blockquote>
 <p>For CentOS6.x: 
-- Disable 'gluuserver-2.4.4.2' from startup: <code>chkconfig gluu-server-2.4.4.2 off</code>
-- Check the status of service in init: <code>chkconfig --list | grep gluu-server-2.4.4.2</code></p>
+- Disable 'gluuserver-2.4.4.x' from startup: <code>chkconfig gluu-server-2.4.4.x off</code>
+- Check the status of service in init: <code>chkconfig --list | grep gluu-server-2.4.4.x</code></p>
 </blockquote>
 <p>5. Install 3.0.1 rpm/deb, do not run setup script. </p>
-<p>6. Backup OpenDJ, ox-ldap.properties, salt from 2.4.4 SP2 and copy it into 3.0.1</p>
-<pre><code>cd /opt/gluu-server-2.4.4.2/opt
+<p>6. Backup OpenDJ, ox-ldap.properties, salt from 2.4.4 SP2/SP3 and copy it into 3.0.1</p>
+<pre><code>cd /opt/gluu-server-2.4.4.x/opt
 tar -czf opendj.tar.gz opendj
 cp opendj.tar.gz /opt/gluu-server-3.0.1/opt/
 
-cp /opt/gluu-server-2.4.4.2/opt/apache-tomcat-7.0.65/conf/ox-ldap.properties /opt/gluu-server-3.0.1/tmp
-cp /opt/gluu-server-2.4.4.2/opt/apache-tomcat-7.0.65/conf/salt /opt/gluu-server-3.0.1/tmp
+cp /opt/gluu-server-2.4.4.x/opt/apache-tomcat-7.0.65/conf/ox-ldap.properties /opt/gluu-server-3.0.1/tmp
+cp /opt/gluu-server-2.4.4.x/opt/apache-tomcat-7.0.65/conf/salt /opt/gluu-server-3.0.1/tmp
 </code></pre>
 
 <p>7. Log into CE 3.0.1 and run setup script</p>
@@ -1272,7 +1275,7 @@ service solserver stop
 - Disable in startup: <code>chkconfig solserver off</code>
 - Check the status in init: <code>chkconfig --list | grep solserver</code></p>
 </blockquote>
-<p>11. Restore OpenDJ from 2.4.4 SP2</p>
+<p>11. Restore OpenDJ from 2.4.4 SP2/SP3</p>
 <pre><code>cd /opendj
 rm -rf opendj
 tar -xzf opendj.tar.gz
@@ -1306,21 +1309,21 @@ Perform below operations are user 'ldap'</p>
 <blockquote>
 <p>For CentOS6.x: </p>
 <p>As root, run command: <code>export OPENDJ_JAVA_HOME=/opt/jre; /opt/opendj/bin/create-rc-script --outputFile /etc/init.d/opendj --userName ldap</code> </p>
-<p>Add opendj service in startup: <code>chkconfig opendj on</code></p>
-<p>Check the status of opendj service: <code>chkconfig --list | grep opendj</code></p>
+<p>Add OpenDJ service in startup: <code>chkconfig opendj on</code></p>
+<p>Check the status of OpenDJ service: <code>chkconfig --list | grep opendj</code></p>
 </blockquote>
 <p>14. Update LDAP schema</p>
 <pre><code>cp -f /install/community-edition-setup/static/opendj/deprecated/101-ox.ldif /opt/opendj/config/schema/
 </code></pre>
 
 <p>15. In 3.0.1 user custom attributes objectClass is <code>gluuCustomPerson</code>. It's defined in <code>/opt/opendj/config/schema/77-customAttributes.ldif</code> </p>
-<p>We need to add into it definition custom attributes from 2.4.4 SP2 <code>/opt/opendj/config/schema/100-user.ldif</code>. Old custom attributes <code>objectClass</code> is based on <code>orgInum</code>. Example: <code>ox-6657268F7461C8CE000150DA8011-oid</code></p>
+<p>We need to add into it definition custom attributes from 2.4.4 SP2/SP3 <code>/opt/opendj/config/schema/100-user.ldif</code>. Old custom attributes <code>objectClass</code> is based on <code>orgInum</code>. Example: <code>ox-6657268F7461C8CE000150DA8011-oid</code></p>
 <p>16. Start OpenDJ</p>
 <pre><code>service opendj start
 </code></pre>
 
 <p>17. Verify startup messages in OpenDJ logs: <code>/opt/opendj/logs/server.out and /opt/opendj/logs/errors</code></p>
-<p>18. Restore ox-ldap.properties and salt from CE 2.4.4 SP2</p>
+<p>18. Restore ox-ldap.properties and salt from CE 2.4.4 SP2/SP3</p>
 <pre><code>cd /etc/gluu/conf
 mv ox-ldap.properties ox-ldap.properties.3.0.1
 mv salt salt.3.0.1
@@ -1362,9 +1365,9 @@ service identity start
 <p>22. Update oxTrust CacheRefesh snapshotFolder.
    New snapshotFolder = <code>/var/ox/identity/cr-snapshots</code></p>
 <h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">#</a></h2>
-<p>1. If in 2.4.4 SP2 environment SCIM was enabled we need to do the following:
+<p>1. If in 2.4.4 SP2/SP3 environment SCIM was enabled we need to do the following:
  - Fill new properties: <code>scimUmaClientId</code>, <code>scimUmaClientKeyId</code>, <code>scimUmaResourceId</code>, <code>scimUmaScope</code>, <code>scimUmaClientKeyStoreFile</code>, <code>scimUmaClientKeyStorePassword</code> -- These properties have the same values as before, but in 3.0.1 we added prefix "scim" to all of them.
- - Copy <code>/etc/certs/scim-rs.jks</code> from 2.4.4 SP2 into 3.0.1</p>
+ - Copy <code>/etc/certs/scim-rs.jks</code> from 2.4.4 SP2/SP3 into 3.0.1</p>
               
             </article>
           </div>
