@@ -50,12 +50,12 @@ The properties of a resource is visible in this page. There are two additional b
 ![add-scope](../img/uma/add-scope.png)
 
 ## Scopes
-The scopes in UMA are bount to resource sets and used by policies to check whether the specified user has access to the resource. The scopes are described in JSON and has the following properties:
+UMA scopes are bound to resource sets and used by policies to check whether the specified user should have access to the resource. The scopes are described in JSON and have the following properties:
 
 - name
 - icon\_uri
 
-An example  of the scope JSON is given below:
+An example of the scope JSON is given below:
 
 ```
 {
@@ -65,15 +65,15 @@ An example  of the scope JSON is given below:
 ```
 
 !!! Note
-    Scope JSON may contain custom properties.
+    The scope JSON may contain custom properties.
 
 There are three (3) types of scopes in UMA:
 
-1. `internal`: the scope is hosted within oxAuth in Gluu Server CE
-2. `external`: the scope is hosted in a different server
-3. `external_auto`: the scope is hosted in a different server, but it is added to Gluu Server CE during the resource registration
+1. `internal`: the scope is hosted within the Gluu Server;
+2. `external`: the scope is hosted in a different server;
+3. `external_auto`: the scope is hosted in a different server, but it is added to the Gluu Server during the resource registration.
 
-There is no URI for an internal scope because it sits within oxAuth in the Gluu Server. The UMA URL is represented in the format
+There is no URI for an internal scope because it sits within the Gluu Server. In this case, the UMA URL is represented in the following format:
 
 ```
 UMA URL=uma_scopes_endpoint+"/"+oxId;
@@ -82,7 +82,7 @@ UMA URL=uma_scopes_endpoint+"/"+oxId;
 The following is an example of an UMA URL:
 
 ```
-https://gluu.org/uma/scopes/view
+https://idp.gluu.org/uma/scopes/view
 ```
 
 !!! Note
@@ -114,32 +114,32 @@ oxIconUrl: http://seed.gluu.org/uma/icons/view_scope.png
 ```
 
 ### Add Scope
-This section defines the process of defining UMA scopes from oxTrust. The scopes are accessed from the `Scopes` page under `UMA` from the oxTrust menu.
+This section describes the process of adding UMA scopes in the Gluu Server GUI. Scopes are accessed by navigating to the `Scopes` page under `UMA` in the right hand menu.
 
 ![uma-scopes](../img/uma/uma-scopes.png)
 
-The search bar can be used to look for available scopes. New scopes are added by clicking on the `Add Scope Description` button which will bring up the interface shown below.
+The search bar can be used to find available scopes. New scopes can be added by clicking on the `Add Scope Description` button which will bring up the interface shown below.
 
 ![uma-scopes](../img/uma/scopes-add.png)
 
 Additionally there is an option to add authorization policy with the new scope.
 
 ## UMA Policies
-UMA policies protect UMA Resources via scopes. Gluu Server evaluates all policies, identified by scopes, to grant access to resources. There are three (3) main properties of a policy:
+UMA policies protect UMA resources via scopes. The Gluu Server evaluates all policies, identified by scopes, to grant access to resources. There are three (3) main properties of a policy:
 
-1. scopes: policy protects resources by scopes
-2. authorization script: script that is evaluated in order to grant/deny access
-3. name: a human readable name to the UMA policy
+1. scopes: policy protects resources by scopes; 
+2. authorization script: script that is evaluated in order to grant/deny access; 
+3. name: a human readable name to the UMA policy.
 
 The following section outlines how to define UMA policies from the Custom Script menu. The Custom Script page is accessed by navigating to `Configuration` > `Custom Scripts`.
 
 ![auth-policy](../img/uma/auth-policy.png)
 
 ### UMA Policy Algorithm
-The UMA Policy alrorithm has two rules that are followed. These rules must be followed while writing UMA policy using the custom script feature of Gluu Server.
+The UMA policy algorithm has two rules that must be followed:
 
-- UMA Policy protects resources based on scopes. If a scope is protected by a policy, then the policy script must reutrn `true` in order to authorize access during RPT authorization.
+1. UMA policies protect resources based on scopes. If a scope is protected by a policy, then the policy script must reutrn `true` in order to authorize access during RPT authorization.
 
-- Multiple policies can protect a single scope. In such a case, all the policies must retun `true` to authorize access else aceess will be denied.
+2. Multiple policies can protect a single scope. In such a case, all the policies must retun `true` to authorize access or else aceess will be denied.
 
 ![policy-algorithm](../img/uma/policy-algorithm.jpg) 
