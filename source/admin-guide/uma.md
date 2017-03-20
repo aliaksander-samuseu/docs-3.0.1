@@ -4,18 +4,20 @@ As a profile of OAuth 2.0 that is complementary to OpenID Connect, UMA defines R
 
 UMA defines interfaces between authorization servers (AS) and resource servers (RS) that, by default, enable centralized policy decision-making for improved service delivery, auditing, policy administration, and accountability, even in a very loosely coupled "public API" environment. Custom profiles enable flexibility to move the decision-making line outward to distributed applications, to account for local preferences in API ecosystems. 
 
+For more on the UMA-API in Gluu, see [UMA-API](../api-guide/uma-api.md). 
+
+For more about the specification, visit the [UMA section](https://docs.kantarainitiative.org/uma/rec-uma-core.html) of the Kantara website.
+
 !!! Note
     The Gluu Server functions as an UMA AS and provides an interface for scripting unique policies for access management. To secure your application with UMA RS code, we **strongly recommend** using Gluu’s client software, [oxd](http://oxd.gluu.org).
 
 ### Authorization Policy Expression Language
-UMA does not standardize a policy expression language, enabling flexibility in policy expression and evaluation through XACML, other declarative policy languages, or procedural code as warranted by conditions. It also has a fluid way to handle federated authorization policy.
+UMA does not standardize a policy expression language, enabling flexibility in policy expression and evaluation through XACML, other declarative policy languages, or procedural code as warranted by conditions. 
 
 ### Authentication-Agnostic
 UMA inherits authentication agnosticism from OAuth. It concentrates on authorization, not on authentication. 
 It has been profiled to work with OpenID Connect to gather identity claims from whoever is attempting access, 
 and enables true claims-based authorization (with simple group- or role-based policies a natural subset). 
-For more on UMA-API in Gluu, see [UMA-API](../api-guide/uma-api.md). 
-For more about [UMA](https://docs.kantarainitiative.org/uma/rec-uma-core.html)
 
 ## Resource Registration
 The resources protected by UMA must be registered in oxTrust. The following propterties describe a resource:
