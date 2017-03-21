@@ -58,13 +58,15 @@ File descriptor size can be found using the below command.
 ```
 > Please note command may vary depending on the OS flavor used.
 
-# echo 65535 > /proc/sys/fs/file-max
+```
+echo 65535 > /proc/sys/fs/file-max**
+```
+* Use the `ulimit` command to set the file descriptor limit to the hard limit specified in `/etc/security/limits.conf`.
+
+```
+** ulimit -n unlimited**
 ```
 
-* Use the `ulimit` command to set the file descriptor limit to the hard limit specified in `/etc/security/limits.conf`.
-```
-# ulimit -n unlimited
-```
 !!!Note:
     Centos by default will not accept more than the default maximum of 65535. You may get an error while performing the above command.
 
