@@ -1316,18 +1316,18 @@
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <p>As a profile of OAuth 2.0 that is complementary to OpenID Connect, UMA defines RESTful, JSON-based, standardized flows and constructs for coordinating the protection of any API or web resource in a way that will be familiar to any developer already acquainted with OAuth.</p>
 <p>UMA defines interfaces between authorization servers (AS) and resource servers (RS) that, by default, enable centralized policy decision-making for improved service delivery, auditing, policy administration, and accountability, even in a very loosely coupled "public API" environment. Custom profiles enable flexibility to move the decision-making line outward to distributed applications, to account for local preferences in API ecosystems. </p>
+<p>For more on the UMA-API in Gluu, see <a href="../../api-guide/uma-api/">UMA-API</a>. </p>
+<p>For more about the specification, visit the <a href="https://docs.kantarainitiative.org/uma/rec-uma-core.html">UMA section</a> of the Kantara website.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The Gluu Server functions as an UMA AS and provides an interface for scripting unique policies for access management. To secure your application with UMA RS code, we <strong>strongly recommend</strong> using Gluu’s client software, <a href="http://oxd.gluu.org">oxd</a>.</p>
 </div>
 <h3 id="authorization-policy-expression-language">Authorization Policy Expression Language<a class="headerlink" href="#authorization-policy-expression-language" title="Permanent link">#</a></h3>
-<p>UMA does not standardize a policy expression language, enabling flexibility in policy expression and evaluation through XACML, other declarative policy languages, or procedural code as warranted by conditions. It also has a fluid way to handle federated authorization policy.</p>
+<p>UMA does not standardize a policy expression language, enabling flexibility in policy expression and evaluation through XACML, other declarative policy languages, or procedural code as warranted by conditions. </p>
 <h3 id="authentication-agnostic">Authentication-Agnostic<a class="headerlink" href="#authentication-agnostic" title="Permanent link">#</a></h3>
 <p>UMA inherits authentication agnosticism from OAuth. It concentrates on authorization, not on authentication. 
 It has been profiled to work with OpenID Connect to gather identity claims from whoever is attempting access, 
-and enables true claims-based authorization (with simple group- or role-based policies a natural subset). 
-For more on UMA-API in Gluu, see <a href="../../api-guide/uma-api/">UMA-API</a>. 
-For more about <a href="https://docs.kantarainitiative.org/uma/rec-uma-core.html">UMA</a></p>
+and enables true claims-based authorization (with simple group- or role-based policies a natural subset). </p>
 <h2 id="resource-registration">Resource Registration<a class="headerlink" href="#resource-registration" title="Permanent link">#</a></h2>
 <p>The resources protected by UMA must be registered in oxTrust. The following propterties describe a resource:</p>
 <ul>
@@ -1354,12 +1354,12 @@ For more about <a href="https://docs.kantarainitiative.org/uma/rec-uma-core.html
 <p><img alt="add-resource" src="../../img/uma/add-resource.png" /></p>
 <p><img alt="add-scope" src="../../img/uma/add-scope.png" /></p>
 <h2 id="scopes">Scopes<a class="headerlink" href="#scopes" title="Permanent link">#</a></h2>
-<p>The scopes in UMA are bount to resource sets and used by policies to check whether the specified user has access to the resource. The scopes are described in JSON and has the following properties:</p>
+<p>UMA scopes are bound to resource sets and used by policies to check whether the specified user should have access to the resource. The scopes are described in JSON and have the following properties:</p>
 <ul>
 <li>name</li>
 <li>icon_uri</li>
 </ul>
-<p>An example  of the scope JSON is given below:</p>
+<p>An example of the scope JSON is given below:</p>
 <pre><code>{
   &quot;name&quot;: &quot;Add photo&quot;,
   &quot;icon_uri&quot;: &quot;http://www.gluu.org/icons/add_photo_scope.png&quot;
@@ -1368,20 +1368,20 @@ For more about <a href="https://docs.kantarainitiative.org/uma/rec-uma-core.html
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Scope JSON may contain custom properties.</p>
+<p>The scope JSON may contain custom properties.</p>
 </div>
 <p>There are three (3) types of scopes in UMA:</p>
 <ol>
-<li><code>internal</code>: the scope is hosted within oxAuth in Gluu Server CE</li>
-<li><code>external</code>: the scope is hosted in a different server</li>
-<li><code>external_auto</code>: the scope is hosted in a different server, but it is added to Gluu Server CE during the resource registration</li>
+<li><code>internal</code>: the scope is hosted within the Gluu Server;</li>
+<li><code>external</code>: the scope is hosted in a different server;</li>
+<li><code>external_auto</code>: the scope is hosted in a different server, but it is added to the Gluu Server during the resource registration.</li>
 </ol>
-<p>There is no URI for an internal scope because it sits within oxAuth in the Gluu Server. The UMA URL is represented in the format</p>
+<p>There is no URI for an internal scope because it sits within the Gluu Server. In this case, the UMA URL is represented in the following format:</p>
 <pre><code>UMA URL=uma_scopes_endpoint+&quot;/&quot;+oxId;
 </code></pre>
 
 <p>The following is an example of an UMA URL:</p>
-<pre><code>https://gluu.org/uma/scopes/view
+<pre><code>https://idp.gluu.org/uma/scopes/view
 </code></pre>
 
 <div class="admonition note">
@@ -1411,30 +1411,30 @@ oxIconUrl: http://seed.gluu.org/uma/icons/view_scope.png
 </code></pre>
 
 <h3 id="add-scope">Add Scope<a class="headerlink" href="#add-scope" title="Permanent link">#</a></h3>
-<p>This section defines the process of defining UMA scopes from oxTrust. The scopes are accessed from the <code>Scopes</code> page under <code>UMA</code> from the oxTrust menu.</p>
+<p>This section describes the process of adding UMA scopes in the Gluu Server GUI. Scopes are accessed by navigating to the <code>Scopes</code> page under <code>UMA</code> in the right hand menu.</p>
 <p><img alt="uma-scopes" src="../../img/uma/uma-scopes.png" /></p>
-<p>The search bar can be used to look for available scopes. New scopes are added by clicking on the <code>Add Scope Description</code> button which will bring up the interface shown below.</p>
+<p>The search bar can be used to find available scopes. New scopes can be added by clicking on the <code>Add Scope Description</code> button which will bring up the interface shown below.</p>
 <p><img alt="uma-scopes" src="../../img/uma/scopes-add.png" /></p>
 <p>Additionally there is an option to add authorization policy with the new scope.</p>
 <h2 id="uma-policies">UMA Policies<a class="headerlink" href="#uma-policies" title="Permanent link">#</a></h2>
-<p>UMA policies protect UMA Resources via scopes. Gluu Server evaluates all policies, identified by scopes, to grant access to resources. There are three (3) main properties of a policy:</p>
+<p>UMA policies protect UMA resources via scopes. The Gluu Server evaluates all policies, identified by scopes, to grant access to resources. There are three (3) main properties of a policy:</p>
 <ol>
-<li>scopes: policy protects resources by scopes</li>
-<li>authorization script: script that is evaluated in order to grant/deny access</li>
-<li>name: a human readable name to the UMA policy</li>
+<li>scopes: policy protects resources by scopes; </li>
+<li>authorization script: script that is evaluated in order to grant/deny access; </li>
+<li>name: a human readable name to the UMA policy.</li>
 </ol>
 <p>The following section outlines how to define UMA policies from the Custom Script menu. The Custom Script page is accessed by navigating to <code>Configuration</code> &gt; <code>Custom Scripts</code>.</p>
 <p><img alt="auth-policy" src="../../img/uma/auth-policy.png" /></p>
 <h3 id="uma-policy-algorithm">UMA Policy Algorithm<a class="headerlink" href="#uma-policy-algorithm" title="Permanent link">#</a></h3>
-<p>The UMA Policy alrorithm has two rules that are followed. These rules must be followed while writing UMA policy using the custom script feature of Gluu Server.</p>
-<ul>
+<p>The UMA policy algorithm has two rules that must be followed:</p>
+<ol>
 <li>
-<p>UMA Policy protects resources based on scopes. If a scope is protected by a policy, then the policy script must reutrn <code>true</code> in order to authorize access during RPT authorization.</p>
+<p>UMA policies protect resources based on scopes. If a scope is protected by a policy, then the policy script must reutrn <code>true</code> in order to authorize access during RPT authorization.</p>
 </li>
 <li>
-<p>Multiple policies can protect a single scope. In such a case, all the policies must retun <code>true</code> to authorize access else aceess will be denied.</p>
+<p>Multiple policies can protect a single scope. In such a case, all the policies must retun <code>true</code> to authorize access or else aceess will be denied.</p>
 </li>
-</ul>
+</ol>
 <p><img alt="policy-algorithm" src="../../img/uma/policy-algorithm.jpg" /> </p>
               
             </article>
