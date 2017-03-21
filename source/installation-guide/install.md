@@ -11,10 +11,10 @@ installation procedure is similar across all the distributions:
     Make sure your VM or server meets the [minimum requirements](../installation-guide/index.md) to deploy the Gluu Server.  
 
 ## Install Gluu Server Package
-!!!Note
-   Installation of Gluu server will be done under /root and 
-   Gluu CE server will creates its file system under /root/and will be installed under /opt. 
-   File size and [minimum requirements](../installation-guide/index.md) remains the same as the host.
+
+!!! Note
+   Installation of Gluu server will be done under /root and Gluu CE server will creates its file system under /root/and will be installed under /opt. File size and [minimum requirements](../installation-guide/index.md) remains the same as the host.
+   
 ### Ubuntu Server 14.04.x
 
 | Command Description     |               Trusty Commands         |
