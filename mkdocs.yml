@@ -83,5 +83,5 @@ pages:
         - 'Customize Login Page': 'operation/custom-loginpage.md'
         #       - 'Fine Tuning Gluu Server' : 'admin-guide/fine-tuning.md'
 - Developer Guide:
-        - 'Build OxTrust with Eclipse': 'developer-guide/oxtrust-eclipse.md'
+        - 'Build oxTrust with Eclipse': 'developer-guide/oxtrust-eclipse.md'
 
