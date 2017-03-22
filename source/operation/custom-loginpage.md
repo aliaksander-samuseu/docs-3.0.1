@@ -3,8 +3,8 @@
 ## Style Customizations
 Static style elements like CSS, JavaScript and images are packaged into
 separate jar files. They are named _\<ProjectName\>_ Static-
-_\<version\>_ .jar, e.g. 'oxTrustStatic-1.3.0.Final.jar' and
-'oxAuthStatic-1.4.0x.Final.jar'. These files are added to the deployable
+_\<version\>_ .jar, e.g. `oxTrustStatic-1.3.0.Final.jar` and
+`oxAuthStatic-1.4.0x.Final.jar`. These files are added to the deployable
 war during build time.
 
 Post deployment, the structure of the jar allows its context to be
