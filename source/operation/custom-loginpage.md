@@ -1,7 +1,4 @@
 # Customize Login Page
-
-Gluu provides you with the feasibility to customize your login page and styles as per the 
-organization standards.
  
 ## Style Customizations
 Static style elements like CSS, JavaScript and images are packaged into
