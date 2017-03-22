@@ -1,4 +1,4 @@
-# Customizing the Login Page
+# Customizing Gluu Server Pages
  
 ## Style Customizations
 Static style elements like CSS, JavaScript and images are packaged into
