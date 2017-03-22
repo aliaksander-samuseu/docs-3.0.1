@@ -24,15 +24,16 @@ and imgLocation attributes in the file `oxTrust.properties` and/or in
 
 * Images: The location is specified using the property `imgLocation`.
 
-For example, in `oxTrust.properties` it looks like that:
+For example, in `oxTrust.properties` it looks like this:
 
 ```
 cssLocation=https://idp.gluu.org/static/stylesheet
 jsLocation=https://idp.gluu.org/static/js
 imgLocation=https://idp.gluu.org/static/img
 ```
+
 In the file `oxauth-config.xml` (as a children of \<configuration\>
-node) it looks like that:
+node) it looks like this:
 
 ```
 <cssLocation>https://idp.gluu.org/static/stylesheet</cssLocation>
