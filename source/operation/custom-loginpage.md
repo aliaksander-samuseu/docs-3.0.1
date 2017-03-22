@@ -48,9 +48,9 @@ important element is deleted from the pages.
 
 The availbale pages are inside the two directories 
 
-`/opt/jetty-9.3/temp/jetty-localhost-8082-identity.war-_identity-any-{random number}.dir`
+`/opt/jetty-9.3/temp/jetty-localhost-8082-identity.war-_identity-any-{random number}.dir`     
 
-`opt/jetty-9.3/temp/jetty-localhost-8081-oxauth.war-_oxauth-any-{random number}.dir`.
+`opt/jetty-9.3/temp/jetty-localhost-8081-oxauth.war-_oxauth-any-{random number}.dir`.       
 
 oxAuth Pages:
 
@@ -66,7 +66,7 @@ oxTrust Pages:
 To remove the Gluu copyright icon from your login page, 
 navigate to the file template.xhtml that is located under
  
-`/opt/jetty-9.3/temp/jetty-localhost-8082-identity.war-_identity-any-{random number}.dir/webapp/WEB-INF/incl/layout`. 
+`/opt/jetty-9.3/temp/jetty-localhost-8082-identity.war-_identity-any-{random number}.dir/webapp/WEB-INF/incl/layout`.     
 
 Then, simply remove this snippet:
 
@@ -103,21 +103,21 @@ The structure can be illustrated as follows:
 
 Customized `libs` are to be placed under 
 
-`/opt/gluu/jetty/identity/lib/ext`
-`/opt/gluu/jetty/oxauth/lib/ext`
+`/opt/gluu/jetty/identity/lib/ext`    
+`/opt/gluu/jetty/oxauth/lib/ext`     
 
 Custom `xhtml`, `page.xml`, etc should be placed under 
 
-`/opt/gluu/jetty/identity/custom/pages`
-`/opt/gluu/jetty/oxauth/custom/pages`
+`/opt/gluu/jetty/identity/custom/pages`    
+`/opt/gluu/jetty/oxauth/custom/pages`    
 
 To place static resources like `jpg`, `css`, etc are placed under the below folder
 
-`/opt/gluu/jetty/identity/custom/static`
-`/opt/gluu/jetty/oxauth/custom/static`
+`/opt/gluu/jetty/identity/custom/static`      
+`/opt/gluu/jetty/oxauth/custom/static`       
 
 To avoid collisions with static resources 
-from war files, Gluu maps this folder to next URL: `/{oxauth|identity}/ext/resources`
+from war files, Gluu maps this folder to next URL: `/{oxauth|identity}/ext/resources`     
 
 !!! Warning:
         Log into the Gluu Server chroot before working on the customized pages
@@ -125,8 +125,8 @@ from war files, Gluu maps this folder to next URL: `/{oxauth|identity}/ext/resou
 * Please make way to the default pages folder to copy the default file to the external resource folder.
 
 ```
-# cd /opt/jetty-9.3/temp/jetty-localhost-8081-oxauth.war-_oxauth-any-{random number}.dir/webapp/
-# cp login.xhtml /opt/gluu/jetty/oxauth/custom/pages 
+# cd /opt/jetty-9.3/temp/jetty-localhost-8081-oxauth.war-_oxauth-any-{random number}.dir/webapp/    
+# cp login.xhtml /opt/gluu/jetty/oxauth/custom/pages     
 ```
 
 The example above shows that the `login.xhtml` file is copied to the external pages. 
