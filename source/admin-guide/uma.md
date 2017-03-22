@@ -4,9 +4,9 @@ As a profile of OAuth 2.0 that is complementary to OpenID Connect, UMA defines R
 
 UMA defines interfaces between authorization servers (AS) and resource servers (RS) that, by default, enable centralized policy decision-making for improved service delivery, auditing, policy administration, and accountability, even in a very loosely coupled "public API" environment. Custom profiles enable flexibility to move the decision-making line outward to distributed applications, to account for local preferences in API ecosystems. 
 
-For more on the UMA-API in Gluu, see [UMA-API](../api-guide/uma-api.md). 
+Learn more about the Gluu Server's [UMA-API](../api-guide/uma-api.md). 
 
-For more about the specification, visit the [UMA section](https://docs.kantarainitiative.org/uma/rec-uma-core.html) of the Kantara website.
+Learn more about the [UMA specification](https://docs.kantarainitiative.org/uma/rec-uma-core.html) on Kantara's website.
 
 !!! Note
     The Gluu Server functions as an UMA AS and provides an interface for scripting unique policies for access management. To secure your application with UMA RS code, we **strongly recommend** using Gluu’s client software, [oxd](http://oxd.gluu.org).
