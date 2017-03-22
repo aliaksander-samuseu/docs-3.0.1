@@ -37,15 +37,15 @@ The resource type can be a string, URI or any other supported value type support
 ```
 
 !!! Note
-    Resource JSON may contain custom properties.
+    The resource JSON may contain custom properties.
 
 ![uma-resources](../img/uma/uma-resources.png)
 
-The search bar can be used to search for any existing resource within Gluu Server. New resoruces can be added by clicking on the `Add Resource Set` button. The following screenshot shows the page that will appear up on clicking the add resource button.
+The search bar can be used to search for existing resources within the Gluu Server. New resources can be added by clicking on the `Add Resource Set` button. The following screenshot shows the page that will appear:
 
 ![add-resource-set](../img/uma/add-resource-set.png)
 
-The properties of a resource is visible in this page. There are two additional buttons that allows the administrator to add specific resource or scope as well. By default, Gluu Server is shipped with SCIM resources protected by UMA.
+The properties of a resource are visible on this page. There are two additional buttons that allow the administrator to add specific resources and/or scopes. By default, Gluu Server is shipped with SCIM resources protected by UMA.
 
 ![add-resource](../img/uma/add-resource.png)
 
@@ -75,13 +75,13 @@ There are three (3) types of scopes in UMA:
 2. `external`: the scope is hosted in a different server;
 3. `external_auto`: the scope is hosted in a different server, but it is added to the Gluu Server during the resource registration.
 
-There is no URI for an internal scope because it sits within the Gluu Server. In this case, the UMA URL is represented in the following format:
+There is no URI for an internal scope because it resides within the Gluu Server. In this case, the UMA URL is represented in the following format:
 
 ```
 UMA URL=uma_scopes_endpoint+"/"+oxId;
 ```
 
-The following is an example of an UMA URL:
+The following is an example what an UMA URL may look like:
 
 ```
 https://idp.gluu.org/uma/scopes/view
@@ -90,18 +90,7 @@ https://idp.gluu.org/uma/scopes/view
 !!! Note
     The scope endpoint has to be present in UMA configuration to make it discoverable.
 
-The `ldif` for both external and internal scope is given below:
-
-**External sample ldif**
-```
-dn: inum=@!1111!8990!BF80,ou=scopes,ou=uma,o=@!1111,o=gluu
-displayName: View
-inum: @!1111!8990!BF80
-objectClass: oxAuthUmaScopeDescription
-objectClass: top
-oxType: external
-oxUrl: http://photoz.example.com/dev/scopes/view
-```
+The `ldif` for both an internal and external scope is given below:
 
 **Internal sample ldif**
 ```
@@ -115,12 +104,23 @@ oxId: View
 oxIconUrl: http://seed.gluu.org/uma/icons/view_scope.png
 ```
 
-### Add Scope
+**External sample ldif**
+```
+dn: inum=@!1111!8990!BF80,ou=scopes,ou=uma,o=@!1111,o=gluu
+displayName: View
+inum: @!1111!8990!BF80
+objectClass: oxAuthUmaScopeDescription
+objectClass: top
+oxType: external
+oxUrl: http://photoz.example.com/dev/scopes/view
+```
+
+### Add Scopes
 This section describes the process of adding UMA scopes in the Gluu Server GUI. Scopes are accessed by navigating to the `Scopes` page under `UMA` in the right hand menu.
 
 ![uma-scopes](../img/uma/uma-scopes.png)
 
-The search bar can be used to find available scopes. New scopes can be added by clicking on the `Add Scope Description` button which will bring up the interface shown below.
+The search bar can be used to find available scopes. New scopes can be added by clicking on the `Add Scope Description` button which will bring up the interface shown below:
 
 ![uma-scopes](../img/uma/scopes-add.png)
 
