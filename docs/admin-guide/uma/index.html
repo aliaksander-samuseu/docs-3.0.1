@@ -653,8 +653,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#add-scope" title="Add Scope" class="md-nav__link">
-    Add Scope
+  <a href="#add-scopes" title="Add Scopes" class="md-nav__link">
+    Add Scopes
   </a>
   
 </li>
@@ -1191,8 +1191,8 @@
           
   <li class="md-nav__item">
     
-      <a href="../../developer-guide/oxtrust-eclipse/" title="Build OxTrust with Eclipse" class="md-nav__link">
-        Build OxTrust with Eclipse
+      <a href="../../developer-guide/oxtrust-eclipse/" title="Build oxTrust with Eclipse" class="md-nav__link">
+        Build oxTrust with Eclipse
       </a>
     
   </li>
@@ -1266,8 +1266,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#add-scope" title="Add Scope" class="md-nav__link">
-    Add Scope
+  <a href="#add-scopes" title="Add Scopes" class="md-nav__link">
+    Add Scopes
   </a>
   
 </li>
@@ -1316,8 +1316,8 @@
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <p>As a profile of OAuth 2.0 that is complementary to OpenID Connect, UMA defines RESTful, JSON-based, standardized flows and constructs for coordinating the protection of any API or web resource in a way that will be familiar to any developer already acquainted with OAuth.</p>
 <p>UMA defines interfaces between authorization servers (AS) and resource servers (RS) that, by default, enable centralized policy decision-making for improved service delivery, auditing, policy administration, and accountability, even in a very loosely coupled "public API" environment. Custom profiles enable flexibility to move the decision-making line outward to distributed applications, to account for local preferences in API ecosystems. </p>
-<p>For more on the UMA-API in Gluu, see <a href="../../api-guide/uma-api/">UMA-API</a>. </p>
-<p>For more about the specification, visit the <a href="https://docs.kantarainitiative.org/uma/rec-uma-core.html">UMA section</a> of the Kantara website.</p>
+<p>Learn more about the Gluu Server's <a href="../../api-guide/uma-api/">UMA-API</a>. </p>
+<p>Learn more about the <a href="https://docs.kantarainitiative.org/uma/rec-uma-core.html">UMA specification</a> on Kantara's website.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The Gluu Server functions as an UMA AS and provides an interface for scripting unique policies for access management. To secure your application with UMA RS code, we <strong>strongly recommend</strong> using Gluu’s client software, <a href="http://oxd.gluu.org">oxd</a>.</p>
@@ -1345,12 +1345,12 @@ and enables true claims-based authorization (with simple group- or role-based po
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Resource JSON may contain custom properties.</p>
+<p>The resource JSON may contain custom properties.</p>
 </div>
 <p><img alt="uma-resources" src="../../img/uma/uma-resources.png" /></p>
-<p>The search bar can be used to search for any existing resource within Gluu Server. New resoruces can be added by clicking on the <code>Add Resource Set</code> button. The following screenshot shows the page that will appear up on clicking the add resource button.</p>
+<p>The search bar can be used to search for existing resources within the Gluu Server. New resources can be added by clicking on the <code>Add Resource Set</code> button. The following screenshot shows the page that will appear:</p>
 <p><img alt="add-resource-set" src="../../img/uma/add-resource-set.png" /></p>
-<p>The properties of a resource is visible in this page. There are two additional buttons that allows the administrator to add specific resource or scope as well. By default, Gluu Server is shipped with SCIM resources protected by UMA.</p>
+<p>The properties of a resource are visible on this page. There are two additional buttons that allow the administrator to add specific resources and/or scopes. By default, Gluu Server is shipped with SCIM resources protected by UMA.</p>
 <p><img alt="add-resource" src="../../img/uma/add-resource.png" /></p>
 <p><img alt="add-scope" src="../../img/uma/add-scope.png" /></p>
 <h2 id="scopes">Scopes<a class="headerlink" href="#scopes" title="Permanent link">#</a></h2>
@@ -1376,11 +1376,11 @@ and enables true claims-based authorization (with simple group- or role-based po
 <li><code>external</code>: the scope is hosted in a different server;</li>
 <li><code>external_auto</code>: the scope is hosted in a different server, but it is added to the Gluu Server during the resource registration.</li>
 </ol>
-<p>There is no URI for an internal scope because it sits within the Gluu Server. In this case, the UMA URL is represented in the following format:</p>
+<p>There is no URI for an internal scope because it resides within the Gluu Server. In this case, the UMA URL is represented in the following format:</p>
 <pre><code>UMA URL=uma_scopes_endpoint+&quot;/&quot;+oxId;
 </code></pre>
 
-<p>The following is an example of an UMA URL:</p>
+<p>The following is an example what an UMA URL may look like:</p>
 <pre><code>https://idp.gluu.org/uma/scopes/view
 </code></pre>
 
@@ -1388,17 +1388,7 @@ and enables true claims-based authorization (with simple group- or role-based po
 <p class="admonition-title">Note</p>
 <p>The scope endpoint has to be present in UMA configuration to make it discoverable.</p>
 </div>
-<p>The <code>ldif</code> for both external and internal scope is given below:</p>
-<p><strong>External sample ldif</strong></p>
-<pre><code>dn: inum=@!1111!8990!BF80,ou=scopes,ou=uma,o=@!1111,o=gluu
-displayName: View
-inum: @!1111!8990!BF80
-objectClass: oxAuthUmaScopeDescription
-objectClass: top
-oxType: external
-oxUrl: http://photoz.example.com/dev/scopes/view
-</code></pre>
-
+<p>The <code>ldif</code> for both an internal and external scope is given below:</p>
 <p><strong>Internal sample ldif</strong></p>
 <pre><code>dn: inum=@!1111!8990!BF80,ou=scopes,ou=uma,o=@!1111,o=gluu
 displayName: View
@@ -1410,10 +1400,20 @@ oxId: View
 oxIconUrl: http://seed.gluu.org/uma/icons/view_scope.png
 </code></pre>
 
-<h3 id="add-scope">Add Scope<a class="headerlink" href="#add-scope" title="Permanent link">#</a></h3>
+<p><strong>External sample ldif</strong></p>
+<pre><code>dn: inum=@!1111!8990!BF80,ou=scopes,ou=uma,o=@!1111,o=gluu
+displayName: View
+inum: @!1111!8990!BF80
+objectClass: oxAuthUmaScopeDescription
+objectClass: top
+oxType: external
+oxUrl: http://photoz.example.com/dev/scopes/view
+</code></pre>
+
+<h3 id="add-scopes">Add Scopes<a class="headerlink" href="#add-scopes" title="Permanent link">#</a></h3>
 <p>This section describes the process of adding UMA scopes in the Gluu Server GUI. Scopes are accessed by navigating to the <code>Scopes</code> page under <code>UMA</code> in the right hand menu.</p>
 <p><img alt="uma-scopes" src="../../img/uma/uma-scopes.png" /></p>
-<p>The search bar can be used to find available scopes. New scopes can be added by clicking on the <code>Add Scope Description</code> button which will bring up the interface shown below.</p>
+<p>The search bar can be used to find available scopes. New scopes can be added by clicking on the <code>Add Scope Description</code> button which will bring up the interface shown below:</p>
 <p><img alt="uma-scopes" src="../../img/uma/scopes-add.png" /></p>
 <p>Additionally there is an option to add authorization policy with the new scope.</p>
 <h2 id="uma-policies">UMA Policies<a class="headerlink" href="#uma-policies" title="Permanent link">#</a></h2>

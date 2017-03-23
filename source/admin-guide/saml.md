@@ -173,13 +173,20 @@ Please see the [custom attributes](#custom-attributes) section above to learn ho
 ```
  <resolver:AttributeDefinition id="testcustomattribute" xsi:type="Simple"
                               xmlns="urn:mace:shibboleth:2.0:resolver:ad"
-                              sourceAttributeID="uid">
+                              sourceAttributeID="email">
 
         <resolver:Dependency ref="siteLDAP"/>
         <resolver:AttributeEncoder xsi:type="SAML2StringNameID"
                                 xmlns="urn:mace:shibboleth:2.0:attribute:encoder"
-                                nameFormat="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent" />
+                                nameFormat="urn:oasis:names:tc:SAML:2.0:nameid-format:email" />
 </resolver:AttributeDefinition> 
+```
+* Update /opt/shibboleth-idp/conf/saml-nameid.xml to generate SAML 2 NameID content
+
+```
+    <bean parent="shibboleth.SAML2AttributeSourcedGenerator" 
+          p:format="urn:oasis:names:tc:SAML:2.0:nameid-format:email"
+          p:attributeSourceIds="#{ {'testcustomattribute'} }"/>
 ```
 * Restart identity service using below command
 

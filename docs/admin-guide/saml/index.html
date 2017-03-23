@@ -1274,8 +1274,8 @@
           
   <li class="md-nav__item">
     
-      <a href="../../developer-guide/oxtrust-eclipse/" title="Build OxTrust with Eclipse" class="md-nav__link">
-        Build OxTrust with Eclipse
+      <a href="../../developer-guide/oxtrust-eclipse/" title="Build oxTrust with Eclipse" class="md-nav__link">
+        Build oxTrust with Eclipse
       </a>
     
   </li>
@@ -1653,13 +1653,21 @@ Please see the <a href="#custom-attributes">custom attributes</a> section above 
 </ul>
 <pre><code> &lt;resolver:AttributeDefinition id=&quot;testcustomattribute&quot; xsi:type=&quot;Simple&quot;
                               xmlns=&quot;urn:mace:shibboleth:2.0:resolver:ad&quot;
-                              sourceAttributeID=&quot;uid&quot;&gt;
+                              sourceAttributeID=&quot;email&quot;&gt;
 
         &lt;resolver:Dependency ref=&quot;siteLDAP&quot;/&gt;
         &lt;resolver:AttributeEncoder xsi:type=&quot;SAML2StringNameID&quot;
                                 xmlns=&quot;urn:mace:shibboleth:2.0:attribute:encoder&quot;
-                                nameFormat=&quot;urn:oasis:names:tc:SAML:2.0:nameid-format:persistent&quot; /&gt;
+                                nameFormat=&quot;urn:oasis:names:tc:SAML:2.0:nameid-format:email&quot; /&gt;
 &lt;/resolver:AttributeDefinition&gt; 
+</code></pre>
+
+<ul>
+<li>Update /opt/shibboleth-idp/conf/saml-nameid.xml to generate SAML 2 NameID content</li>
+</ul>
+<pre><code>    &lt;bean parent=&quot;shibboleth.SAML2AttributeSourcedGenerator&quot; 
+          p:format=&quot;urn:oasis:names:tc:SAML:2.0:nameid-format:email&quot;
+          p:attributeSourceIds=&quot;#{ {'testcustomattribute'} }&quot;/&gt;
 </code></pre>
 
 <ul>

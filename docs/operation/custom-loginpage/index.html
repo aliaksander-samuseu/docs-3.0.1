@@ -1145,8 +1145,8 @@
           
   <li class="md-nav__item">
     
-      <a href="../../developer-guide/oxtrust-eclipse/" title="Build OxTrust with Eclipse" class="md-nav__link">
-        Build OxTrust with Eclipse
+      <a href="../../developer-guide/oxtrust-eclipse/" title="Build oxTrust with Eclipse" class="md-nav__link">
+        Build oxTrust with Eclipse
       </a>
     
   </li>
@@ -1220,14 +1220,12 @@
                
               
                 
-                <h1 id="customize-login-page">Customize Login Page<a class="headerlink" href="#customize-login-page" title="Permanent link">#</a></h1>
-<p>Gluu provides you with the feasibility to customize your login page and styles as per the 
-organization standards.</p>
+                <h1 id="customizing-the-login-page">Customizing the Login Page<a class="headerlink" href="#customizing-the-login-page" title="Permanent link">#</a></h1>
 <h2 id="style-customizations">Style Customizations<a class="headerlink" href="#style-customizations" title="Permanent link">#</a></h2>
 <p>Static style elements like CSS, JavaScript and images are packaged into
 separate jar files. They are named <em>\&lt;ProjectName></em> Static-
-<em>\&lt;version></em> .jar, e.g. 'oxTrustStatic-1.3.0.Final.jar' and
-'oxAuthStatic-1.4.0x.Final.jar'. These files are added to the deployable
+<em>\&lt;version></em> .jar, e.g. <code>oxTrustStatic-1.3.0.Final.jar</code> and
+<code>oxAuthStatic-1.4.0x.Final.jar</code>. These files are added to the deployable
 war during build time.</p>
 <p>Post deployment, the structure of the jar allows its context to be
 accessible from the Web context root. For example, the default values of
@@ -1248,14 +1246,14 @@ and imgLocation attributes in the file <code>oxTrust.properties</code> and/or in
 <p>Images: The location is specified using the property <code>imgLocation</code>.</p>
 </li>
 </ul>
-<p>For example, in <code>oxTrust.properties</code> it looks like that:</p>
+<p>For example, in <code>oxTrust.properties</code> it looks like this:</p>
 <pre><code>cssLocation=https://idp.gluu.org/static/stylesheet
 jsLocation=https://idp.gluu.org/static/js
 imgLocation=https://idp.gluu.org/static/img
 </code></pre>
 
 <p>In the file <code>oxauth-config.xml</code> (as a children of \&lt;configuration>
-node) it looks like that:</p>
+node) it looks like this:</p>
 <pre><code>&lt;cssLocation&gt;https://idp.gluu.org/static/stylesheet&lt;/cssLocation&gt;
 &lt;jsLocation&gt;=https://idp.gluu.org/static/js&lt;jsLocation&gt;
 &lt;imgLocation&gt;=https://idp.gluu.org/static/img&lt;imgLocation&gt;
@@ -1267,8 +1265,8 @@ withour requiring the building of new war file. The files are in the
 <code>xhtml</code> format and it is recommended to take backups so that no 
 important element is deleted from the pages.</p>
 <p>The availbale pages are inside the two directories </p>
-<p><code>/opt/jetty-9.3/temp/jetty-localhost-8082-identity.war-_identity-any-{random number}.dir</code></p>
-<p><code>opt/jetty-9.3/temp/jetty-localhost-8081-oxauth.war-_oxauth-any-{random number}.dir</code>.</p>
+<p><code>/opt/jetty-9.3/temp/jetty-localhost-8082-identity.war-_identity-any-{random number}.dir</code>     </p>
+<p><code>opt/jetty-9.3/temp/jetty-localhost-8081-oxauth.war-_oxauth-any-{random number}.dir</code>.       </p>
 <p>oxAuth Pages:</p>
 <ul>
 <li>Default login page: <code>/opt/jetty-9.3/temp/jetty-localhost-8081-oxauth.war-_oxauth-any-{random number}.dir/webapp/login.xhtml</code></li>
@@ -1282,7 +1280,7 @@ important element is deleted from the pages.</p>
 </ul>
 <p>To remove the Gluu copyright icon from your login page, 
 navigate to the file template.xhtml that is located under</p>
-<p><code>/opt/jetty-9.3/temp/jetty-localhost-8082-identity.war-_identity-any-{random number}.dir/webapp/WEB-INF/incl/layout</code>. </p>
+<p><code>/opt/jetty-9.3/temp/jetty-localhost-8082-identity.war-_identity-any-{random number}.dir/webapp/WEB-INF/incl/layout</code>.     </p>
 <p>Then, simply remove this snippet:</p>
 <pre><code>&lt;s:fragment rendered=&quot;#{not isLogin}&quot;&gt;
     &lt;div class=&quot;footer&quot;&gt;
@@ -1311,16 +1309,16 @@ The <code>/opt/gluu/jetty/</code> folder contains the <code>oxauth</code> and <c
 </code></pre>
 
 <p>Customized <code>libs</code> are to be placed under </p>
-<p><code>/opt/gluu/jetty/identity/lib/ext</code>
-<code>/opt/gluu/jetty/oxauth/lib/ext</code></p>
+<p><code>/opt/gluu/jetty/identity/lib/ext</code>  <br />
+<code>/opt/gluu/jetty/oxauth/lib/ext</code>     </p>
 <p>Custom <code>xhtml</code>, <code>page.xml</code>, etc should be placed under </p>
-<p><code>/opt/gluu/jetty/identity/custom/pages</code>
-<code>/opt/gluu/jetty/oxauth/custom/pages</code></p>
+<p><code>/opt/gluu/jetty/identity/custom/pages</code>  <br />
+<code>/opt/gluu/jetty/oxauth/custom/pages</code>    </p>
 <p>To place static resources like <code>jpg</code>, <code>css</code>, etc are placed under the below folder</p>
-<p><code>/opt/gluu/jetty/identity/custom/static</code>
-<code>/opt/gluu/jetty/oxauth/custom/static</code></p>
+<p><code>/opt/gluu/jetty/identity/custom/static</code>    <br />
+<code>/opt/gluu/jetty/oxauth/custom/static</code>       </p>
 <p>To avoid collisions with static resources 
-from war files, Gluu maps this folder to next URL: <code>/{oxauth|identity}/ext/resources</code></p>
+from war files, Gluu maps this folder to next URL: <code>/{oxauth|identity}/ext/resources</code>     </p>
 <div class="admonition warning">
 <p class="admonition-title">Warning<p>Log into the Gluu Server chroot before working on the customized pages</p>
 </p>
@@ -1328,8 +1326,8 @@ from war files, Gluu maps this folder to next URL: <code>/{oxauth|identity}/ext/
 <ul>
 <li>Please make way to the default pages folder to copy the default file to the external resource folder.</li>
 </ul>
-<pre><code># cd /opt/jetty-9.3/temp/jetty-localhost-8081-oxauth.war-_oxauth-any-{random number}.dir/webapp/
-# cp login.xhtml /opt/gluu/jetty/oxauth/custom/pages 
+<pre><code># cd /opt/jetty-9.3/temp/jetty-localhost-8081-oxauth.war-_oxauth-any-{random number}.dir/webapp/    
+# cp login.xhtml /opt/gluu/jetty/oxauth/custom/pages     
 </code></pre>
 
 <p>The example above shows that the <code>login.xhtml</code> file is copied to the external pages. 
@@ -1383,13 +1381,13 @@ will little/no web-development knowledge.</p>
           </a>
         
         
-          <a href="../../developer-guide/oxtrust-eclipse/" title="Build OxTrust with Eclipse" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../developer-guide/oxtrust-eclipse/" title="Build oxTrust with Eclipse" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Build OxTrust with Eclipse
+                Build oxTrust with Eclipse
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
