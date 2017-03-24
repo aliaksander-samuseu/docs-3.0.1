@@ -1,4 +1,5 @@
-# Office 365 Integration with Gluu Server
+# SSO to Office 365
+
 This guide is created to use Microsoft Office 365 Single-Sign-On with Gluu Server.
 It is assumed that an Office 365 subscription is available/registered.
 
