@@ -48,4 +48,4 @@
 
 ## Test SSO
 
-Github Enterprise SSO should be ready now. Just hit the hostname of your Github Enterprise app and you should experience something like this: https://www.youtube.com/watch?v=rPbsVhGTgxE
+SSO to Github Enterprise should be ready now. Just hit the hostname of your Github Enterprise app and you should experience something like this: [https://www.youtube.com/watch?v=rPbsVhGTgxE](https://www.youtube.com/watch?v=rPbsVhGTgxE)
