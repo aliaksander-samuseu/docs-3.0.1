@@ -61,6 +61,7 @@ pages:
 #    - 'Hobsons Education Sol': 'integration/hobsons.md'
             - 'Salesforce': 'integration/salesforce.md'
             - 'Dropbox': 'integration/dropbox.md'
+            - 'GitHub Enterprise': 'integration/github-enterprise.md'
 - Reference:
         - Gluu API Guide:
             - 'Custom ID Generation': 'api-guide/api.md'
