@@ -16,9 +16,9 @@
        - Description: File method / External SP / SP-initiated SSO
        - Metadata Type: File
        - SP metadata file: Upload `github_metadata.xml`
-       - Configure Relying Party: Yes, SAML2SSO ![image](../img/TR_relying_party_configuration.png)
+       - Configure Relying Party: Yes, SAML2SSO ![image](../img/integration/TR_relying_party_configuration.png)
        - Released Attribute: Username
-       - `Add` ![image](../img/TR_creation.png)
+       - `Add` ![image](../img/integration/TR_creation.png)
    
 
 ## Configuration in Github Enterprise 
@@ -43,8 +43,8 @@
        - GPG keys: gpg_keys
    - `Save Settings`
    - Two sample setup from Github Enterprise Management panel: 
-      - ![image](../img/Github_1.png) 
-      - ![image](../img/Github_2.png)
+      - ![image](../img/integration/Github_1.png) 
+      - ![image](../img/integration/Github_2.png)
 
 ## Test SSO
 
