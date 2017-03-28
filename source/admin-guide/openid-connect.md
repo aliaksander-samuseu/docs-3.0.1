@@ -180,18 +180,17 @@ Out-of-the-box supported `acr` values include:
 |  u2f		| [FIDO U2F Device](../authn-guide/U2F.md)|
 |  super_gluu	| [Multi-factor authentication](../authn-guide/supergluu.md)|
 |  duo		| [Duo soft-token authentication](../authn-guide/duo.md)|
-|  cert	| Smart card or web browser X509 personal certificates|
+|  cert	| [Smart card or web browser X509 personal certificates](../authn-guide/cert-auth/)|
 |  cas	| External CAS server|
-|  cert	| Smart card or web browser X509 personal certificates|
 |  gplus	| [Google+ authentication](../authn-guide/google.md)|
 |  OTP	| [OATH one time password](../authn-guide/otp.md) |
 |  asimba	| Use of the Asimba proxy for inbound SAML |
 |  twilio_sms	| Use of the Twilio Saas to send SMS one time passwords |
-|  passport	| Use of the Passport component for social login |
+|  passport	| Use of the [Passport component for social login](../ce/authn-guide/passport/) |
 |  yubicloud	| Yubico cloud OTP verification service |
 |  uaf	| experimental support for the FIDO UAF protocol |
-|  basic_lock	| Enables lockout after a certain number of failures |
-|  basic	| Sample script using local LDAP authentication |
+|  basic_lock	| [Enables lockout after a certain number of failures](../authn-guide/intro/#configuring-account-lockout) |
+|  basic	| [Sample script using local LDAP authentication](../ce/authn-guide/basic/) |
 
 ## OpenID Connect Client Software 
 
