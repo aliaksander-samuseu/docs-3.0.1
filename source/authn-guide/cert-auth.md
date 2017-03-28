@@ -1,5 +1,9 @@
 # Certificate Authentication
 
+## Overview
+Certificate authentication enables you to enforce the use of a browser certificate for access to a website or application. 
+
+This document will explain how to use Gluu's Certificate Authentication interception script to configure the Gluu Server for a two-step authentication process with username and password as the first step, and a browser certificate as the second step.
 
 ## Architecture 
 The image below contains the design diagram for this module.
