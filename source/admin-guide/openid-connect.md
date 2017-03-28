@@ -166,7 +166,7 @@ which is required by the OpenID Connect specification. You can always
 explicitly release a scope to a certain client later on, but this will 
 require some manual intervention by the Gluu Server admin.
 
-### Multi-Factor Authentication for Clients
+## Multi-Factor Authentication for Clients
 
 The `acr_values` parameter is used to specify a specific 
 workflow for authentication. The value of this parameter, or the 
