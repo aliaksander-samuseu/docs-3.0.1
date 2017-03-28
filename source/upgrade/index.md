@@ -78,6 +78,11 @@ Install the `python-pip` package using your package manager.
 or
 
 # yum -y install python-pip
+
+or, for CentOS/RHEL 7x series
+
+# curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+# python get-pip.py
 ```
 
 Install the `json-merge` Python package and run the import script.
