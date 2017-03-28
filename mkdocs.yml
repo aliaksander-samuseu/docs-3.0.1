@@ -39,7 +39,6 @@ pages:
             - 'Google+ OAuth 2.0': 'authn-guide/google.md'
             - 'HOTP/TOTP': 'authn-guide/otp.md'
             - 'Custom Authentication': 'authn-guide/customauthn.md'
-        - 'Attributes' : 'admin-guide/attribute.md'
         - 'User Management' : 'admin-guide/user-group.md'
         - 'Session Timeout': 'admin-guide/session.md'
         - 'SAML' : 'admin-guide/saml.md'
@@ -86,4 +85,3 @@ pages:
         #       - 'Fine Tuning Gluu Server' : 'admin-guide/fine-tuning.md'
 - Developer Guide:
         - 'Build oxTrust with Eclipse': 'developer-guide/oxtrust-eclipse.md'
-
