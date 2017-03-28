@@ -1,7 +1,7 @@
 # Attributes
 
 ## Overview
-An list of *Active* attributes can be seen from the Configuration > Attributes section.
+A list of attributes can be seen from by navigating to `Configuration` > `Attributes`.
 
 ![Attribute Menu](../img/admin-guide/attribute/admin_attribute_menu.png)
 
