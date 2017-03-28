@@ -205,7 +205,7 @@ This section allows you to manage the list of attributes displayed in the regist
 ## Attributes
 Attributes are individual pieces of user data, like `uid` or `email`, that are required by applications in order to identify a user and grant access to protected resources. The user attributes that are available in your federation service can be found on this page. By default, only `active` attributes are visible. Use the `Show All Attributes` button to display the `inactive` attributes too. 
 
-An list of *Active* attributes can be seen from the Configuration > Attributes section.
+A list of attributes can be seen by navigating to `Configuration` > `Attributes`.
 
 ![Attribute Menu](../img/admin-guide/attribute/admin_attribute_menu.png)
 
