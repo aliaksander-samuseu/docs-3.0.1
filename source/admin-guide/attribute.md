@@ -92,7 +92,7 @@ appear:
 In any SAML SSO transaction, your Gluu Server will need to release attributes about users to the target SP. Learn more about SAML attributes in the [SAML section of the documentation](./saml.md). 
 
 
-# OpenID Connect Scopes
+## OpenID Connect Scopes
 
 In OpenID Connect, scopes are used to group attributes and provide a human 
 understandable description of the attributes. This improves usability when you need 
