@@ -1,7 +1,7 @@
-# SAML Attribute
-## Attrubute in oxTrust
-An *Active* attribute list can be seen from the Configuration >
-Attributes section.
+# Attributes
+
+## Overview
+An list of *Active* attributes can be seen from the Configuration > Attributes section.
 
 ![Attribute Menu](../img/admin-guide/attribute/admin_attribute_menu.png)
 
@@ -12,13 +12,16 @@ link.
 
 ![Show Active Attribute](../img/admin-guide/attribute/admin_attribute_show.png)
 
-The Gluu Server administrator can make changes, such as changing the
-status to active/inactive, to an attribute after clicking on it.
+The Gluu Server administrator can make changes to attributes, such as changing their
+status to active/inactive, by clicking on a specific attribute.
 
 ![Attributes](../img/admin-guide/attribute/admin_attribute_attribute.png)
 
+
+## Custom Attributes
 Additional custom attributes can be added in below way
 
+ - Become user 'ldap' 
  - Add custom attribute to /opt/gluu/schema/openldap/custom.schema 
    - In this below example 'customTest' is our custom attribute : 
 ```
@@ -30,9 +33,13 @@ attributetype ( oxAttribute:1003 NAME 'customTest'
  - Add custom attribute to gluuCustomPerson objectClass
    - Example: 
 ```
-objectclass ( oxObjectClass:101 NAME 'gluuCustomPerson' SUP top AUXILIARY MAY (customTest) X-ORIGIN 'Gluu - Custom persom objectclass' )
-
+objectclass ( 1.3.6.1.4.1.48710.1.4.101 NAME 'gluuCustomPerson'
+        SUP ( top )
+        AUXILIARY
+        MAY ( telephoneNumber $ mobile $ customTest )
+        X-ORIGIN 'Gluu - Custom persom objectclass' )
 ```
+ - Become user 'root'
  - Stop LDAP server with command `service solserver stop`
  - Test custom configuration with `/opt/symas/bin/slaptest -f /opt/symas/etc/openldap/slapd.conf`
  - Start LDAP server with command `service solserver start`
@@ -79,71 +86,14 @@ appear:
 * _Status:_ The status, when selected active, will release and publish
   the attribute in IdP.
 
-  ## Custom NameID
-  Gluu Server comes with the `transientID` attribute which is the default `NameID`.
-  If there are other `NameID` requirements, it is possible to create them as well.
-  The custom attribute must be created in oxTrust first before defining it as the `NameID`.
-  Please see the [oxTrust custom attribute guide](#using-oxtrust) to create the custom attribute in oxTrust.
 
-  ## Defining NameID
-  The template file for `NameID` definitions are located in the `attribute-resolver.xml.vm` file under `/opt/gluu/jetty/identity/conf/shibboleth3/idp/`.
-  The example below adds `testcustomattribute` as `NameID` based on UID attribute. The following are put into the `attribute-resolver.xml.vm` file.
+## SAML Attributes
 
-  * Add declaration for the new attribute
-  ```
-  if( ! ($attribute.name.equals('transientId') or $attribute.name.equals('testcustomattribute') ) )
-  ```
-  * Add definition for the new attribute
-```
- <resolver:AttributeDefinition id="testcustomattribute" xsi:type="Simple"
-                              xmlns="urn:mace:shibboleth:2.0:resolver:ad"
-                              sourceAttributeID="uid">
+In any SAML SSO transaction, your Gluu Server will need to release attributes about users to the target SP. Learn more about SAML attributes in the [SAML section of the documentation](./saml.md). 
 
-        <resolver:Dependency ref="siteLDAP"/>
-        <resolver:AttributeEncoder xsi:type="SAML2StringNameID"
-                                xmlns="urn:mace:shibboleth:2.0:attribute:encoder"
-                                nameFormat="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent" />
-</resolver:AttributeDefinition> 
-```
-* Restart identity service using below command
-
-` service identity restart` 
-
-However it is recommended to stop and start service using 
-
-`service identity stop`
-
-`service identity start`
 
 # OpenID Connect Scopes
 
-In OpenID Connect, scopes are used to group attributes, and to provide a human 
+In OpenID Connect, scopes are used to group attributes and provide a human 
 understandable description of the attributes. This improves usability when you need 
-to prompt a person to approve the disclosure of attributes to a third party.
-An example of the default Gluu Server authorization request can be seen
-here:
-
-![OpenID Connect Scope Authorization Screenshot](../img/admin-guide/attribute/authz_screenshot.png)
-
-So if you have custom attributes, you may need to define a custom OpenID Scope.
-This is pretty easy to do using the oxTrust user interface, and you can just
-select the attributes that you previously registered.
-
-The scopes menu is under the `OpenID Connect` button in the oxTrust menu. The scope menu has the search functionality to search the available scopes and an `Add Scope` button.
-
-![scope-menu](../img/admin-guide/attribute/scope-menu.png)
-
-The `Add Scope` button will bring the following interface.
-
-![add-scope](../img/admin-guide/attribute/add-scope.png)
-
-* Display Name: The name of the scope which will be displayd when searched
-* Description: A small description of the scope being defined
-* Scope Type: Default, if the scope needs the option to be released by default. Other options are LDAP, Dynamic, and OpenID.
-* Default Scope: True if the scope is released to clients by default. 
-
-The claims are added by clicking on the **Add Claim** button.
-
-![add-claim](../img/admin-guide/attribute/add-claim.png)
-
-
+to prompt a person to approve the disclosure of attributes to a third party. Learn more about OpenID Connect scopes in the [OpenID Connect section of the documentation](./openid-connect.md)
