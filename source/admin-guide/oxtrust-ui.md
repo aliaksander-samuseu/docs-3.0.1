@@ -222,7 +222,7 @@ status to active/inactive, by clicking on a specific attribute.
 ![Attributes](../img/admin-guide/attribute/admin_attribute_attribute.png)
 
 
-## Custom Attributes
+### Custom Attributes
 Additional custom attributes can be added in below way
 
  - Become user 'ldap' 
