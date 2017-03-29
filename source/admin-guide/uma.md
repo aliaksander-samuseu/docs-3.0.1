@@ -32,7 +32,7 @@ The resource type can be a string, URI or any other supported value type support
 ```
 {
 "name":"scim_access",
-"icon_uri":"https:\/\/centos.gluu.info\/identity\/uma\/scope\/file\/scim_access"
+"icon_uri":"https:\/\/<hostname>\/identity\/uma\/scope\/file\/scim_access"
 }
 ```
 
@@ -52,7 +52,9 @@ The properties of a resource are visible on this page. There are two additional 
 ![add-scope](../img/uma/add-scope.png)
 
 ## Scopes
-UMA scopes are bound to resource sets and used by policies to check whether the specified user should have access to the resource. The scopes are described in JSON and have the following properties:
+UMA scopes are used to grant a client permission to do an action on a protected resource. Different scopes can grant access to the same action. For example, a "read" action can be allowed with scope "read" or "all". For some actions the Resource Server (RS) may want multiple scopes at the same time. For instance, "read" action should only be allowed if the authorization request includes the "read" **and** "all" scopes. UMA scopes are bound to resource sets and used by policies to check whether the specified user or client should have access to the resource. 
+
+The scopes are described in JSON and have the following properties:
 
 - name
 - icon\_uri
@@ -62,7 +64,7 @@ An example of the scope JSON is given below:
 ```
 {
   "name": "Add photo",
-  "icon_uri": "http://www.gluu.org/icons/add_photo_scope.png"
+  "icon_uri": "https://<hostname>/icons/add_photo_scope.png"
 }
 ```
 
@@ -84,7 +86,7 @@ UMA URL=uma_scopes_endpoint+"/"+oxId;
 The following is an example what an UMA URL may look like:
 
 ```
-https://idp.gluu.org/uma/scopes/view
+https://<hostname>/uma/scopes/view
 ```
 
 !!! Note
@@ -101,7 +103,7 @@ objectClass: oxAuthUmaScopeDescription
 objectClass: top
 oxType: internal
 oxId: View
-oxIconUrl: http://seed.gluu.org/uma/icons/view_scope.png
+oxIconUrl: http://<hostname>/uma/icons/view_scope.png
 ```
 
 **External sample ldif**
@@ -112,22 +114,28 @@ inum: @!1111!8990!BF80
 objectClass: oxAuthUmaScopeDescription
 objectClass: top
 oxType: external
-oxUrl: http://photoz.example.com/dev/scopes/view
+oxUrl: http://<hostname>/dev/scopes/view
 ```
 
 ### Add Scopes
-This section describes the process of adding UMA scopes in the Gluu Server GUI. Scopes are accessed by navigating to the `Scopes` page under `UMA` in the right hand menu.
+This section describes the process of adding UMA scopes in the Gluu Server GUI. Scopes are accessed by navigating to the `UMA` > `Scopes` in the right hand menu.
 
 ![uma-scopes](../img/uma/uma-scopes.png)
 
-The search bar can be used to find available scopes. New scopes can be added by clicking on the `Add Scope Description` button which will bring up the interface shown below:
+The search bar can be used to find existing available scopes. New scopes can be added by clicking on the `Add Scope Description` button which will bring up the interface shown below:
 
 ![uma-scopes](../img/uma/scopes-add.png)
 
 Additionally there is an option to add authorization policy with the new scope.
 
 ## UMA Policies
-UMA policies protect UMA resources via scopes. The Gluu Server evaluates all policies, identified by scopes, to grant access to resources. There are three (3) main properties of a policy:
+UMA policy's are associated with UMA scopes. An authorization request has a resource_id and scope(s). Each scope can point to one or more policies. If all policies associated with all scopes return `true`, then access is granted. 
+
+For example, let's say we have the following resource, `GET /photo`. In order to access it the Resource Server (RS) requires the `read` scope to be present. If we have a policy that always return `true`, then any authorization request to `/photo` that includes the `read` scope will result in access granted. 
+
+If we wish to have more sophisticated logic, for example to grant access only to a specific client, then we can add something like `client_id = "@1111"` to the policy. This means that an authorization request to `/photo` will only be granted if the scope includes `read` and is coming from `client_id = "@1111"`.
+
+There are three (3) main properties of a policy:
 
 1. scopes: policy protects resources by scopes; 
 2. authorization script: script that is evaluated in order to grant/deny access; 
