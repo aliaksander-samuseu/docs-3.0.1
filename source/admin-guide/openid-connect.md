@@ -8,7 +8,7 @@ authenticate a person, and to obtain authorization to obtain
 information (or "claims") about that person. For more information, 
 see [http://openid.net/connect](http://openid.net/connect)
 
-It's handy to know some OpenID Connect jargon:
+It's handy to know some OpenID Connect terminology:
 
 - The *end user* or *subject* is the person being authenticated.
 
