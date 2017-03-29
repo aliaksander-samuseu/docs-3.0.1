@@ -198,7 +198,7 @@ with following content:
   "client_id": "Put ClientId obtained from registration here",
   "redirect_uri": "Put custom scheme redirect_uri here",
   "authorization_scope": "openid email profile",
-  "discovery_uri": "https://ce-dev.gluu.org/.well-known/openid-configuration",
+  "discovery_uri": "<IDP hostname>.well-known/openid-configuration",
   "authorization_endpoint_uri": "",
   "token_endpoint_uri": "",
   "registration_endpoint_uri": "",
