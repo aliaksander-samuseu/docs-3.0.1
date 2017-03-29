@@ -85,7 +85,7 @@ click **Clone**.
    Parent Directory: Folder location in which you want to store 
    project in your computer
     
-   Directory Name:  Project Name
+   Directory Name: Project Name
 ![clone_repo_details](../img/app-auth/clone_repo_details.png)   
 3. It will Clone repository into the folder you mentioned 
 in **Parent Directory** above and start building the project.  
@@ -115,14 +115,14 @@ In order to configure client you need to specify following:
 You can either manually create a client in oxTrust or register dynamically through app but 
 it is recommended you should manually register client in oxTrust.
 
-#### Manual client registration(Recommended)
+#### Manual client registration (Recommended)
 
 To create client manually in oxTrust, follow the Gluu Server's [OpenID Connect client registration documentation](https://gluu.org/docs/ce/admin-guide/openid-connect/#client-registration-configuration).
 
 After successful registration, it will return client id which 
 will use for Authorization.
 
-#### Dynamic client registration(Optional)
+#### Dynamic client registration (Optional)
 
 New client registration request can be constructed for dispatch:
 
