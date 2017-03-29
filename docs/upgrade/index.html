@@ -849,6 +849,17 @@
   </li>
 
         
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../integration/github-enterprise/" title="GitHub Enterprise" class="md-nav__link">
+        GitHub Enterprise
+      </a>
+    
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1229,7 +1240,7 @@
 <p>The Gluu Server can <strong>not</strong> be upgraded with a simple <code>apt-get upgrade</code>. The admin needs to explicitly install the new version of the Gluu Server and export and import the required data using scripts. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This guide assumes that you are upgrading from version 2.x.x to 3.0 and are <strong>OK with changing persistence from OpenDJ to OpenLDAP</strong>. If you prefer to keep OpenDJ in Gluu Server 3.0, follow the separate documentation for <a href="../../upgrade/manual-update.md/">upgrading with OpenDJ</a>.</p>
+<p>This guide assumes that you are upgrading from version 2.x.x to 3.0.1 and are <strong>OK with changing persistence from OpenDJ to OpenLDAP</strong>. If you prefer to keep OpenDJ in Gluu Server 3.x, follow the separate documentation for <a href="../../upgrade/manual-update.md/">upgrading with OpenDJ</a>.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1290,6 +1301,11 @@
 or
 
 # yum -y install python-pip
+
+or, for CentOS/RHEL 7x series
+
+# curl &quot;https://bootstrap.pypa.io/get-pip.py&quot; -o &quot;get-pip.py&quot;
+# python get-pip.py
 </code></pre>
 
 <p>Install the <code>json-merge</code> Python package and run the import script.</p>

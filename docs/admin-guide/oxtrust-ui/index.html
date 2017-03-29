@@ -591,35 +591,56 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#cache-refresh" title="Cache Refresh" class="md-nav__link">
-    Cache Refresh
+  <a href="#custom-attributes" title="Custom Attributes" class="md-nav__link">
+    Custom Attributes
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-log-viewer-view-log-file" title="Configure Log Viewer / View Log File" class="md-nav__link">
-    Configure Log Viewer / View Log File
+  <a href="#saml-attributes" title="SAML Attributes" class="md-nav__link">
+    SAML Attributes
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#server-status" title="Server Status" class="md-nav__link">
-    Server Status
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#certificates" title="Certificates" class="md-nav__link">
-    Certificates
+  <a href="#openid-connect-scopes" title="OpenID Connect Scopes" class="md-nav__link">
+    OpenID Connect Scopes
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache-refresh" title="Cache Refresh" class="md-nav__link">
+    Cache Refresh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-log-viewer-view-log-file" title="Configure Log Viewer / View Log File" class="md-nav__link">
+    Configure Log Viewer / View Log File
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-status" title="Server Status" class="md-nav__link">
+    Server Status
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#certificates" title="Certificates" class="md-nav__link">
+    Certificates
+  </a>
   
 </li>
       
@@ -1057,6 +1078,17 @@
     
       <a href="../../integration/dropbox/" title="Dropbox" class="md-nav__link">
         Dropbox
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../../integration/github-enterprise/" title="GitHub Enterprise" class="md-nav__link">
+        GitHub Enterprise
       </a>
     
   </li>
@@ -1572,35 +1604,56 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#cache-refresh" title="Cache Refresh" class="md-nav__link">
-    Cache Refresh
+  <a href="#custom-attributes" title="Custom Attributes" class="md-nav__link">
+    Custom Attributes
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-log-viewer-view-log-file" title="Configure Log Viewer / View Log File" class="md-nav__link">
-    Configure Log Viewer / View Log File
+  <a href="#saml-attributes" title="SAML Attributes" class="md-nav__link">
+    SAML Attributes
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#server-status" title="Server Status" class="md-nav__link">
-    Server Status
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#certificates" title="Certificates" class="md-nav__link">
-    Certificates
+  <a href="#openid-connect-scopes" title="OpenID Connect Scopes" class="md-nav__link">
+    OpenID Connect Scopes
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache-refresh" title="Cache Refresh" class="md-nav__link">
+    Cache Refresh
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-log-viewer-view-log-file" title="Configure Log Viewer / View Log File" class="md-nav__link">
+    Configure Log Viewer / View Log File
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-status" title="Server Status" class="md-nav__link">
+    Server Status
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#certificates" title="Certificates" class="md-nav__link">
+    Certificates
+  </a>
   
 </li>
       
@@ -1779,7 +1832,7 @@ data in the LDAP attributes. The default format should contain the following fie
 etc..</li>
 </ul>
 <h2 id="manage-authentication">Manage Authentication<a class="headerlink" href="#manage-authentication" title="Permanent link">#</a></h2>
-<h4 id="manage-ldap-authentication">Manage LDAP Authentication<a class="headerlink" href="#manage-ldap-authentication" title="Permanent link">#</a></h4>
+<h3 id="manage-ldap-authentication">Manage LDAP Authentication<a class="headerlink" href="#manage-ldap-authentication" title="Permanent link">#</a></h3>
 <p>This section allows the Gluu Server administrator to define how and
 where the server should connect to authenticate users. If it is a remote
 LDAP/Active Directory server, the values are required. Put the details
@@ -1837,7 +1890,7 @@ local LDAP server.</p>
   scan is done in real time.</p>
 </li>
 </ul>
-<h4 id="default-authentication-method">Default Authentication Method<a class="headerlink" href="#default-authentication-method" title="Permanent link">#</a></h4>
+<h3 id="default-authentication-method">Default Authentication Method<a class="headerlink" href="#default-authentication-method" title="Permanent link">#</a></h3>
 <p>This allows the Gluu Server administrator to select the default
 authentication method and level for person authentication. Both methods are
 set to "Default" until additional authentication mechanisms are enabled
@@ -1891,18 +1944,118 @@ available. For more information, see the reference page detailing each type of <
 <p>This section allows you to manage the list of attributes displayed in the registration form. Search, select, add, and order desired attributes here.</p>
 <h2 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link">#</a></h2>
 <p>Attributes are individual pieces of user data, like <code>uid</code> or <code>email</code>, that are required by applications in order to identify a user and grant access to protected resources. The user attributes that are available in your federation service can be found on this page. By default, only <code>active</code> attributes are visible. Use the <code>Show All Attributes</code> button to display the <code>inactive</code> attributes too. </p>
-<p>Custom attributes can be added by clicking the <code>Add Attribute</code> button and completing the simple form. Note that custom attributes must already be present in the LDAP server in order for them to be available for release by the Gluu Server. Adding an attribute here is like registering it in the Gluu Server--in order to release an attribute during a SAML or OpenID Connect transaction, the Gluu Server needs to know it exists. </p>
-<p>Attributes, as they pertain to SSO, are covered more thoroughly in the <a href="../saml/#saml-attributes">SAML Attributes</a> and <a href="../openid-connect/#scopes">OpenID Connect Scopes</a> sections of the docs.</p>
-<h3 id="cache-refresh">Cache Refresh<a class="headerlink" href="#cache-refresh" title="Permanent link">#</a></h3>
+<p>A list of attributes can be seen by navigating to <code>Configuration</code> &gt; <code>Attributes</code>.</p>
+<p><img alt="Attribute Menu" src="../../img/admin-guide/attribute/admin_attribute_menu.png" /></p>
+<p>The Gluu Server has a large LDAP tree which includes all standard
+attributes. It is not necessary for all of them to be <em>Active</em>. The
+active LDAP trees can be sorted using the <em>Show only Active Attributes</em>
+link.</p>
+<p><img alt="Show Active Attribute" src="../../img/admin-guide/attribute/admin_attribute_show.png" /></p>
+<p>The Gluu Server administrator can make changes to attributes, such as changing their
+status to active/inactive, by clicking on a specific attribute.</p>
+<p><img alt="Attributes" src="../../img/admin-guide/attribute/admin_attribute_attribute.png" /></p>
+<h3 id="custom-attributes">Custom Attributes<a class="headerlink" href="#custom-attributes" title="Permanent link">#</a></h3>
+<p>Additional custom attributes can be added in below way</p>
+<ul>
+<li>Become user 'ldap' </li>
+<li>Add custom attribute to /opt/gluu/schema/openldap/custom.schema </li>
+<li>In this below example 'customTest' is our custom attribute : </li>
+</ul>
+<pre><code>attributetype ( oxAttribute:1003 NAME 'customTest'
+        SUBSTR caseIgnoreSubstringsMatch EQUALITY caseIgnoreMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15        
+       X-ORIGIN 'Gluu - custom person attribute' )
+</code></pre>
+
+<ul>
+<li>Add custom attribute to gluuCustomPerson objectClass</li>
+<li>Example: </li>
+</ul>
+<pre><code>objectclass ( 1.3.6.1.4.1.48710.1.4.101 NAME 'gluuCustomPerson'
+        SUP ( top )
+        AUXILIARY
+        MAY ( telephoneNumber $ mobile $ customTest )
+        X-ORIGIN 'Gluu - Custom persom objectclass' )
+</code></pre>
+
+<ul>
+<li>Become user 'root'</li>
+<li>Stop LDAP server with command <code>service solserver stop</code></li>
+<li>Test custom configuration with <code>/opt/symas/bin/slaptest -f /opt/symas/etc/openldap/slapd.conf</code></li>
+<li>Start LDAP server with command <code>service solserver start</code></li>
+</ul>
+<p>Register new attribute with Gluu Server GUI, oxTrust, by
+clicking the <strong>Register Attribute</strong> button. Then, the following screen will
+appear:</p>
+<p><img alt="Add Attribute Screen" src="../../img/admin-guide/attribute/admin_attribute_add.png" /></p>
+<ul>
+<li>
+<p><em>Name:</em> This field defines the name of the custom attribute which must
+  be unique in the Gluu Server LDAP tree.</p>
+</li>
+<li>
+<p><em>SAML1 URI:</em> This field contains the SAML1 uri for the custom attribute.</p>
+</li>
+<li>
+<p><em>SAML2 URI:</em> This field contains the SAML2 uri for the custom attribute.</p>
+</li>
+<li>
+<p><em>Display Name:</em> This display name can be anything that is human readable.</p>
+</li>
+<li>
+<p><em>Type:</em> The attribute type should be selected from the drop-down menu.
+  There are four attribute types supported by Gluu:</p>
+</li>
+<li>Text</li>
+<li>Numeric</li>
+<li>Photo</li>
+<li>
+<p>Date</p>
+</li>
+<li>
+<p><em>Edit Type:</em> This field controls which type of an user is allowed to edit
+  corresponding attribute at his/her "Profile" page of the web UI (when feature
+"User can edit own profile" is enabled).</p>
+</li>
+<li>
+<p><em>View Type:</em> This field controls which type of an user is allowed to view
+  corresponding attribute at his/her "Profile" page of the web UI.</p>
+</li>
+<li>
+<p><em>Privacy Level:</em> Please select the desired privacy level from the
+  drop-down menu. The privacy level has a specific range of 1 to 5.</p>
+</li>
+<li>
+<p><em>Multivalued:</em> Please select multivalue in this field if the attribute
+  contains more than one value.</p>
+</li>
+<li>
+<p><em>SCIM Attributes:</em> If the attribute is a part of SCIM architecture select true.</p>
+</li>
+<li>
+<p><em>Description:</em> This contains a few words to describe the attribute.</p>
+</li>
+<li>
+<p><em>Status:</em> The status, when selected active, will release and publish
+  the attribute in IdP.</p>
+</li>
+</ul>
+<h3 id="saml-attributes">SAML Attributes<a class="headerlink" href="#saml-attributes" title="Permanent link">#</a></h3>
+<p>In any SAML SSO transaction, your Gluu Server will need to release attributes about users to the target SP. Learn more about SAML attributes in the <a href="../saml/">SAML section of the documentation</a>. </p>
+<h3 id="openid-connect-scopes">OpenID Connect Scopes<a class="headerlink" href="#openid-connect-scopes" title="Permanent link">#</a></h3>
+<p>In OpenID Connect, scopes are used to group attributes and provide a human 
+understandable description of the attributes. This improves usability when you need 
+to prompt a person to approve the disclosure of attributes to a third party. Learn more about OpenID Connect scopes in the <a href="../openid-connect/">OpenID Connect section of the documentation</a></p>
+<h2 id="cache-refresh">Cache Refresh<a class="headerlink" href="#cache-refresh" title="Permanent link">#</a></h2>
 <p>Cache Refresh, a.k.a. LDAP Synchronization, is the process of connecting one or more existing backend LDAP servers, like Microsoft Active Directory, with the Gluu Server's local LDAP server. <code>Cache Refresh</code> periodically searches these data sources, compares the results to previous searches, and if a changed user account is found, it is updated.The frequency of cache refresh is also set from this page via the <code>Polling interval (minutes)</code>. The <code>key attribute(s)</code> is used to correlate a user if the user is found in more then one LDAP server. In this case, the two entries are joined. The source attributes specify which attributes will be pulled from the backend LDAP server. The backend server address, bind DN and other connection information is speciifed in the <code>Source Backend LDAP Servers</code> tab. More information on <a href="../user-group/#ldap-synchronization">LDAP Syncronization</a> can be found in the user management section of the docs. </p>
-<h3 id="configure-log-viewer-view-log-file">Configure Log Viewer / View Log File<a class="headerlink" href="#configure-log-viewer-view-log-file" title="Permanent link">#</a></h3>
+<h2 id="configure-log-viewer-view-log-file">Configure Log Viewer / View Log File<a class="headerlink" href="#configure-log-viewer-view-log-file" title="Permanent link">#</a></h2>
 <p>This tool can be used to view file system logs. If you don't like to ssh, 
 Log Viewer is your friend! Several common logs are preconfigured, or you can define 
 new logs by specifying the path.</p>
-<h3 id="server-status">Server Status<a class="headerlink" href="#server-status" title="Permanent link">#</a></h3>
+<h2 id="server-status">Server Status<a class="headerlink" href="#server-status" title="Permanent link">#</a></h2>
 <p>This page provides basic information about the Gluu Server such as the hostname, IP address, free memory &amp; disk space. The number of users in the backend is also available in this page.</p>
-<h3 id="certificates">Certificates<a class="headerlink" href="#certificates" title="Permanent link">#</a></h3>
-<p>The certificate page provides summary information about your SSL and SAML certificates.</p>
+<h2 id="certificates">Certificates<a class="headerlink" href="#certificates" title="Permanent link">#</a></h2>
+<p>The certificate page provides summary information about your SSL and SAML certificates. Learn more about <a href="../certificate/">certificate management</a> in the Gluu Server.</p>
 <h2 id="saml">SAML<a class="headerlink" href="#saml" title="Permanent link">#</a></h2>
 <p>If you deployed the Shibboleth SAML IDP or the Asimba SAML proxy during Gluu Server installation, you will see a link to manage inbound and outbound SAML requirements in the left hand navigation. Learn more about configuring and managing SAML in the <a href="../saml/">SAML</a> portion of the docs. </p>
 <h2 id="openid-connect">OpenID Connect<a class="headerlink" href="#openid-connect" title="Permanent link">#</a></h2>

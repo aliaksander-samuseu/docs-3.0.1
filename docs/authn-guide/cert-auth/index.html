@@ -503,6 +503,10 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Certificate Authentication
+      </label>
+    
     <a href="./" title="Certificate Authentication" class="md-nav__link md-nav__link--active">
       Certificate Authentication
     </a>
@@ -513,6 +517,39 @@
   
     
   
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" title="Architecture" class="md-nav__link">
+    Architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" title="Properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-oxtrust" title="Configure oxTrust" class="md-nav__link">
+    Configure oxTrust
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
     
@@ -807,6 +844,17 @@
     
       <a href="../../integration/dropbox/" title="Dropbox" class="md-nav__link">
         Dropbox
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../../integration/github-enterprise/" title="GitHub Enterprise" class="md-nav__link">
+        GitHub Enterprise
       </a>
     
   </li>
@@ -1141,6 +1189,39 @@
     
   
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" title="Architecture" class="md-nav__link">
+    Architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" title="Properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-oxtrust" title="Configure oxTrust" class="md-nav__link">
+    Configure oxTrust
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1155,8 +1236,13 @@
               
                 
                 <h1 id="certificate-authentication">Certificate Authentication<a class="headerlink" href="#certificate-authentication" title="Permanent link">#</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
+<p>Certificate authentication enables you to enforce the use of a browser certificate for access to a website or application. </p>
+<p>This document will explain how to use Gluu's certificate authentication interception script to configure the Gluu Server for a two-step authentication process where a valid browser certificate is checked for as the first step, and username and password is presented as the second step.</p>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">#</a></h2>
 <p>The image below contains the design diagram for this module.</p>
 <p><img alt="cert-design" src="../../img/admin-guide/multi-factor/cert-design.jpg" /></p>
+<h2 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">#</a></h2>
 <p>The script has a few properties:</p>
 <table>
 <thead>
@@ -1212,8 +1298,8 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Configure oxTrust</strong>
-Follow the steps below to configure the certificate authentication in the oxTrust Admin GUI.</p>
+<h2 id="configure-oxtrust">Configure oxTrust<a class="headerlink" href="#configure-oxtrust" title="Permanent link">#</a></h2>
+<p>Follow the steps below to configure certificate authentication in the oxTrust Admin GUI.</p>
 <ol>
 <li>Navigate to <code>Configuration</code> &gt; <code>Manage Custom Scripts</code>.</li>
 <li>Click on the <code>Person Authentication</code> tab.</li>

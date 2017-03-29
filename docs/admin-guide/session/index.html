@@ -831,6 +831,17 @@
   </li>
 
         
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../../integration/github-enterprise/" title="GitHub Enterprise" class="md-nav__link">
+        GitHub Enterprise
+      </a>
+    
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1194,22 +1205,16 @@
                 
                 <h1 id="session-timeout-in-gluu">Session Timeout in Gluu<a class="headerlink" href="#session-timeout-in-gluu" title="Permanent link">#</a></h1>
 <p>Session Timeout can be configured under 
-JSON Configuration&gt;OxAuth Properties.</p>
+<code>JSON Configuration</code> &gt; <code>oxAuth Properties</code>.</p>
 <p>These properties are</p>
 <ul>
 <li>SessionUnusedLifeTime</li>
 <li>sessionIdUnauthenticatedUnusedLifetime</li>
 </ul>
 <h2 id="sessionunusedlifetime">SessionUnusedLifeTime<a class="headerlink" href="#sessionunusedlifetime" title="Permanent link">#</a></h2>
-<p>SessionUnusedLifeTime property is set to default for a day. 
-Session timeout works in such way that if the application is logged out, 
-if SessionUnusedLifeTime gets expired. If specific session timeout is set 
-in an application, it would be overrided by the SessionUnusedLifeTime from 
-Gluu.</p>
-<p>If application's Session time is less than the session time out 
-configured in Gluu, the application's session would be reauthorized and 
-set to a future time for timeout, where the applicatin's session timeout 
-will be overrided by Gluu's Session timeout property.</p>
+<p>The <code>SessionUnusedLifeTime</code> property is set to a day by default. Session timeout works in a way such that if a user logs out of an application the <code>SessionUnusedLifeTime</code> gets expired. If a specific session timeout is set in an application, it will be overrided by the <code>SessionUnusedLifeTime</code> from Gluu.</p>
+<p>If an application's Session time is less than the session time out configured in Gluu, the application's session would be reauthorized and 
+set to a future time for timeout, where the applicatin's session timeout will get overrided by Gluu's Session timeout property.</p>
 <h2 id="sessionidunauthenticatedunusedlifetime">SessionIdUnauthenticatedUnusedLifeTime<a class="headerlink" href="#sessionidunauthenticatedunusedlifetime" title="Permanent link">#</a></h2>
 <p>List of OxAuth Properties for reference can be found in 
 <a href="../../reference/JSON-oxauth-prop/">OxAuth JSON Properties</a></p>

@@ -632,20 +632,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#attributes-in-oxtrust" title="Attributes in oxTrust" class="md-nav__link">
-    Attributes in oxTrust
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#custom-attributes" title="Custom Attributes" class="md-nav__link">
-    Custom Attributes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#custom-nameid" title="Custom NameID" class="md-nav__link">
     Custom NameID
   </a>
@@ -969,6 +955,17 @@
     
       <a href="../../integration/dropbox/" title="Dropbox" class="md-nav__link">
         Dropbox
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../../integration/github-enterprise/" title="GitHub Enterprise" class="md-nav__link">
+        GitHub Enterprise
       </a>
     
   </li>
@@ -1350,20 +1347,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#attributes-in-oxtrust" title="Attributes in oxTrust" class="md-nav__link">
-    Attributes in oxTrust
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#custom-attributes" title="Custom Attributes" class="md-nav__link">
-    Custom Attributes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#custom-nameid" title="Custom NameID" class="md-nav__link">
     Custom NameID
   </a>
@@ -1541,103 +1524,6 @@ Once the attributes are available in the Gluu Server, the administrator only nee
 to click on the desired attribute(s) and it will be released to the SP upon 
 successful user authentication.</p>
 <h3 id="saml-attributes">SAML Attributes<a class="headerlink" href="#saml-attributes" title="Permanent link">#</a></h3>
-<h4 id="attributes-in-oxtrust">Attributes in oxTrust<a class="headerlink" href="#attributes-in-oxtrust" title="Permanent link">#</a></h4>
-<p>An <em>Active</em> attribute list can be seen from the Configuration &gt; Attributes section.</p>
-<p><img alt="Attribute Menu" src="../../img/admin-guide/attribute/admin_attribute_menu.png" /></p>
-<p>The Gluu Server has a large LDAP tree which includes all standard
-attributes. It is not necessary for all of them to be <em>Active</em>. The
-active LDAP trees can be sorted using the <em>Show only Active Attributes</em>
-link.</p>
-<p><img alt="Show Active Attribute" src="../../img/admin-guide/attribute/admin_attribute_show.png" /></p>
-<p>The Gluu Server administrator can make changes, such as changing the
-status to active/inactive, to an attribute after clicking on it.</p>
-<p><img alt="Attributes" src="../../img/admin-guide/attribute/admin_attribute_attribute.png" /></p>
-<h4 id="custom-attributes">Custom Attributes<a class="headerlink" href="#custom-attributes" title="Permanent link">#</a></h4>
-<p>Additional custom attributes can be added in below way</p>
-<ul>
-<li>Become user 'ldap' </li>
-<li>Add custom attribute to /opt/gluu/schema/openldap/custom.schema </li>
-<li>In this below example 'customTest' is our custom attribute : </li>
-</ul>
-<pre><code>attributetype ( oxAttribute:1003 NAME 'customTest'
-        SUBSTR caseIgnoreSubstringsMatch EQUALITY caseIgnoreMatch
-        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15        
-       X-ORIGIN 'Gluu - custom person attribute' )
-</code></pre>
-
-<ul>
-<li>Add custom attribute to gluuCustomPerson objectClass</li>
-<li>Example: </li>
-</ul>
-<pre><code>objectclass ( 1.3.6.1.4.1.48710.1.4.101 NAME 'gluuCustomPerson'
-        SUP ( top )
-        AUXILIARY
-        MAY ( telephoneNumber $ mobile $ customTest )
-        X-ORIGIN 'Gluu - Custom persom objectclass' )
-</code></pre>
-
-<ul>
-<li>Become user 'root'</li>
-<li>Stop LDAP server with command <code>service solserver stop</code></li>
-<li>Test custom configuration with <code>/opt/symas/bin/slaptest -f /opt/symas/etc/openldap/slapd.conf</code></li>
-<li>Start LDAP server with command <code>service solserver start</code></li>
-</ul>
-<p>Register new attribute with Gluu Server GUI, oxTrust, by
-clicking the <strong>Register Attribute</strong> button. Then, the following screen will
-appear:</p>
-<p><img alt="Add Attribute Screen" src="../../img/admin-guide/attribute/admin_attribute_add.png" /></p>
-<ul>
-<li>
-<p><em>Name:</em> This field defines the name of the custom attribute which must
-  be unique in the Gluu Server LDAP tree.</p>
-</li>
-<li>
-<p><em>SAML1 URI:</em> This field contains the SAML1 uri for the custom attribute.</p>
-</li>
-<li>
-<p><em>SAML2 URI:</em> This field contains the SAML2 uri for the custom attribute.</p>
-</li>
-<li>
-<p><em>Display Name:</em> This display name can be anything that is human readable.</p>
-</li>
-<li>
-<p><em>Type:</em> The attribute type should be selected from the drop-down menu.
-  There are four attribute types supported by Gluu:</p>
-</li>
-<li>Text</li>
-<li>Numeric</li>
-<li>Photo</li>
-<li>
-<p>Date</p>
-</li>
-<li>
-<p><em>Edit Type:</em> This field controls which type of an user is allowed to edit
-  corresponding attribute at his/her "Profile" page of the web UI (when feature
-"User can edit own profile" is enabled).</p>
-</li>
-<li>
-<p><em>View Type:</em> This field controls which type of an user is allowed to view
-  corresponding attribute at his/her "Profile" page of the web UI.</p>
-</li>
-<li>
-<p><em>Privacy Level:</em> Please select the desired privacy level from the
-  drop-down menu. The privacy level has a specific range of 1 to 5.</p>
-</li>
-<li>
-<p><em>Multivalued:</em> Please select multivalue in this field if the attribute
-  contains more than one value.</p>
-</li>
-<li>
-<p><em>SCIM Attributes:</em> If the attribute is a part of SCIM architecture select true.</p>
-</li>
-<li>
-<p><em>Description:</em> This contains a few words to describe the attribute.</p>
-</li>
-<li>
-<p><em>Status:</em> The status, when selected active, will release and publish
-  the attribute in IdP.</p>
-</li>
-</ul>
 <h4 id="custom-nameid">Custom NameID<a class="headerlink" href="#custom-nameid" title="Permanent link">#</a></h4>
 <p>Gluu Server comes with the <code>transientID</code> attribute which is the default <code>NameID</code>.
 If there are other <code>NameID</code> requirements, it is possible to create them as well.
@@ -1718,8 +1604,8 @@ entity id” will appear. Use this link to find and select the SP entityIDs that
 <h3 id="federation-configuration">Federation Configuration<a class="headerlink" href="#federation-configuration" title="Permanent link">#</a></h3>
 <p>If the SP is part of an identity federation such as InCommon, the administrator must add the federation as an SP in the Gluu Server. This will enable the administrator to more easily create TRs with SPs in the federation. The example below shows how an administrator would add a TR for the InCommon Federation.</p>
 <p><img alt="federationTR" src="../../img/saml/federationTR.png" /></p>
-<p>Once a TR has been established with the federation, the Gluu Server administrator can easily create TRs with any SP included in the federation by selecting the federation from the <code>Federation Name</code> drop down menu and selecting the entity-id for the SP.</p>
-<p><img alt="federation-entityid.png" src="../../img/saml/federation-entityid.png" /></p>
+<p>Once a TR has been established with the federation, the Gluu Server administrator can easily create TRs with any SP included in the federation by selecting the federation from the <code>Federation Name</code> drop down menu and selecting the entity-id for the SP. As for example here we are creating 'Internet2 Wiki' Trust Relationship which is InCommon affiliated ( that means, SP's entityID is available in InCommon metadata ). </p>
+<p><img alt="Incommon_affiliated_SP_Trust.png" src="../../img/saml/InCommon_affiliated_SP_Trust.png" /></p>
 <h2 id="inbound-saml-asimba">Inbound SAML (Asimba)<a class="headerlink" href="#inbound-saml-asimba" title="Permanent link">#</a></h2>
 <p>Inbound SAML allows users from external domains to login at their home identity provider to gain access to resources protected by the Gluu Server. The Gluu Server uses an open source product called <a href="http://www.asimba.org/site/">Asimba</a> to normalize inbound SAML. </p>
 <p>The following documentation provides a step-by-step guide for configuring Asimba with two (2) IDPs and a single (1) SP. The guide includes use of a SAML interception script which is shipped with the Gluu Server and simplifies the process of using Asimba. The administrator can add multiple IDPs or SPs (as required) using the method outlined below. Each SP and IDP must be connected to the IDP that has the Asimba module enabled.</p>

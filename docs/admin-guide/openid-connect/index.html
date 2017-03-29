@@ -659,18 +659,12 @@
     Scopes
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#multi-factor-authentication-for-clients" title="Multi-Factor Authentication for Clients" class="md-nav__link">
     Multi-Factor Authentication for Clients
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -935,6 +929,17 @@
     
       <a href="../../integration/dropbox/" title="Dropbox" class="md-nav__link">
         Dropbox
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../../integration/github-enterprise/" title="GitHub Enterprise" class="md-nav__link">
+        GitHub Enterprise
       </a>
     
   </li>
@@ -1332,18 +1337,12 @@
     Scopes
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#multi-factor-authentication-for-clients" title="Multi-Factor Authentication for Clients" class="md-nav__link">
     Multi-Factor Authentication for Clients
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1580,7 +1579,7 @@ during dynamic client registration. The only default scope is <code>openid</code
 which is required by the OpenID Connect specification. You can always 
 explicitly release a scope to a certain client later on, but this will 
 require some manual intervention by the Gluu Server admin.</p>
-<h3 id="multi-factor-authentication-for-clients">Multi-Factor Authentication for Clients<a class="headerlink" href="#multi-factor-authentication-for-clients" title="Permanent link">#</a></h3>
+<h2 id="multi-factor-authentication-for-clients">Multi-Factor Authentication for Clients<a class="headerlink" href="#multi-factor-authentication-for-clients" title="Permanent link">#</a></h2>
 <p>The <code>acr_values</code> parameter is used to specify a specific 
 workflow for authentication. The value of this parameter, or the 
 <code>default_acr_values</code> client metadata value, corresponds to the 
@@ -1608,15 +1607,11 @@ workflow for authentication. The value of this parameter, or the
 </tr>
 <tr>
 <td>cert</td>
-<td>Smart card or web browser X509 personal certificates</td>
+<td><a href="../../authn-guide/cert-auth/">Smart card or web browser X509 personal certificates</a></td>
 </tr>
 <tr>
 <td>cas</td>
 <td>External CAS server</td>
-</tr>
-<tr>
-<td>cert</td>
-<td>Smart card or web browser X509 personal certificates</td>
 </tr>
 <tr>
 <td>gplus</td>
@@ -1636,7 +1631,7 @@ workflow for authentication. The value of this parameter, or the
 </tr>
 <tr>
 <td>passport</td>
-<td>Use of the Passport component for social login</td>
+<td>Use of the <a href="../../ce/authn-guide/passport/">Passport component for social login</a></td>
 </tr>
 <tr>
 <td>yubicloud</td>
@@ -1648,11 +1643,11 @@ workflow for authentication. The value of this parameter, or the
 </tr>
 <tr>
 <td>basic_lock</td>
-<td>Enables lockout after a certain number of failures</td>
+<td><a href="../../authn-guide/intro/#configuring-account-lockout">Enables lockout after a certain number of failures</a></td>
 </tr>
 <tr>
 <td>basic</td>
-<td>Sample script using local LDAP authentication</td>
+<td><a href="../../ce/authn-guide/basic/">Sample script using local LDAP authentication</a></td>
 </tr>
 </tbody>
 </table>

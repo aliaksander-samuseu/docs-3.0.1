@@ -17,7 +17,7 @@
     
     
       
-        <title>Custom ID Generation - Gluu Docs</title>
+        <title>GitHub Enterprise - Gluu Docs</title>
       
     
     
@@ -77,15 +77,15 @@
             
               
                 <span class="md-header-nav__parent">
-                  Reference
+                  Integration Guide
                 </span>
               
                 <span class="md-header-nav__parent">
-                  Gluu API Guide
+                  SaaS Integrations
                 </span>
               
             
-            Custom ID Generation
+            GitHub Enterprise
           
         </span>
       </div>
@@ -629,7 +629,7 @@
       
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
     <label class="md-nav__link" for="nav-5">
       Integration Guide
@@ -645,7 +645,7 @@
           
   <li class="md-nav__item">
     
-      <a href="../../integration/" title="Introduction" class="md-nav__link">
+      <a href="../" title="Introduction" class="md-nav__link">
         Introduction
       </a>
     
@@ -672,7 +672,7 @@
           
   <li class="md-nav__item">
     
-      <a href="../../integration/oauth2/" title="oxd OAuth2" class="md-nav__link">
+      <a href="../oauth2/" title="oxd OAuth2" class="md-nav__link">
         oxd OAuth2
       </a>
     
@@ -683,7 +683,7 @@
           
   <li class="md-nav__item">
     
-      <a href="../../integration/oauth-js-implicit/" title="OAuth2.0 js Implicit Flow" class="md-nav__link">
+      <a href="../oauth-js-implicit/" title="OAuth2.0 js Implicit Flow" class="md-nav__link">
         OAuth2.0 js Implicit Flow
       </a>
     
@@ -715,7 +715,7 @@
           
   <li class="md-nav__item">
     
-      <a href="../../integration/saml-sp/" title="Shibboleth SP" class="md-nav__link">
+      <a href="../saml-sp/" title="Shibboleth SP" class="md-nav__link">
         Shibboleth SP
       </a>
     
@@ -726,7 +726,7 @@
           
   <li class="md-nav__item">
     
-      <a href="../../integration/openidc-rp/" title="mod_auth_openidc" class="md-nav__link">
+      <a href="../openidc-rp/" title="mod_auth_openidc" class="md-nav__link">
         mod_auth_openidc
       </a>
     
@@ -742,7 +742,7 @@
           
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4" checked>
     
     <label class="md-nav__link" for="nav-5-4">
       SaaS Integrations
@@ -758,7 +758,7 @@
           
   <li class="md-nav__item">
     
-      <a href="../../integration/google/" title="Google Apps" class="md-nav__link">
+      <a href="../google/" title="Google Apps" class="md-nav__link">
         Google Apps
       </a>
     
@@ -769,7 +769,7 @@
           
   <li class="md-nav__item">
     
-      <a href="../../integration/office/" title="Office 365" class="md-nav__link">
+      <a href="../office/" title="Office 365" class="md-nav__link">
         Office 365
       </a>
     
@@ -780,7 +780,7 @@
           
   <li class="md-nav__item">
     
-      <a href="../../integration/salesforce/" title="Salesforce" class="md-nav__link">
+      <a href="../salesforce/" title="Salesforce" class="md-nav__link">
         Salesforce
       </a>
     
@@ -791,7 +791,7 @@
           
   <li class="md-nav__item">
     
-      <a href="../../integration/dropbox/" title="Dropbox" class="md-nav__link">
+      <a href="../dropbox/" title="Dropbox" class="md-nav__link">
         Dropbox
       </a>
     
@@ -802,9 +802,73 @@
           
   <li class="md-nav__item">
     
-      <a href="../../integration/github-enterprise/" title="GitHub Enterprise" class="md-nav__link">
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
         GitHub Enterprise
-      </a>
+      </label>
+    
+    <a href="./" title="GitHub Enterprise" class="md-nav__link md-nav__link--active">
+      GitHub Enterprise
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-in-gluu-server" title="Configuration in Gluu Server" class="md-nav__link">
+    Configuration in Gluu Server
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata-from-github-enterprise" title="Metadata from Github Enterprise" class="md-nav__link">
+    Metadata from Github Enterprise
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-trust-relationship" title="Create Trust Relationship" class="md-nav__link">
+    Create Trust Relationship
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-in-github-enterprise" title="Configuration in Github Enterprise" class="md-nav__link">
+    Configuration in Github Enterprise
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-sso" title="Test SSO" class="md-nav__link">
+    Test SSO
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -823,7 +887,7 @@
       
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       Reference
@@ -839,7 +903,7 @@
           
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1" type="checkbox" id="nav-6-1" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1" type="checkbox" id="nav-6-1">
     
     <label class="md-nav__link" for="nav-6-1">
       Gluu API Guide
@@ -855,52 +919,9 @@
           
   <li class="md-nav__item">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
+      <a href="../../api-guide/api/" title="Custom ID Generation" class="md-nav__link">
         Custom ID Generation
-      </label>
-    
-    <a href="./" title="Custom ID Generation" class="md-nav__link md-nav__link--active">
-      Custom ID Generation
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#path" title="Path" class="md-nav__link">
-    Path
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#overview" title="Overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
+      </a>
     
   </li>
 
@@ -909,7 +930,7 @@
           
   <li class="md-nav__item">
     
-      <a href="../openid-connect-api/" title="OpenID Connect API" class="md-nav__link">
+      <a href="../../api-guide/openid-connect-api/" title="OpenID Connect API" class="md-nav__link">
         OpenID Connect API
       </a>
     
@@ -920,7 +941,7 @@
           
   <li class="md-nav__item">
     
-      <a href="../scim-api/" title="SCIM API Configuration" class="md-nav__link">
+      <a href="../../api-guide/scim-api/" title="SCIM API Configuration" class="md-nav__link">
         SCIM API Configuration
       </a>
     
@@ -931,7 +952,7 @@
           
   <li class="md-nav__item">
     
-      <a href="../uma-api/" title="UMA API" class="md-nav__link">
+      <a href="../../api-guide/uma-api/" title="UMA API" class="md-nav__link">
         UMA API
       </a>
     
@@ -1185,22 +1206,43 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#path" title="Path" class="md-nav__link">
-    Path
+  <a href="#configuration-in-gluu-server" title="Configuration in Gluu Server" class="md-nav__link">
+    Configuration in Gluu Server
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#overview" title="Overview" class="md-nav__link">
-    Overview
+  <a href="#metadata-from-github-enterprise" title="Metadata from Github Enterprise" class="md-nav__link">
+    Metadata from Github Enterprise
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-trust-relationship" title="Create Trust Relationship" class="md-nav__link">
+    Create Trust Relationship
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-in-github-enterprise" title="Configuration in Github Enterprise" class="md-nav__link">
+    Configuration in Github Enterprise
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-sso" title="Test SSO" class="md-nav__link">
+    Test SSO
+  </a>
   
 </li>
       
@@ -1215,369 +1257,64 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/GluuFederation/docs-3.0.1/blob/master/source/api-guide\api.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/GluuFederation/docs-3.0.1/blob/master/source/integration\github-enterprise.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
-                <h1 id="id-generation-api-document">ID Generation API Document<a class="headerlink" href="#id-generation-api-document" title="Permanent link">#</a></h1>
-<p>This document outlines the API for ID Generation for Gluu Server. 
-This API Guide will discuss few API's used in Gluu Server for ID generation</p>
-<h2 id="path">Path<a class="headerlink" href="#path" title="Permanent link">#</a></h2>
-<p><code>/id</code></p>
-<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h3>
-<p>The API convention is set as <em>id</em> followed by <em>prefix</em> and <em>type</em> or <code>/id/{prefix}/{type}/</code>.
-Please se the following table to specify what type you are generating. The <code>prefix</code> is used in the 
-inum to make it possible to know the type of object just by looking at the identifier.</p>
-<table>
-<thead>
-<tr>
-<th><code>prefix</code></th>
-<th><code>type</code></th>
-<th><code>description</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0000</td>
-<td>people</td>
-<td>Person object</td>
-</tr>
-<tr>
-<td>0001</td>
-<td>organization</td>
-<td>Organization object</td>
-</tr>
-<tr>
-<td>0002</td>
-<td>appliance</td>
-<td>Appliance object</td>
-</tr>
-<tr>
-<td>0003</td>
-<td>group</td>
-<td>Group object</td>
-</tr>
-<tr>
-<td>0004</td>
-<td>server</td>
-<td>Server object</td>
-</tr>
-<tr>
-<td>0005</td>
-<td>attribute</td>
-<td>User attribute (claim) object</td>
-</tr>
-<tr>
-<td>0006</td>
-<td>tRelationship</td>
-<td>SAML Trust Relationship object</td>
-</tr>
-<tr>
-<td>0008</td>
-<td>client</td>
-<td>OAuth2 Client object</td>
-</tr>
-<tr>
-<td>0009</td>
-<td>scope</td>
-<td>OAuth2 Scope Object</td>
-</tr>
-<tr>
-<td>0010</td>
-<td>uma-resource-set</td>
-<td>UMA Resource Set Object</td>
-</tr>
-<tr>
-<td>0011</td>
-<td>interception-script</td>
-<td>Gluu Server interception script object</td>
-</tr>
-<tr>
-<td>0012</td>
-<td>sector-identifier</td>
-<td>Managed Sector Identifier URI</td>
-</tr>
-</tbody>
-</table>
-<p><strong>generateJsonInum</strong><br/>
-<strong>GET</strong><code>/id/{prefix}/{type}/</code></p>
-<p>Generates ID for given prefix and type.</p>
-<p><strong>URL</strong><br/>
-    http://gluu.org/id/{prefix}/{type}/</p>
-<p><strong>Parameters</strong><br/>
-- path</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Data Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>prefix</td>
-<td>true</td>
-<td>Prefix for id. E.g. if prefix is @!1111 and server will generate id: !0000 then ID returned by service would be: @!1111!0000</td>
-<td>string</td>
-</tr>
-<tr>
-<td>type</td>
-<td>true</td>
-<td>Type of id</td>
-<td>string</td>
-</tr>
-</tbody>
-</table>
+                <h1 id="sso-to-github-enterprise">SSO to Github Enterprise<a class="headerlink" href="#sso-to-github-enterprise" title="Permanent link">#</a></h1>
+<h2 id="configuration-in-gluu-server">Configuration in Gluu Server<a class="headerlink" href="#configuration-in-gluu-server" title="Permanent link">#</a></h2>
+<h3 id="metadata-from-github-enterprise">Metadata from Github Enterprise<a class="headerlink" href="#metadata-from-github-enterprise" title="Permanent link">#</a></h3>
 <ul>
-<li>header</li>
+<li>Grab the metadata from <code>http(s)://[hostname]/saml/metadata</code> location. Your <code>hostname</code> is provided upon acquiring your Github Enterprise license. </li>
+<li>Remove <code>validUntil="20xx-xx-xxTyy:57:26Z</code> section from Github metadata.</li>
+<li>Save it as <code>github_metadata.xml</code> .</li>
 </ul>
-<p>|Parameter|Required|Description|Data Type|
-|Authorization|false||string|</p>
-<p><strong>Response</strong><br/>
-<a href="#String[Response]">String[Response]</a></p>
-<p><strong>generateHtmlInum
-</strong>GET**<code>/id/{prefix}/{type}/</code></p>
-<p>Generates ID for given prefix and type.</p>
-<p><strong>URL</strong><br/>
-    http://gluu.org/id/{prefix}/{type}/
-<strong>Parameters</strong><br/>
-- path</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Data Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>prefix</td>
-<td>true</td>
-<td>Prefix for id. E.g. if prefix is @!1111 and server will generate id: !0000 then ID returned by service would be: @!1111!0000</td>
-<td>string</td>
-</tr>
-<tr>
-<td>type</td>
-<td>true</td>
-<td>Type of id</td>
-<td>string</td>
-</tr>
-<tr>
-<td>- header</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Data Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Authorization</td>
-<td>false</td>
-<td>The authorization sent as a String</td>
-<td>string</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Response</strong><br/>
-<a href="#String[Response]">String[Response]</a>
-<strong>Errors</strong><br/></p>
-<p><strong>generateTextInum</strong><br/>
-<strong>GET</strong><code>/id/{prefix}/{type}/</code></p>
-<p>Generates ID for given prefix and type.</p>
-<p><strong>URL</strong><br/>
-    http://gluu.org/id/{prefix}/{type}/
-<strong>Parameters</strong><br/>
-- path</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Data Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>prefix</td>
-<td>true</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>type</td>
-<td>true</td>
-<td>string</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<h3 id="create-trust-relationship">Create Trust Relationship<a class="headerlink" href="#create-trust-relationship" title="Permanent link">#</a></h3>
 <ul>
-<li>header</li>
+<li>Log into your Gluu Server UI</li>
+<li>Navigate to SAML -&gt; Trust Relationship<ul>
+<li><code>Add Relationship</code></li>
+<li>Display Name: Github Enterprise</li>
+<li>Description: File method / External SP / SP-initiated SSO</li>
+<li>Metadata Type: File</li>
+<li>SP metadata file: Upload <code>github_metadata.xml</code></li>
+<li>Configure Relying Party: Yes, SAML2SSO <img alt="image" src="../../img/integration/TR_relying_party_configuration.png" /></li>
+<li>Released Attribute: Username</li>
+<li><code>Add</code> <img alt="image" src="../../img/integration/TR_creation.png" /></li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Data Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Authorization</td>
-<td>false</td>
-<td>string</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Response</strong><br/>
-<a href="#String[Response]">String[Response]</a></p>
-<p><strong>Errors</strong><br/>
-<strong>generateXmlInum</strong><br/>
-<strong>GET</strong><code>/id/{prefix}/{type}/</code></p>
-<p>Generates ID for given prefix and type.</p>
-<p><strong>URL</strong><br/>
-    http://gluu.org/id/{prefix}/{type}/
-<strong>Parameters</strong><br/>
-- path</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Data Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>prefix</td>
-<td>true</td>
-<td>Prefix for id. E.g. if prefix is @!1111 and server will generate id: !0000 then ID returned by service would be: @!1111!0000</td>
-<td>string</td>
-</tr>
-<tr>
-<td>type</td>
-<td>true</td>
-<td>Type of id</td>
-<td>string</td>
-</tr>
-<tr>
-<td>- header</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Data Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Authorization</td>
-<td>false</td>
-<td>string</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Response</strong><br/>
-<a href="#String[Response]">String[Response]</a></p>
-<p><strong>Errors</strong><br/>
-<table border="1">
-    <tr>
-        <th>Status Code|<th>Reason|
-    </tr>
-</table></p>
-<hr />
-<p><strong>generateHtmlInum</strong><br/>
-<strong>GET</strong><code>/id/{prefix}/{type}/</code></p>
-<p>Generates ID for given prefix and type.</p>
-<p><strong>URL</strong><br/>
-    http://gluu.org/id/{prefix}/{type}/
-<strong>Parameters</strong><br/>
-- path</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Data Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>prefix</td>
-<td>true</td>
-<td>Prefix for id. E.g. if prefix is @!1111 and server will generate id: !0000 then ID returned by service would be: @!1111!0000</td>
-<td>string</td>
-</tr>
-<tr>
-<td>type</td>
-<td>true</td>
-<td>Type of id</td>
-<td>string</td>
-</tr>
-<tr>
-<td>- header</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-<th>Data Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Authorization</td>
-<td>false</td>
-<td>string</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Response</strong><br/>
-<a href="#String[Response]">String[Response]</a></p>
-<p><strong>Errors</strong><br/>
-<table border="1">
-    <tr>
-        <th>Status Code|<th>Reason|
-    </tr>
-</table></p>
-<hr />
+</li>
+</ul>
+<h2 id="configuration-in-github-enterprise">Configuration in Github Enterprise<a class="headerlink" href="#configuration-in-github-enterprise" title="Permanent link">#</a></h2>
+<ul>
+<li>Log into Github Enterprise management console. It should be <code>https://[hostname]:8443/setup/settings</code></li>
+<li>Click on <code>Authentication</code><ul>
+<li>Select <code>SAML</code></li>
+<li>IdP Initiated SSO: unchecked</li>
+<li>Disable administrator demotion/promotion: unchecked</li>
+<li>Signle sign-on URL: https://[hostname_of_Gluu_server]/idp/profile/SAML2/Redirect/SSO</li>
+<li>Issuer: https://[hostname_of_Gluu_server]/idp/shibboleth</li>
+<li>Signature Method: RSA-SHA256</li>
+<li>Digest Method: SHA256</li>
+<li>Name Identifier Format: unspecified</li>
+<li>Replace Certificate: Get Shibboleth cert named <code>shibIDP.crt</code> from Gluu Server. Location: <code>inside_container/etc/certs/</code> 
+ And upload this certifiate here</li>
+<li>User attributes: </li>
+<li>Username: uid</li>
+<li>Full name: full_name</li>
+<li>Email(s): emails</li>
+<li>SSH keys: public_keys</li>
+<li>GPG keys: gpg_keys</li>
+</ul>
+</li>
+<li><code>Save Settings</code></li>
+<li>Two sample setup from Github Enterprise Management panel: <ul>
+<li><img alt="image" src="../../img/integration/Github_1.png" /> </li>
+<li><img alt="image" src="../../img/integration/Github_2.png" /></li>
+</ul>
+</li>
+</ul>
+<h2 id="test-sso">Test SSO<a class="headerlink" href="#test-sso" title="Permanent link">#</a></h2>
+<p>SSO to Github Enterprise should be ready now. Just hit the hostname of your Github Enterprise app and you should experience something like this: <a href="https://www.youtube.com/watch?v=rPbsVhGTgxE">https://www.youtube.com/watch?v=rPbsVhGTgxE</a></p>
               
             </article>
           </div>
@@ -1590,7 +1327,7 @@ inum to make it possible to know the type of object just by looking at the ident
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../integration/github-enterprise/" title="GitHub Enterprise" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../dropbox/" title="Dropbox" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1599,19 +1336,19 @@ inum to make it possible to know the type of object just by looking at the ident
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                GitHub Enterprise
+                Dropbox
               </span>
             </div>
           </a>
         
         
-          <a href="../openid-connect-api/" title="OpenID Connect API" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../api-guide/api/" title="Custom ID Generation" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                OpenID Connect API
+                Custom ID Generation
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
