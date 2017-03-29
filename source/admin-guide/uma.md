@@ -9,7 +9,10 @@ Learn more about the Gluu Server's [UMA-API](../api-guide/uma-api.md).
 Learn more about the [UMA specification](https://docs.kantarainitiative.org/uma/rec-uma-core.html) on Kantara's website.
 
 !!! Note
-    The Gluu Server functions as an UMA AS and provides an interface for scripting unique policies for access management. To secure your application with UMA RS code, we **strongly recommend** using Gluu’s client software, [oxd](http://oxd.gluu.org).
+    The Gluu Server functions as an UMA AS and provides an interface for scripting unique policies for access management. To secure and integrate your applications with the Gluu Server, we **strongly recommend** using our UMA client software, [oxd](http://oxd.gluu.org).
+
+### Jargon
+UMA introduces new terms and enhancements of OAuth term definitions. For a complete overview of UMA terminology, see the [specification](https://docs.kantarainitiative.org/uma/rec-uma-core.html#rfc.section.1.2).
 
 ### Authorization Policy Expression Language
 UMA does not standardize a policy expression language, enabling flexibility in policy expression and evaluation through XACML, other declarative policy languages, or procedural code as warranted by conditions. 
