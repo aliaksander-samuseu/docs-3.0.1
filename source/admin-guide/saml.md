@@ -58,24 +58,17 @@ Metadata is an XML file which has configuration data used to establish trust bet
 **Metadata of the Gluu Server**       
 The Gluu Server's SAML metadata may be needed from time to time. It can be found at `https://hostname/idp/shibboleth`.
   
-**Required Attributes**      
+**Attribute Release**      
 Each SP may require one or many attributes in order to grant a user access. 
 Required attributes vary depending on the application, and should be 
 explicitly listed in the application's documentation. The Gluu Server ships with 
 certain preconfigured attributes and also supports the creation of custom attributes. 
 Once the attributes are available in the Gluu Server, the administrator only needs 
 to click on the desired attribute(s) and it will be released to the SP upon 
-successful user authentication.
+successful user authentication. For a broader discussion of attributes, including how to create custom attributes, check the [attrbiutes section](./attribute.md) of the documentation.
 
-### SAML Attributes
-
-The below information focuses on the SAML-specific NameID attribute. For a broader discussion of attributes, including how to create custom attributes, check the [attrbiutes section](./attribute.md) of the documentation.
-
-#### Custom NameID
-Gluu Server comes with the `transientID` attribute which is the default `NameID`.
-If there are other `NameID` requirements, it is possible to create them as well.
-The custom attribute must be created in oxTrust first before defining it as the `NameID`.
-Please see the [custom attributes](#custom-attributes) section above to learn how to create custom attributes in oxTrust.
+### NameID
+The default NameID for oxTrust generated SAML trust relationships is `transientID`. It's always a good idea to release the `transientID` as an attribute, as some SP's may not work otherwise. If there are other `NameID` requirements, a custom attribute must be created in oxTrust first before defining it as the `NameID`. Please review the [custom attributes](./attribute.md#custom-attributes) section of the docs to learn how to create custom attributes in oxTrust.
 
 #### Defining NameID
   The template file for `NameID` definitions are located in the `attribute-resolver.xml.vm` file under `/opt/gluu/jetty/identity/conf/shibboleth3/idp/`.
