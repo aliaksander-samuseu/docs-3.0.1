@@ -1,7 +1,7 @@
 # Attributes
 
 ## Overview
-A list of attributes can be seen from by navigating to `Configuration` > `Attributes`.
+Attributes are individual pieces of user data, like `uid` or `email`, that are required by applications in order to identify a user and grant access to protected resources. The user attributes that are available in your Gluu service can be found by navigating to `Configuration` > `Attributes`. 
 
 ![Attribute Menu](../img/admin-guide/attribute/admin_attribute_menu.png)
 
@@ -19,7 +19,7 @@ status to active/inactive, by clicking on a specific attribute.
 
 
 ## Custom Attributes
-Additional custom attributes can be added in below way
+Additional custom attributes can be added by following the instructions below: 
 
  - Become user 'ldap' 
  - Add custom attribute to /opt/gluu/schema/openldap/custom.schema 
@@ -90,7 +90,6 @@ appear:
 ## SAML Attributes
 
 In any SAML SSO transaction, your Gluu Server will need to release attributes about users to the target SP. Learn more about SAML attributes in the [SAML section of the documentation](./saml.md). 
-
 
 ## OpenID Connect Scopes
 
