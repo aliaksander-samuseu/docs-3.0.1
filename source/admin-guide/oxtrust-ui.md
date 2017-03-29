@@ -65,6 +65,7 @@ The Gluu Server needs a mail server in order to send notifications. All fields i
      
 #### oxTrust Settings  
 
+
 ![oxtrust-settings](../img/oxtrust/oxtrust-settings.png "OxTrust Settings")
 
 From the oxTrust Settings page the administrator can find the oxTrust build date and number, and manage the organization name, logo, and favicon. This page also contains the name of the Gluu Server administrator group. Users added to this group will have administrator access to the Gluu Server.
@@ -92,6 +93,10 @@ An administrator can allow or deny access to URI's by updating JSON properties i
 ### oxAuth Configuration
 The oxAuth JSON configuration page gives easy access to the different endpoints used by Gluu Server CE. 
 This page also contains the supported response, grants, and algorithms. 
+
+#### Session Management 
+
+Gluu Server administrator can manage oxAuth sessions with this feature. Documentation is available [here](../admin-guide/session.md) 
 
 ### oxTrust Import Person Configuration
 The oxTrust Import Person Configuration page contains the configuration for 
