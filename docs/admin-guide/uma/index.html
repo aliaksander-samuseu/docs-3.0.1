@@ -1350,7 +1350,7 @@ and enables true claims-based authorization (with simple group- or role-based po
 <p>The resource type can be a string, URI or any other supported value type supported by Gluu Server CE. The properties shown above are not concrete, and it is possible that a resource may contain custom properties. An example of the resource JSON is given beow:</p>
 <pre><code>{
 &quot;name&quot;:&quot;scim_access&quot;,
-&quot;icon_uri&quot;:&quot;https:\/\/centos.gluu.info\/identity\/uma\/scope\/file\/scim_access&quot;
+&quot;icon_uri&quot;:&quot;https:\/\/&lt;hostname&gt;\/identity\/uma\/scope\/file\/scim_access&quot;
 }
 </code></pre>
 
@@ -1365,7 +1365,8 @@ and enables true claims-based authorization (with simple group- or role-based po
 <p><img alt="add-resource" src="../../img/uma/add-resource.png" /></p>
 <p><img alt="add-scope" src="../../img/uma/add-scope.png" /></p>
 <h2 id="scopes">Scopes<a class="headerlink" href="#scopes" title="Permanent link">#</a></h2>
-<p>UMA scopes are bound to resource sets and used by policies to check whether the specified user should have access to the resource. The scopes are described in JSON and have the following properties:</p>
+<p>UMA scopes are used to grant a client permission to do an action on a protected resource. Different scopes can grant access to the same action. For example, a "read" action can be allowed with scope "read" or "all". For some actions the Resource Server (RS) may want multiple scopes at the same time. For instance, a "read" action should only be allowed if the authorization request includes the "read" <strong>and</strong> "all" scopes. UMA scopes are bound to resource sets and are used to fetch policies that check whether the specified user or client should have access to the resource. </p>
+<p>The scopes are described in JSON and have the following properties:</p>
 <ul>
 <li>name</li>
 <li>icon_uri</li>
@@ -1373,7 +1374,7 @@ and enables true claims-based authorization (with simple group- or role-based po
 <p>An example of the scope JSON is given below:</p>
 <pre><code>{
   &quot;name&quot;: &quot;Add photo&quot;,
-  &quot;icon_uri&quot;: &quot;http://www.gluu.org/icons/add_photo_scope.png&quot;
+  &quot;icon_uri&quot;: &quot;https://&lt;hostname&gt;/icons/add_photo_scope.png&quot;
 }
 </code></pre>
 
@@ -1392,7 +1393,7 @@ and enables true claims-based authorization (with simple group- or role-based po
 </code></pre>
 
 <p>The following is an example what an UMA URL may look like:</p>
-<pre><code>https://idp.gluu.org/uma/scopes/view
+<pre><code>https://&lt;hostname&gt;/uma/scopes/view
 </code></pre>
 
 <div class="admonition note">
@@ -1408,7 +1409,7 @@ objectClass: oxAuthUmaScopeDescription
 objectClass: top
 oxType: internal
 oxId: View
-oxIconUrl: http://seed.gluu.org/uma/icons/view_scope.png
+oxIconUrl: http://&lt;hostname&gt;/uma/icons/view_scope.png
 </code></pre>
 
 <p><strong>External sample ldif</strong></p>
@@ -1418,17 +1419,20 @@ inum: @!1111!8990!BF80
 objectClass: oxAuthUmaScopeDescription
 objectClass: top
 oxType: external
-oxUrl: http://photoz.example.com/dev/scopes/view
+oxUrl: http://&lt;hostname&gt;/dev/scopes/view
 </code></pre>
 
 <h3 id="add-scopes">Add Scopes<a class="headerlink" href="#add-scopes" title="Permanent link">#</a></h3>
-<p>This section describes the process of adding UMA scopes in the Gluu Server GUI. Scopes are accessed by navigating to the <code>Scopes</code> page under <code>UMA</code> in the right hand menu.</p>
+<p>This section describes the process of adding UMA scopes in the Gluu Server GUI. Scopes are accessed by navigating to the <code>UMA</code> &gt; <code>Scopes</code> in the right hand menu.</p>
 <p><img alt="uma-scopes" src="../../img/uma/uma-scopes.png" /></p>
-<p>The search bar can be used to find available scopes. New scopes can be added by clicking on the <code>Add Scope Description</code> button which will bring up the interface shown below:</p>
+<p>The search bar can be used to find existing available scopes. New scopes can be added by clicking on the <code>Add Scope Description</code> button which will bring up the interface shown below:</p>
 <p><img alt="uma-scopes" src="../../img/uma/scopes-add.png" /></p>
 <p>Additionally there is an option to add authorization policy with the new scope.</p>
 <h2 id="uma-policies">UMA Policies<a class="headerlink" href="#uma-policies" title="Permanent link">#</a></h2>
-<p>UMA policies protect UMA resources via scopes. The Gluu Server evaluates all policies, identified by scopes, to grant access to resources. There are three (3) main properties of a policy:</p>
+<p>UMA policy's are associated with UMA scopes. An authorization request has a resource_id and scope(s). Each scope can point to one or more policies. If all policies associated with all scopes return <code>true</code>, then access is granted. </p>
+<p>For example, let's say we have the following resource, <code>GET /photo</code>. In order to access it the Resource Server (RS) requires the <code>read</code> scope to be present. If we have a policy that always return <code>true</code>, then any authorization request to <code>/photo</code> that includes the <code>read</code> scope will result in access granted. </p>
+<p>If we wish to have more sophisticated logic, for example to grant access only to a specific client, then we can add something like <code>client_id = "@1111"</code> to the policy. This means that an authorization request to <code>/photo</code> will only be granted if the scope includes <code>read</code> and is coming from <code>client_id = "@1111"</code>.</p>
+<p>There are three (3) main properties of a policy:</p>
 <ol>
 <li>scopes: policy protects resources by scopes; </li>
 <li>authorization script: script that is evaluated in order to grant/deny access; </li>
