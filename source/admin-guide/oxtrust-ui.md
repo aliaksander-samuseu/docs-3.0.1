@@ -96,7 +96,7 @@ This page also contains the supported response, grants, and algorithms.
 
 #### Session Management 
 
-Gluu Server administrator can manage oxAuth sessions with this feature. Documentation is available [here](../admin-guide/session.md) 
+The Gluu Server administrator can manage oxAuth sessions by adding the desired session time in seconds as the value for the `sessionIdUnusedLifetime` field. Check the [session management](../admin-guide/session.md) section of the documentation to learn more.
 
 ### oxTrust Import Person Configuration
 The oxTrust Import Person Configuration page contains the configuration for 
