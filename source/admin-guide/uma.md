@@ -41,7 +41,7 @@ The resource type can be a string, URI or any other supported value type support
 
 ![uma-resources](../img/uma/uma-resources.png)
 
-The search bar can be used to search for existing resources within the Gluu Server. New resources can be added by clicking on the `Add Resource Set` button. The following screenshot shows the page that will appear:
+The search bar can be used to find existing available resources. New resources can be added by clicking on the `Add Resource Set` button which will bring up the interface shown below:
 
 ![add-resource-set](../img/uma/add-resource-set.png)
 
