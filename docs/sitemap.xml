@@ -66,6 +66,12 @@
     </url>
         
     <url>
+     <loc>/admin-guide/attribute/</loc>
+     <lastmod>2017-03-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>/admin-guide/user-group/</loc>
      <lastmod>2017-03-29</lastmod>
      <changefreq>daily</changefreq>
