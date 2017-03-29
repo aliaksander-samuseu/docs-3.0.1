@@ -30,7 +30,7 @@ The resources protected by UMA must be registered in oxTrust. The following prop
 - type
 - icon\_uri
 
-The resource type can be a string, URI or any other supported value type supported by Gluu Server CE. The properties shown above are not concrete, and it is possible that a resource may contain custom properties. An example of the resource JSON is given beow:
+The resource type can be a string, URI or any other value type supported by the Gluu Server. The properties shown above are not concrete, and it is possible that a resource may contain custom properties. An example of the resource JSON is given beow:
 
 ```
 {
