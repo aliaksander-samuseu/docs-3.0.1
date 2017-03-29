@@ -20,12 +20,20 @@ If you are continuing with the SAML documentation it is presumed your use case a
 
 ### Outbound vs. Inbound SAML 
 There are two main SAML authentication workflows: outbound SAML and inbound SAML. 
+
 Outbound SAML can also be called SP-initiated Single Sign-On (SSO) or traditional SAML. 
 In an outbound SAML transaction a website or application (SP) redirects a user to a 
 designated Identity Provider (IDP) for authentication and authorization. 
 The IDP asks for the user's credentials and upon successful authentication redirects the user to the protected content. 
 
 Inbound SAML enables an organization to offer SAML authentication as a front door to their digital service. Inbound SAML is a common requirement for SaaS providers who need to support the authentication requirements of large enterprise customers.
+
+The typical user flow for inbound SAML is as follows: 
+
+1. User tries to access your protected resource;    
+2. User is redirected to a discovery page (presented by your IDP) that presents one or more external IDP's where the user may have an existing identity (their "home IDP");   
+3. User selects their home IDP and is sent for authentication;   
+4. Upon successful authentication at their home IDP, user is redirected back to your service with access to the protected resource. 
 
 The Gluu Server bundles separate components to support both workflows (installation of each component is optional during Gluu Server deployment):
 
