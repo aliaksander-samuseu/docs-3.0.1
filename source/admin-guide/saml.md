@@ -69,6 +69,8 @@ successful user authentication.
 
 ### SAML Attributes
 
+The below information focuses on the SAML-specific NameID attribute. For a broader discussion of attributes, including how to create custom attributes, check the [attrbiutes section](./attribute.md) of the documentation.
+
 #### Custom NameID
 Gluu Server comes with the `transientID` attribute which is the default `NameID`.
 If there are other `NameID` requirements, it is possible to create them as well.
