@@ -117,13 +117,7 @@ it is recommended you should manually register client in oxTrust.
 
 #### Manual client registration(Recommended)
 
-To create client manually in oxTrust, go to [oxTrust Registration](https://ce-dev.gluu.org/oxauth-rp/home.htm) and 
-provide values in the following fields:
-- Registration Endpoint: REGISTRATION_ENDPOINT(obtained from configuration)   
-- Redirect URIs (space-separated): REDIRECT_URI(See section **Define redirectURI** below)
-- Response Types: CODE
-- Grant Types: AUTHORIZATION_CODE
-- Application Type: NATIVE
+To create client manually in oxTrust, follow the Gluu Server's [OpenID Connect client registration documentation](https://gluu.org/docs/ce/admin-guide/openid-connect/#client-registration-configuration).
 
 After successful registration, it will return client id which 
 will use for Authorization.
