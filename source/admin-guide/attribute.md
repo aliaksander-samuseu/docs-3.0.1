@@ -21,16 +21,16 @@ status to active/inactive, by clicking on a specific attribute.
 ## Custom Attributes
 Additional custom attributes can be added by following the instructions below: 
 
- - Become user 'ldap' 
- - Add custom attribute to /opt/gluu/schema/openldap/custom.schema 
-   - In this below example 'customTest' is our custom attribute : 
+ - Become `ldap` user 
+ - Add custom attribute to `/opt/gluu/schema/openldap/custom.schema` 
+   - In the below example, `customTest` is our custom attribute : 
 ```
 attributetype ( oxAttribute:1003 NAME 'customTest'
         SUBSTR caseIgnoreSubstringsMatch EQUALITY caseIgnoreMatch
         SYNTAX 1.3.6.1.4.1.1466.115.121.1.15        
        X-ORIGIN 'Gluu - custom person attribute' )
 ```
- - Add custom attribute to gluuCustomPerson objectClass
+ - Add custom attribute to `gluuCustomPerson objectClass`
    - Example: 
 ```
 objectclass ( 1.3.6.1.4.1.48710.1.4.101 NAME 'gluuCustomPerson'
@@ -39,14 +39,14 @@ objectclass ( 1.3.6.1.4.1.48710.1.4.101 NAME 'gluuCustomPerson'
         MAY ( telephoneNumber $ mobile $ customTest )
         X-ORIGIN 'Gluu - Custom persom objectclass' )
 ```
- - Become user 'root'
+ - Become `root` user
  - Stop LDAP server with command `service solserver stop`
  - Test custom configuration with `/opt/symas/bin/slaptest -f /opt/symas/etc/openldap/slapd.conf`
  - Start LDAP server with command `service solserver start`
 
-Register new attribute with Gluu Server GUI, oxTrust, by
-clicking the **Register Attribute** button. Then, the following screen will
-appear:
+Register new attribute by clicking the `Register Attribute` button. 
+
+Then, the following screen will appear:
 
 ![Add Attribute Screen](../img/admin-guide/attribute/admin_attribute_add.png)
 
