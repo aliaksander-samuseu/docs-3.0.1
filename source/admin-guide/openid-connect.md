@@ -58,8 +58,7 @@ at the following URL: `https://hostname/.well-known/openid-configuration`
 The Gluu Server also supports [WebFinger](http://en.wikipedia.org/wiki/WebFinger),
 as specified in the OpenID Connect specification. You can test Webfinger
 using the oxAuth-RP tool mentioned above. For more information, see 
-the [OpenID Connect Discovery Specification]
-(http://openid.net/specs/openid-connect-discovery-1_0.html)
+the [OpenID Connect Discovery Specification](http://openid.net/specs/openid-connect-discovery-1_0.html)
 
 ### Client Registration / Configuration
 
@@ -68,8 +67,7 @@ where the Authorization Server should redirect the end user to, post
 authorization. The Gluu Server enables an administrator to manually create
 a client via the oxTrust web interface. However, OpenID Connect also
 defines a standard API where clients can register themselves--
-[Dynamic Client Registration]
-(http://openid.net/specs/openid-connect-registration-1_0.html). You can
+[Dynamic Client Registration](http://openid.net/specs/openid-connect-registration-1_0.html). You can
 find the registration URL by calling the configuration endpoint 
 (`/.well-known/openid-configuration`).        
 
@@ -83,8 +81,7 @@ by click the `Add Client` button.
 ![add-client](../img/openid/add-client.png)
 
 There are many client configuration parameters. Most of these are 
-specified in the OpenID Connect [Dynamic Client Registration]
-(http://openid.net/specs/openid-connect-registration-1_0.html)specification.
+specified in the OpenID Connect [Dynamic Client Registration](http://openid.net/specs/openid-connect-registration-1_0.html) specification.
 There are two configurations params which can only be configured via 
 oxTrust by an administrator. These include:
 
