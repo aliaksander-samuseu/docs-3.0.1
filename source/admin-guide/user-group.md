@@ -81,7 +81,7 @@ The Gluu Server is shipped with a very basic user registration feature. The regi
 A limited number of attributes are present in the default registration form. If more attributes are needed they can be added via the GUI by navigating to `Organization Configuration` > `Manage Registration`. Learn how to [add attributes](./oxtrust-ui.md/#manage-registration) to the default registration form. 
 
 ### User Registration Custom Script
-The [User Registration](./custom-script.md/#user-registration) custom script can be used to control and validate user registrations. In the oxTrust GUI, navigate to `Configuration` > `Manage Custom Scripts` > `User Registration`. 
+The [User Registration](./custom-script.md#user-registration) custom script can be used to control and validate user registrations. In the oxTrust GUI, navigate to `Configuration` > `Manage Custom Scripts` > `User Registration`. 
 
 ![image](../img/admin-guide/user/config-manage-script_menu1.png)
 
