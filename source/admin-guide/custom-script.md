@@ -51,7 +51,8 @@ and the oxTrust custom script logs are stored in the
 `oxtrust_script.log`. Please refer to these log files to troubleshoot errors in
 the interception scripts or following the workflow of the script.
 
-Note that `print` statement may not work in case `PYTHON_HOME` environment variable is not set.
+Note that `print` statement may not work on some environments in case `PYTHON_HOME` environment variable is not set.
+Make sure it points to valid python installation.
 
 More details on Logs can be found in [Log Management](../operation/logs.md)
 
