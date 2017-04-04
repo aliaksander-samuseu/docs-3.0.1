@@ -95,4 +95,9 @@ Install the `json-merge` Python package and run the import script.
 # ./import30.py backup_24
 ```
 
-Any errors or warnings will be displayed in the terminal and can be reviewed in the import log. Now you should be able to log into the oxTrust web UI using the old admin credentials. You should see all previous data in place. After completion of import, stop/start 2.4.4 container one final time. 
+!!! Note
+    After completion of import, stop/start gluu-server container one final time
+
+Any errors or warnings will be displayed in the terminal and can be reviewed in the import log. Now you should be able to log into the oxTrust web UI using the old admin credentials and you should see all previous data in place. 
+
+
