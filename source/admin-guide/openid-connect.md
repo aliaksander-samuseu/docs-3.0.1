@@ -20,8 +20,7 @@ the subject. The Gluu Server is an OP.
 or website, which needs to authenticate the subject. The RP is an OAuth 
 client. [oxd](https://oxd.gluu.org) is an RP.
 
-For a good overview of OpenID Connect versus SAML, you should read
-[this blog](http://gluu.co/oauth-saml-openid). 
+Read [this blog](http://gluu.co/oauth-saml-openid) for a good overview of OpenID Connect versus SAML.
 
 ## OpenID Connect in the Gluu Server
 
