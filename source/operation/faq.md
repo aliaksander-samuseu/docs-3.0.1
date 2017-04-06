@@ -137,13 +137,12 @@ property `ldapPass`. Retrieve the data using the following command:
     It is strongly recommended to remove the file from any production environment or encrypt the file
 
 ### Revert Authentication Method
-It is not unlikely that you will lock yourself out of Gluu Server while testing the authentication script, if there is any problem in it. In such a case the following method can be used to revert back the older authentication method.
+While testing authentication scripts and mechanisms it is not unlikely that you will find yourself locked out of the Gluu Server. In such a case the following method can be used to revert back to the previous authentication method:
 
-1. Run the following command to collect the `inum` for the Gluu Server installation.
-
-`/opt/opendj/bin/ldapsearch -h localhost -p 1636 -Z -X -D "cn=directory 
-manager" -j ~/.pw -b "ou=appliances,o=gluu" -s one "objectclass=*" 
-oxAuthenticationMode`
+1. Run the following command to collect the `inum` for the Gluu Server installation:   
+```
+/opt/opendj/bin/ldapsearch -h localhost -p 1636 -Z -X -D "cn=directory manager" -j ~/.pw -b "ou=appliances,o=gluu" -s one "objectclass=*" oxAuthenticationMode
+```
 
 2. Create a `LDIF` file with the contents below:
 
@@ -156,12 +155,12 @@ oxAuthenticationMode: internal
 
 As an example, we shall call this file `changeAuth.ldif`.
 
-**Note:** Replace the `inum` from the example above with the `inum` of the Gluu Server from the `ldapsearch` command.
-
+!!! Note
+    Replace the `inum` from the example above with the `inum` of your Gluu Server from the `ldapsearch` command.
 
 3. Replace the the authentication mode using `ldapmodify` command.
 
-`/opt/opendj/bin/ldapmodify -p 1636 -Z -X -D 'cn=directory manager' -w 'YOUR_BIND_PASSWORD' -f ~/changeAuth.ldif
+`/opt/opendj/bin/ldapmodify -p 1636 -Z -X -D 'cn=directory manager' -w 'YOUR_BIND_PASSWORD' -f ~/changeAuth.ldif`
 
 ### No admin access after Cache Refresh?
 Add the password for your admin account to `~/.pw` and then use the commands below to add yourself as an admin.
